@@ -4,13 +4,13 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'soupcms/core/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "soupcms-core"
+  spec.name          = 'soupcms-core'
   spec.version       = Soupcms::Core::VERSION
-  spec.authors       = ["Sunit Parekh"]
-  spec.email         = ["parekh.sunit@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
-  spec.homepage      = ""
+  spec.authors       = ['Sunit Parekh']
+  spec.email         = ['parekh.sunit@gmail.com']
+  spec.summary       = %q{soupCMS core project provides core CMS capability of building pages with data recipe and ui recipe.}
+  spec.description   = %q{soupCMS core project provides core CMS capability of building pages with data recipe and ui recipe.}
+  spec.homepage      = 'http://www.soupcms.com/soucms-core'
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
@@ -18,6 +18,4 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_development_dependency "bundler", "~> 1.3"
-  spec.add_development_dependency "rake"
 end

@@ -1,4 +1,4 @@
-require "soupcms/core/version"
+require 'soupcms/core/version'
 
 module Soupcms
   module Core
