@@ -21,5 +21,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency('mongo', '~> 1.9.2')
   spec.add_dependency('bson_ext', '~> 1.9.2')
   spec.add_dependency('grape', '~> 0.6.1')
+  spec.add_dependency('faraday', '~> 0.9.0.rc6')
 
 end

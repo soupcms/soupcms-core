@@ -9,4 +9,5 @@ group :test do
   gem 'rake'
   gem 'rack-test'
   gem 'nokogiri'
+  gem 'webmock'
 end

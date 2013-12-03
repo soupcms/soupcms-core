@@ -1,6 +1,7 @@
 require 'rspec'
 require 'nokogiri'
 require 'rack/test'
+require 'webmock/rspec'
 require 'soupcms/core'
 
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
