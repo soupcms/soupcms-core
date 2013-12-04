@@ -1,0 +1,24 @@
+doctype
+html lang="en"
+  head
+    meta charset="utf-8"
+    meta content="width=device-width, initial-scale=1.0" name="viewport"
+    - if page.areas['meta']
+      .header
+        = page.areas['meta'].html
+
+    - if page['title']
+      title = page['title']
+
+  body
+    - if page.areas['header']
+      .header
+        = page.areas['header'].html
+
+    - if page.areas['body']
+      .header
+        = page.areas['body'].html
+
+    - if page.areas['footer']
+      .header
+        = page.areas['footer'].html

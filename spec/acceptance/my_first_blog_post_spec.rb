@@ -11,12 +11,12 @@ describe 'Blog Post' do
   context 'get blog post' do
     before do
       stub_request(:get,/posts\/slug\/my-first-blog-post$/).to_return( { body: {document: 'document'}.to_json } )
-      stub_request(:get,/pages\/model\/posts$/).to_return( { body: {page: 'page'}.to_json } )
+      stub_request(:get,/pages\/model\/posts$/).to_return( { body: read_file('pages/home') } )
       get '/soupcms-test/posts/my-first-blog-post?name=sunit'
     end
 
     it { expect(last_response.status).to eq(200) }
-    it { expect(html_response).to have_title('My first blog post') }
+    it { expect(html_response).to have_title('Page title') }
   end
 
   context 'bad request urls' do

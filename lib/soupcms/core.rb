@@ -4,6 +4,10 @@ require 'soupcms/core/model/document'
 require 'soupcms/core/model/page'
 require 'soupcms/core/model/page_context'
 
+require 'soupcms/core/recipe/inline'
+
+require 'soupcms/core/utils/config'
+
 require 'soupcms/core/data/base'
 require 'soupcms/core/data/api'
 require 'soupcms/core/data/service'
