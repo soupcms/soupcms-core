@@ -10,8 +10,9 @@ describe 'Blog Post' do
 
   context 'get blog post' do
     before do
-      stub_request(:get,/posts\/slug\/my-first-blog-post$/).to_return( { body: {page: 'page'}.to_json } )
-      get '/soupcms-test/posts/my-first-blog-post'
+      stub_request(:get,/posts\/slug\/my-first-blog-post$/).to_return( { body: {document: 'document'}.to_json } )
+      stub_request(:get,/pages\/model\/posts$/).to_return( { body: {page: 'page'}.to_json } )
+      get '/soupcms-test/posts/my-first-blog-post?name=sunit'
     end
 
     it { expect(last_response.status).to eq(200) }
@@ -20,7 +21,7 @@ describe 'Blog Post' do
 
   context 'bad request urls' do
     it 'url without slug' do
-      get '/invalid-request'
+      get '/soupcms-test'
       expect(last_response.status).to eq(404)
     end
 

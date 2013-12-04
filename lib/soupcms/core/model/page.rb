@@ -4,9 +4,13 @@ module SoupCMS
 
       class Page
 
-        def initialize(slug)
-          @slug = slug
+        def initialize(page_hash, context = {}, model = {})
+          @page_hash = page_hash
+          @context = context
+          @model = model
         end
+
+        attr_accessor :context, :model
 
         def render
           <<-response
@@ -16,6 +20,8 @@ module SoupCMS
       </html>
           response
         end
+
+
 
       end
 

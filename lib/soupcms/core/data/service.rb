@@ -18,7 +18,7 @@ module SoupCMS
         def find_by_key(model, key, value)
           url = "#{model}/#{key}/#{value}"
           response = @conn.get(url)
-          return SoupCMS::Core::Model::Page.new(JSON.parse(response.body)) if response.status == 200
+          return (JSON.parse(response.body)) if response.status == 200
         end
 
       end

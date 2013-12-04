@@ -1,23 +1,40 @@
 require 'spec_helper'
 
+include SoupCMS::Core::Model
+
 describe SoupCMS::Core::Application do
 
   let (:application) { SoupCMS::Core::Application.new('soupcms-test') }
+  let (:context) { PageContext.new}
 
-  it 'should find a page for slug' do
-    stub_request(:get,/posts\/slug\/my-first-blog-post$/).to_return( { body: {page: 'page'}.to_json } )
-    page = application.find('/posts/my-first-blog-post')
-    expect(page).to be_kind_of(SoupCMS::Core::Model::Page)
+  context 'page slugs' do
+    it 'should load page for valid page url' do
+      stub_request(:get,/latest-posts$/).to_return( { body: {page: 'page'}.to_json } )
+      page = application.find('/latest-posts',context)
+      expect(page).to be_kind_of(Page)
+    end
+
+    it 'should not find a page for invalid url' do
+      stub_request(:get,/invalid$/).to_return( { status: 404 } )
+      page = application.find('/invalid',context)
+      expect(page).to be_nil
+    end
+
   end
 
-  it 'should not find a page for invalid slug' do
-    stub_request(:get,/posts\/slug\/invalid-blog-post$/).to_return( { status: 404 } )
-    page = application.find('/posts/invalid-blog-post')
-    expect(page).to be_nil
-  end
+  context 'model slugs' do
+    it 'should find a page with model' do
+      stub_request(:get,/posts\/slug\/my-first-blog-post$/).to_return( { body: {document: 'document'}.to_json } )
+      stub_request(:get,/pages\/model\/posts$/).to_return( { body: {page: 'page'}.to_json } )
+      page = application.find('/posts/my-first-blog-post',context)
+      expect(page).to be_kind_of(Page)
+      expect(page.model).to be_kind_of(Document)
+    end
 
-  it 'should not find a page for invalid url' do
-    page = application.find('/invalid')
-    expect(page).to be_nil
+    it 'should not find a page for invalid slug' do
+      stub_request(:get,/posts\/slug\/invalid-blog-post$/).to_return( { status: 404 } )
+      page = application.find('/posts/invalid-blog-post',context)
+      expect(page).to be_nil
+    end
   end
 end
