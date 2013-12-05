@@ -63,10 +63,6 @@ describe SoupCMS::Core::Model::PageModule do
       PageModule.new(JSON.parse(module_json), page)
     end
 
-    it 'should work' do
-      puts page_module.render
-    end
-
     it { expect(html(page_module.render)).to have_text('h1','Tech stuff that matters 2') }
 
   end

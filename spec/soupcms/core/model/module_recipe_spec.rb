@@ -6,7 +6,8 @@ include SoupCMS::Core::Model
 describe SoupCMS::Core::Model::ModuleRecipe do
 
   context 'inline recipe' do
-    let(:page) { page = Page.new({}) }
+    let(:page) { Page.new({}) }
+    let(:page_module) { PageModule.new({},page) }
     let(:recipe) do
       recipe_json = <<-recipe_json
       {
@@ -17,7 +18,7 @@ describe SoupCMS::Core::Model::ModuleRecipe do
           "return": "jumbotron"
       }
       recipe_json
-      ModuleRecipe.new(JSON.parse(recipe_json), page)
+      ModuleRecipe.new(JSON.parse(recipe_json), page_module)
     end
 
     it 'return data retrieved by the recipe' do
@@ -26,7 +27,7 @@ describe SoupCMS::Core::Model::ModuleRecipe do
 
     it 'should set data in the page with return object name' do
       recipe.execute
-      expect(page.data['jumbotron']['title']).to eq('Tech stuff that matters')
+      expect(page_module.data['jumbotron']['title']).to eq('Tech stuff that matters')
     end
 
   end
