@@ -16,10 +16,11 @@ module SoupCMS
 
         def render
           areas.each { |name, area| area.html = area.render }
-          areas.collect { |name, area| area.html }.join('\n')  # to be replace with layout
+          layout.render
         end
 
         def areas
+          return {} if @page_hash['areas'].nil?
           @areas ||= Hash[
               @page_hash['areas'].collect do |area_hash|
                 area = PageArea.new(area_hash, self)
@@ -28,6 +29,17 @@ module SoupCMS
           ]
         end
 
+        def layout
+          PageLayout.new(@page_hash['layout'],self)
+        end
+
+        def [](key)
+          @page_hash[key]
+        end
+
+        def page
+          self
+        end
       end
 
 

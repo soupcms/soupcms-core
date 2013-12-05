@@ -9,7 +9,7 @@ class SoupCMSApp < ::Grape::API
 
   group ':app_name' do
     get '*slug' do
-      params_hash = params.to_h
+      params_hash = params.to_hash
       params_hash.delete('route_info') # remove unwanted context information
       context = SoupCMS::Core::Model::PageContext.new(params)
       app = SoupCMS::Core::Application.new(params['app_name'])

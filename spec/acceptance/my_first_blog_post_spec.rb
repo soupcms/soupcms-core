@@ -12,7 +12,7 @@ describe 'Blog Post' do
     before do
       stub_request(:get,/posts\/slug\/my-first-blog-post$/).to_return( { body: {document: 'document'}.to_json } )
       stub_request(:get,/pages\/model\/posts$/).to_return( { body: read_file('pages/home') } )
-      get '/soupcms-test/posts/my-first-blog-post?name=sunit'
+      get '/soupcms-test/posts/my-first-blog-post'
     end
 
     it { expect(last_response.status).to eq(200) }

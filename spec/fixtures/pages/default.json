@@ -1,5 +1,8 @@
 {
-    "title": "Page title",
+    "layout": {
+        "type": "slim",
+        "name": "bootstrap/default"
+    },
     "areas": [
         {
             "name": "header",
@@ -12,28 +15,36 @@
                                 "title": "Tech stuff that matters",
                                 "subHeadline": "place where I write about technical solutions tried & implemented by me"
                             },
-                            "return": "jumbotron"
+                            "return": "data"
                         }
                     ],
                     "template": {
                         "type": "slim",
                         "name": "bootstrap/jumbotron"
                     }
-                },
+                }
+            ]
+        },
+        {
+            "name": "footer",
+            "modules": [
                 {
                     "recipes": [
                         {
                             "type": "inline",
                             "data": {
-                                "title": "Tech stuff that matters",
-                                "subHeadline": "place where I write about technical solutions tried & implemented by me"
+                                "copyright": "Copyright © 2013 soupCMS",
+                                "socialLinks": {
+                                    "twitter" : "@soupcms",
+                                    "github" : "http://www.github.com/soupcms"
+                                }
                             },
-                            "return": "jumbotron"
+                            "return": "data"
                         }
                     ],
                     "template": {
                         "type": "slim",
-                        "name": "bootstrap/jumbotron"
+                        "name": "bootstrap/footer"
                     }
                 }
             ]

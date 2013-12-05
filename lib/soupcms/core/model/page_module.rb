@@ -11,16 +11,15 @@ module SoupCMS
 
         def render
           recipes.each { |recipe| recipe.execute }
-          <<-response
-      <html>
-        <head> <title>Page title</title>  </head>
-        <body> Yes this works..... </body>
-      </html>
-          response
+          template.render
         end
 
         def recipes
           @recipes ||= @module_hash['recipes'].collect { |recipes_hash| ModuleRecipe.new(recipes_hash, @page) }
+        end
+
+        def template
+          ModuleTemplate.new(@module_hash['template'], @page)
         end
 
 

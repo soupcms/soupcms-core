@@ -12,13 +12,23 @@ module SoupCMS
           @page = page
         end
 
-        def template_file
-          "#{SoupCMSApp.config.template_dir}/module/#{@template_hash['name']}/#{@template_hash['name']}.#{@template_hash['type']}"
-        end
-
         def render
           Tilt.new(template_file).render(@page)
         end
+
+        private
+        def full_name
+          @template_hash['name']
+        end
+
+        def name
+          full_name.split('/').last
+        end
+
+        def template_file
+          "#{SoupCMSApp.config.template_dir}/module/#{full_name}/#{name}.#{@template_hash['type']}"
+        end
+
 
       end
 

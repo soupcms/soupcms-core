@@ -16,7 +16,7 @@ describe SoupCMS::Core::Model::ModuleTemplate do
       module_template = <<-json
         {
           "type": "slim",
-          "name": "jumbotron"
+          "name": "bootstrap/jumbotron"
         }
       json
       ModuleTemplate.new(JSON.parse(module_template), page)
