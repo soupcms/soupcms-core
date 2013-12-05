@@ -18,8 +18,6 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency('mongo', '~> 1.9.2')
-  spec.add_dependency('bson_ext', '~> 1.9.2')
   spec.add_dependency('grape', '~> 0.6.1')
   spec.add_dependency('faraday', '~> 0.8.8')
   spec.add_dependency('tilt', '~> 2.0.0')
