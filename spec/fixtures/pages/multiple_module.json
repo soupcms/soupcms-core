@@ -9,8 +9,8 @@
                         {
                             "type": "inline",
                             "data": {
-                                "title": "Tech stuff that matters",
-                                "subHeadline": "place where I write about technical solutions tried & implemented by me"
+                                "title": "title 1",
+                                "subHeadline": "sub headline 1"
                             },
                             "return": "jumbotron"
                         }
@@ -25,8 +25,8 @@
                         {
                             "type": "inline",
                             "data": {
-                                "title": "Tech stuff that matters",
-                                "subHeadline": "place where I write about technical solutions tried & implemented by me"
+                                "title": "title 2",
+                                "subHeadline": "sub headline 2"
                             },
                             "return": "jumbotron"
                         }

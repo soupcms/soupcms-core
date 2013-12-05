@@ -5,9 +5,9 @@ module SoupCMS
 
       class ModuleRecipe
 
-        def initialize(recipe_hash,page)
+        def initialize(recipe_hash,page_module)
           @recipe_hash = recipe_hash
-          @page = page
+          @page_module = page_module
         end
 
         def return_object_name
@@ -15,12 +15,12 @@ module SoupCMS
         end
 
         def recipe
-          SoupCMSApp.config.recipes[@recipe_hash['type']].new(@recipe_hash,@page)
+          SoupCMSApp.config.recipes[@recipe_hash['type']].new(@recipe_hash,@page_module)
         end
 
         def execute
           data = recipe.execute
-          @page.data[return_object_name] = data
+          @page_module.data[return_object_name] = data
           data
         end
 

@@ -7,13 +7,13 @@ module SoupCMS
 
       class ModuleTemplate
 
-        def initialize(template_hash,page)
+        def initialize(template_hash,page_module)
           @template_hash = template_hash
-          @page = page
+          @page_module = page_module
         end
 
         def render
-          Tilt.new(template_file).render(@page)
+          Tilt.new(template_file).render(@page_module)
         end
 
         private

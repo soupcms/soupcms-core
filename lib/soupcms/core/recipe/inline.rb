@@ -4,9 +4,9 @@ module SoupCMS
 
       class Inline
 
-        def initialize(recipe_hash, page)
+        def initialize(recipe_hash, page_module)
           @recipe_hash = recipe_hash
-          @page = page
+          @page_module = page_module
         end
 
         def execute

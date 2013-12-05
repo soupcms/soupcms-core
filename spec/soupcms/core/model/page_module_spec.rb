@@ -16,20 +16,21 @@ describe SoupCMS::Core::Model::PageModule do
                 {
                     "type": "inline",
                     "data": {
-                        "title": "Tech stuff that matters 1",
+                        "title": "Tech stuff that matters"
                     },
-                    "return": "data"
+                    "return": "jumbotron"
                 }
             ],
             "template": {
                 "type": "slim",
-                "name": "jumbotron"
+                "name": "bootstrap/jumbotron"
             }
         }
       json
       PageModule.new(JSON.parse(module_json), page)
     end
 
+    it { expect(html(page_module.render)).to have_text('h1','Tech stuff that matters') }
 
   end
 
@@ -41,26 +42,32 @@ describe SoupCMS::Core::Model::PageModule do
                 {
                     "type": "inline",
                     "data": {
-                        "title": "Tech stuff that matters 1",
+                        "title": "Tech stuff that matters 1"
                     },
-                    "return": "data"
+                    "return": "jumbotron"
                 },
                 {
                     "type": "inline",
                     "data": {
-                        "title": "Tech stuff that matters 2",
+                        "title": "Tech stuff that matters 2"
                     },
-                    "return": "data"
+                    "return": "jumbotron"
                 }
             ],
             "template": {
                 "type": "slim",
-                "name": "jumbotron"
+                "name": "bootstrap/jumbotron"
             }
         }
       json
       PageModule.new(JSON.parse(module_json), page)
     end
+
+    it 'should work' do
+      puts page_module.render
+    end
+
+    it { expect(html(page_module.render)).to have_text('h1','Tech stuff that matters 2') }
 
   end
 

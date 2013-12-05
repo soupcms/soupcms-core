@@ -7,19 +7,24 @@ module SoupCMS
         def initialize(module_hash, page)
           @module_hash = module_hash
           @page = page
+          @data = {}
         end
 
+        attr_reader :page, :data
+
         def render
-          recipes.each { |recipe| recipe.execute }
+          recipes.collect { |recipe| recipe.execute }
           template.render
         end
 
+        private
+
         def recipes
-          @recipes ||= @module_hash['recipes'].collect { |recipes_hash| ModuleRecipe.new(recipes_hash, @page) }
+          @recipes ||= @module_hash['recipes'].collect { |recipes_hash| ModuleRecipe.new(recipes_hash, self) }
         end
 
         def template
-          ModuleTemplate.new(@module_hash['template'], @page)
+          ModuleTemplate.new(@module_hash['template'], self)
         end
 
 

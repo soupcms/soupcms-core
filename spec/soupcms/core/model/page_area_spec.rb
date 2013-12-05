@@ -12,6 +12,8 @@ describe SoupCMS::Core::Model::PageArea do
     it { expect(page_area.modules.size).to eq(1) }
     it { expect(page_area.modules[0]).to be_kind_of(PageModule) }
 
+    it { expect(html(page_area.render)).to have_text('//h1[1]','Tech stuff that matters') }
+
   end
 
   context 'with multiple modules' do
@@ -21,6 +23,9 @@ describe SoupCMS::Core::Model::PageArea do
     it { expect(page_area.modules.size).to eq(2) }
     it { expect(page_area.modules[0]).to be_kind_of(PageModule) }
     it { expect(page_area.modules[1]).to be_kind_of(PageModule) }
+
+    it { expect(html(page_area.render)).to have_text('//h1[1]','title 1') }
+    it { expect(html(page_area.render)).to have_text('//h1[2]','title 2') }
 
   end
 

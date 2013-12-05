@@ -8,11 +8,9 @@ module SoupCMS
           @page_hash = page_hash
           @context = context
           @model = model
-          @data = {}
         end
 
         attr_accessor :context, :model
-        attr_reader :data
 
         def render
           areas.each { |name, area| area.html = area.render }
