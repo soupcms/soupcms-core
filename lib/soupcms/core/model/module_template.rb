@@ -13,7 +13,11 @@ module SoupCMS
         end
 
         def render
-          Tilt.new(template_file,{disable_escape: true}).render(@page_module)
+          if full_name
+            Tilt.new(template_file,{disable_escape: true}).render(@page_module)
+          else
+            Tilt.new(type) { template }.render(@page_module)
+          end
         end
 
         def full_name
@@ -27,7 +31,15 @@ module SoupCMS
         end
 
         def template_file
-          "#{SoupCMSApp.config.template_dir}/module/#{full_name}/#{name}.#{@template_hash['type']}"
+          "#{SoupCMSApp.config.template_dir}/module/#{full_name}/#{name}.#{type}"
+        end
+
+        def type
+          @template_hash['type']
+        end
+
+        def template
+          @template_hash['template']
         end
 
 
