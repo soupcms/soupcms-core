@@ -42,4 +42,22 @@ describe SoupCMS::Core::Model::ModuleTemplate do
     it { expect(html(module_template.render)).to have_attribute('meta','content','Page description') }
   end
 
+  context 'render multiline inline slim template as array' do
+    let(:module_template) do
+      module_template = <<-json
+      {
+        "type": "slim",
+        "template": [
+              "title = page['title']",
+              "meta name=\\\"description\\\" content=\\\"#{page['description']}\\\""
+        ]
+      }
+      json
+      ModuleTemplate.new(JSON.parse(module_template), page_module)
+    end
+
+    it { expect(html(module_template.render)).to have_text('title','Page title') }
+    it { expect(html(module_template.render)).to have_attribute('meta','content','Page description') }
+  end
+
 end

@@ -39,7 +39,12 @@ module SoupCMS
         end
 
         def template
-          @template_hash['template']
+          template = @template_hash['template']
+          if template.kind_of? Array
+            template.join("\n")
+          else
+            template
+          end
         end
 
 
