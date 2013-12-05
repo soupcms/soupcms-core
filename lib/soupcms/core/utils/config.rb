@@ -5,9 +5,7 @@ module SoupCMS
 
       module ConfigDefaults
         RECIPES = {
-
         }
-
       end
 
       class Config
@@ -21,6 +19,10 @@ module SoupCMS
 
         def register_recipes(recipes)
           @recipes.merge! recipes
+        end
+
+        def recipes
+          @recipes
         end
 
 

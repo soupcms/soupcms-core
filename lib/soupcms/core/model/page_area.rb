@@ -5,20 +5,22 @@ module SoupCMS
 
       class PageArea
 
-        def initialize(area_hash, context, model)
+        def initialize(area_hash, page)
           @name = area_hash['name']
           @area_hash = area_hash
-          @context = context
-          @model = model
+          @page = page
         end
 
         attr_accessor :html
         attr_reader :name
 
         def modules
-          @modules ||= @area_hash['modules'].collect { |module_hash| PageModule.new(module_hash, @context, @model) }
+          @modules ||= @area_hash['modules'].collect { |module_hash| PageModule.new(module_hash, @page) }
         end
 
+        def render
+          modules.collect { |page_module| page_module.render }.join('\n')
+        end
 
       end
 

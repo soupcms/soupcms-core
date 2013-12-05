@@ -4,6 +4,7 @@ require 'soupcms/core/model/document'
 require 'soupcms/core/model/page'
 require 'soupcms/core/model/page_area'
 require 'soupcms/core/model/page_module'
+require 'soupcms/core/model/module_recipe'
 require 'soupcms/core/model/page_context'
 
 require 'soupcms/core/recipe/inline'

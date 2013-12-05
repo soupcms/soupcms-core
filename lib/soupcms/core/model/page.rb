@@ -8,21 +8,21 @@ module SoupCMS
           @page_hash = page_hash
           @context = context
           @model = model
+          @data = {}
         end
 
         attr_accessor :context, :model
+        attr_reader :data
 
         def render
-          areas.each { |name, area|
-            area.html = area.modules.collect { |m| m.render }.join('\n')
-          }
-          areas.collect { |name, area| area.html }.join('\n')
+          areas.each { |name, area| area.html = area.render }
+          areas.collect { |name, area| area.html }.join('\n')  # to be replace with layout
         end
 
         def areas
           @areas ||= Hash[
               @page_hash['areas'].collect do |area_hash|
-                area = PageArea.new(area_hash, @context, @model)
+                area = PageArea.new(area_hash, self)
                 [area.name, area]
               end
           ]

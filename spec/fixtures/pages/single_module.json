@@ -18,7 +18,7 @@
                     "template": {
                         "type": "slim",
                         "theme": "bootstrap",
-                        "name": "page-header"
+                        "name": "jumbotron"
                     }
                 }
             ]
