@@ -10,7 +10,7 @@ describe SoupCMS::Core::Model::PageModule do
 
   context 'single inline recipe with jumbotron template' do
     let(:page_module) do
-      module_json = <<-module_json
+      module_json = <<-json
         {
             "recipes": [
                 {
@@ -23,11 +23,10 @@ describe SoupCMS::Core::Model::PageModule do
             ],
             "template": {
                 "type": "slim",
-                "theme": "bootstrap",
                 "name": "jumbotron"
             }
         }
-      module_json
+      json
       PageModule.new(JSON.parse(module_json), page)
     end
 
@@ -36,7 +35,7 @@ describe SoupCMS::Core::Model::PageModule do
 
   context 'multiple inline recipe with jumbotron template' do
     let(:page_module) do
-      module_json = <<-module_json
+      module_json = <<-json
         {
             "recipes": [
                 {
@@ -56,11 +55,10 @@ describe SoupCMS::Core::Model::PageModule do
             ],
             "template": {
                 "type": "slim",
-                "theme": "bootstrap",
                 "name": "jumbotron"
             }
         }
-      module_json
+      json
       PageModule.new(JSON.parse(module_json), page)
     end
 
