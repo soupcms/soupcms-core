@@ -5,8 +5,8 @@ include SoupCMS::Core::Model
 
 describe SoupCMS::Core::Model::PageModule do
 
-  let(:page) { page = Page.new({}) }
-
+  let(:page) { Page.new({}) }
+  let(:page_area) { PageArea.new({},page) }
 
   context 'single inline recipe with jumbotron template' do
     let(:page_module) do
@@ -27,10 +27,11 @@ describe SoupCMS::Core::Model::PageModule do
             }
         }
       json
-      PageModule.new(JSON.parse(module_json), page)
+      PageModule.new(JSON.parse(module_json), page_area)
     end
 
-    it { expect(html(page_module.render)).to have_text('h1','Tech stuff that matters') }
+    it { expect(html(page_module.render)).to have_text('//h1','Tech stuff that matters') }
+    #it { expect(html(page_module.render)).to have_attribute('div.module','data-module-name','Tech stuff that matters') }
 
   end
 
@@ -60,7 +61,7 @@ describe SoupCMS::Core::Model::PageModule do
             }
         }
       json
-      PageModule.new(JSON.parse(module_json), page)
+      PageModule.new(JSON.parse(module_json), page_area)
     end
 
     it { expect(html(page_module.render)).to have_text('h1','Tech stuff that matters 2') }

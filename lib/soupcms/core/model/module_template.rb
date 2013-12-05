@@ -13,13 +13,14 @@ module SoupCMS
         end
 
         def render
-          Tilt.new(template_file).render(@page_module)
+          Tilt.new(template_file,{disable_escape: true}).render(@page_module)
         end
 
-        private
         def full_name
           @template_hash['name']
         end
+
+        private
 
         def name
           full_name.split('/').last

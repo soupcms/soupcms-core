@@ -15,11 +15,11 @@ module SoupCMS
         attr_reader :name
 
         def modules
-          @modules ||= @area_hash['modules'].collect { |module_hash| PageModule.new(module_hash, @page) }
+          @modules ||= @area_hash['modules'].collect { |module_hash| PageModule.new(module_hash, self) }
         end
 
         def render
-          modules.collect { |page_module| page_module.render }.join('\n')
+          modules.collect { |page_module| page_module.render }.join("\n")
         end
 
       end

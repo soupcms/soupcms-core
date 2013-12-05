@@ -4,17 +4,22 @@ module SoupCMS
 
       class PageModule
 
-        def initialize(module_hash, page)
+        def initialize(module_hash, page_area)
           @module_hash = module_hash
-          @page = page
+          @page_area = page_area
           @data = {}
         end
 
-        attr_reader :page, :data
+        attr_reader :page_area, :data, :html
+
+        def page
+          page_area.page
+        end
 
         def render
           recipes.collect { |recipe| recipe.execute }
-          template.render
+          module_html = template.render
+          @html = Tilt.new(module_wrapper_template,{disable_escape: true}).render(self, {html: module_html})
         end
 
         private
@@ -24,7 +29,11 @@ module SoupCMS
         end
 
         def template
-          ModuleTemplate.new(@module_hash['template'], self)
+          @template ||= ModuleTemplate.new(@module_hash['template'], self)
+        end
+
+        def module_wrapper_template
+          "#{SoupCMSApp.config.template_dir}/system/module_wrapper.slim"
         end
 
 
