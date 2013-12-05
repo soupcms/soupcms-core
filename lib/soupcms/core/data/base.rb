@@ -4,8 +4,8 @@ module SoupCMS
 
       class Base
 
-        def initialize(app_name)
-          @app_name = app_name
+        def initialize(app_info)
+          @app_info = app_info
         end
 
       end

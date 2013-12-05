@@ -4,7 +4,8 @@ module SoupCMS
 
       class PageContext
 
-        def initialize(params = {})
+        def initialize(app_info, params = {})
+          @app_info = app_info
           @params = params
         end
 

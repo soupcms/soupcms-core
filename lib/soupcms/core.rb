@@ -1,5 +1,6 @@
 require 'soupcms/core/version'
 
+require 'soupcms/core/model/app_info'
 require 'soupcms/core/model/document'
 require 'soupcms/core/model/page'
 require 'soupcms/core/model/page_area'

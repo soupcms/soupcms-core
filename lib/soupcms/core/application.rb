@@ -2,9 +2,9 @@ module SoupCMS
   module Core
     class Application
 
-      def initialize(app_name)
-        @app_name = app_name
-        @data = SoupCMS::Core::Data::Service.new(app_name)
+      def initialize(app_info)
+        @app_info = app_info
+        @data = @app_info.data
       end
 
       def route_dsl

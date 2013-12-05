@@ -7,9 +7,9 @@ module SoupCMS
 
       class Service < Base
 
-        def initialize(app_name)
-          super(app_name)
-          @conn = Faraday.new(:url => "#{SoupCMSApp.config.soupcms_api_host_url}/api/#{@app_name}") do |faraday|
+        def initialize(app_info)
+          super(app_info)
+          @conn = Faraday.new(:url => "#{SoupCMSApp.config.soupcms_api_host_url}/api/#{@app_info.name}") do |faraday|
             faraday.request :url_encoded
             faraday.adapter Faraday.default_adapter
           end
