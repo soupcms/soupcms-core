@@ -13,10 +13,10 @@ module SoupCMS
         end
 
         def render
-          if full_name
-            Tilt.new(template_file,{disable_escape: true}).render(@page_module)
-          else
+          if template
             Tilt.new(type) { template }.render(@page_module)
+          else
+            Tilt.new(template_file,{disable_escape: true}).render(@page_module)
           end
         end
 
