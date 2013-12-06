@@ -15,7 +15,7 @@ class SoupCMSApp < ::Grape::API
       context = SoupCMS::Core::Model::PageContext.new(app_info, params)
       app = SoupCMS::Core::Application.new(app_info)
       page = app.find(params['slug'], context)
-      #error!("Page #{params['slug']} not found in application #{params['app_name']}", 404) if page.nil?
+      error!("Page #{params['slug']} not found in application #{params['app_name']}", 404) if page.nil?
       page.render
     end
 
