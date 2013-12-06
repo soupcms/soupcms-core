@@ -1,8 +1,12 @@
+require 'sprockets'
+require 'sprockets-helpers'
+
 module SoupCMS
   module Core
     module Model
 
       class Page
+        include Sprockets::Helpers
 
         def initialize(page_hash, context = {}, model = {})
           @page_hash = page_hash
@@ -29,6 +33,22 @@ module SoupCMS
 
         def layout
           PageLayout.new(@page_hash['layout'],self)
+        end
+
+        def javascripts
+          areas.collect { |name, area| area.javascripts }.flatten.uniq
+        end
+
+        def stylesheets
+          areas.collect { |name, area| area.stylesheets }.flatten.uniq
+        end
+
+        def include_stylesheets
+          Tilt.new("#{SoupCMSApp.config.template_dir}/system/include_stylesheets.slim",{disable_escape: true}).render(self)
+        end
+
+        def include_javascripts
+          Tilt.new("#{SoupCMSApp.config.template_dir}/system/include_javascripts.slim",{disable_escape: true}).render(self)
         end
 
         def [](key)

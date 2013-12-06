@@ -3,6 +3,9 @@ html lang="en"
   head
     meta charset="utf-8"
     meta content="width=device-width, initial-scale=1.0" name="viewport"
+
+    = page.include_stylesheets
+
     - if areas['meta']
       .header
         = areas['meta'].html
@@ -22,3 +25,5 @@ html lang="en"
     - if areas['footer']
       .header
         = areas['footer'].html
+
+    = page.include_javascripts

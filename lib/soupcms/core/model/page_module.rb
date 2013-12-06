@@ -22,6 +22,14 @@ module SoupCMS
           @html = Tilt.new(module_wrapper_template,{disable_escape: true}).render(self, {html: module_html})
         end
 
+        def javascript
+          template.javascript
+        end
+
+        def stylesheet
+          template.stylesheet
+        end
+
         private
 
         def recipes
@@ -35,7 +43,6 @@ module SoupCMS
         def module_wrapper_template
           "#{SoupCMSApp.config.template_dir}/system/module_wrapper.slim"
         end
-
 
       end
 

@@ -25,6 +25,8 @@ describe SoupCMS::Core::Model::ModuleTemplate do
     end
 
     it { expect(html(module_template.render)).to have_text('h1','Tech stuff that matters') }
+    it { expect(module_template.javascript).to eq('module/bootstrap/jumbotron/jumbotron.js') }
+    it { expect(module_template.stylesheet).to eq('module/bootstrap/jumbotron/jumbotron.css') }
   end
 
   context 'render inline slim template' do
@@ -40,6 +42,8 @@ describe SoupCMS::Core::Model::ModuleTemplate do
 
     it { expect(html(module_template.render)).to have_text('title','Page title') }
     it { expect(html(module_template.render)).to have_attribute('meta','content','Page description') }
+    it { expect(module_template.javascript).to be_nil }
+    it { expect(module_template.stylesheet).to be_nil }
   end
 
   context 'render multiline inline slim template as array' do

@@ -13,8 +13,8 @@ module SoupCMS
         end
 
         def render
-          if template
-            Tilt.new(type) { template }.render(@page_module)
+          if inline_template
+            Tilt.new(type) { inline_template }.render(@page_module)
           else
             Tilt.new(template_file,{disable_escape: true}).render(@page_module)
           end
@@ -22,6 +22,16 @@ module SoupCMS
 
         def full_name
           @template_hash['name']
+        end
+
+        def javascript
+          return if inline_template
+          "module/#{full_name}/#{name}.js"
+        end
+
+        def stylesheet
+          return if inline_template
+          "module/#{full_name}/#{name}.css"
         end
 
         private
@@ -38,7 +48,7 @@ module SoupCMS
           @template_hash['type']
         end
 
-        def template
+        def inline_template
           template = @template_hash['template']
           if template.kind_of? Array
             template.join("\n")

@@ -22,6 +22,14 @@ module SoupCMS
           modules.collect { |page_module| page_module.render }.join("\n")
         end
 
+        def javascripts
+          modules.collect { |page_module| page_module.javascript }.flatten
+        end
+
+        def stylesheets
+          modules.collect { |page_module| page_module.stylesheet }.flatten
+        end
+
       end
 
 
