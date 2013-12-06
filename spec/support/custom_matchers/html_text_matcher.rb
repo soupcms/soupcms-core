@@ -9,6 +9,16 @@ RSpec::Matchers.define :have_text do |css_matcher,expected,index|
     end
   end
   failure_message_for_should do |actual|
-    "could not find: \"#{expected}\" in: \n #{actual.to_html} \n actual: #{actual.css(css_matcher).text}"
+    if index.nil?
+      "  actual: #{actual.css(css_matcher).text}" + "\n" +
+      "expected: #{expected}" + "\n" +
+      '      in: ' + "\n" +
+      "#{actual.to_html}"
+    else
+      "  actual: #{actual.css(css_matcher)[index].text}" + "\n" +
+      "expected: #{expected}" + "\n" +
+      '      in: ' + "\n" +
+      "#{actual.to_html}"
+    end
   end
 end

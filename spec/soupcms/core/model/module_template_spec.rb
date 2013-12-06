@@ -29,6 +29,21 @@ describe SoupCMS::Core::Model::ModuleTemplate do
     it { expect(module_template.stylesheet).to eq('module/bootstrap/jumbotron/jumbotron.css') }
   end
 
+  context 'for stylesheet and javascript does not exists' do
+    let(:module_template) do
+      module_template = <<-json
+        {
+          "type": "slim",
+          "name": "bootstrap/invalid"
+        }
+      json
+      ModuleTemplate.new(JSON.parse(module_template), page_module)
+    end
+
+    it { expect(module_template.javascript).to be_nil }
+    it { expect(module_template.stylesheet).to be_nil }
+  end
+
   context 'render inline slim template' do
     let(:module_template) do
       module_template = <<-json

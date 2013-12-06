@@ -21,9 +21,9 @@ module SoupCMS
           @sprockets = Sprockets::Environment.new
           @sprockets.append_path @template_dir
           Sprockets::Helpers.configure do |config|
-            config.environment = sprockets
-            config.prefix      = '/assets'
-            # config.debug       = true
+            config.environment  = sprockets
+            config.prefix       = '/assets'
+            config.public_path  = nil
           end
         end
 

@@ -1,4 +1,8 @@
 {
+    "layout": {
+        "type": "slim",
+        "name": "bootstrap/default"
+    },
     "title": "Page title",
     "areas": [
         {

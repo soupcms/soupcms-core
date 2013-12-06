@@ -32,15 +32,15 @@ module SoupCMS
         end
 
         def layout
-          PageLayout.new(@page_hash['layout'],self)
+          @layout ||= PageLayout.new(@page_hash['layout'],self)
         end
 
         def javascripts
-          areas.collect { |name, area| area.javascripts }.flatten.uniq
+          [layout.javascript].concat(areas.collect { |name, area| area.javascripts }.flatten.uniq).compact
         end
 
         def stylesheets
-          areas.collect { |name, area| area.stylesheets }.flatten.uniq
+          [layout.stylesheet].concat(areas.collect { |name, area| area.stylesheets }.flatten.uniq).compact
         end
 
         def include_stylesheets

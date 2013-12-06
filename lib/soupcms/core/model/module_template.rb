@@ -26,12 +26,14 @@ module SoupCMS
 
         def javascript
           return if inline_template
-          "module/#{full_name}/#{name}.js"
+          js = "module/#{full_name}/#{name}.js"
+          return js if SoupCMSApp.config.sprockets[js]
         end
 
         def stylesheet
           return if inline_template
-          "module/#{full_name}/#{name}.css"
+          css = "module/#{full_name}/#{name}.css"
+          return css if SoupCMSApp.config.sprockets[css]
         end
 
         private
