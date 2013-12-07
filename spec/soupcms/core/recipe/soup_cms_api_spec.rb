@@ -4,7 +4,7 @@ describe SoupCMS::Core::Recipe::SoupCMSApi do
 
   let(:app_info) { SoupCMS::Core::Model::AppInfo.new('soupcms-test') }
   let(:context) do
-    context = SoupCMS::Core::Model::PageContext.new(app_info)
+    context = SoupCMS::Core::Model::RequestContext.new(app_info)
     context.model_name = 'posts'
     context
   end

@@ -6,7 +6,7 @@ describe SoupCMS::Core::Application do
 
   let (:app_info) { AppInfo.new('soupcms-test') }
   let (:application) { SoupCMS::Core::Application.new(app_info) }
-  let (:context) { PageContext.new(app_info) }
+  let (:context) { RequestContext.new(app_info) }
 
   context 'page slugs' do
     it 'should load page for valid page url' do
