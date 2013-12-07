@@ -2,9 +2,9 @@ require 'spec_helper'
 
 describe SoupCMS::Core::Recipe::SoupCMSApi do
 
-  let(:app_info) { SoupCMS::Core::Model::AppInfo.new('soupcms-test') }
+  let(:application) { SoupCMS::Core::Model::Application.new('soupcms-test') }
   let(:context) do
-    context = SoupCMS::Core::Model::RequestContext.new(app_info)
+    context = SoupCMS::Core::Model::RequestContext.new(application)
     context.model_name = 'posts'
     context
   end

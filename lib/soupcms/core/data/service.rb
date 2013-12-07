@@ -7,17 +7,19 @@ module SoupCMS
 
       class Service < Base
 
-        def initialize(app_info)
-          super(app_info)
-          @conn = Faraday.new(:url => "#{SoupCMSApp.config.soupcms_api_host_url}/api/#{@app_info.name}") do |faraday|
+        def initialize(application)
+          super(application)
+          @connection = Faraday.new(:url => "#{SoupCMSApp.config.soupcms_api_host_url}/api/#{application.name}") do |faraday|
             faraday.request :url_encoded
             faraday.adapter Faraday.default_adapter
           end
         end
 
+        attr_reader :connection
+
         def find_by_key(model, key, value)
           url = "#{model}/#{key}/#{value}"
-          response = @conn.get(url)
+          response = connection.get(url)
           return (JSON.parse(response.body)) if response.status == 200
         end
 
@@ -27,7 +29,7 @@ module SoupCMS
           filters.each { |key,value|
             url.concat("#{key}=\"#{value}\"")
           }
-          response = @conn.get(url)
+          response = connection.get(url)
           JSON.parse(response.body)
         end
 

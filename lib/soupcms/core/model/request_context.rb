@@ -4,13 +4,13 @@ module SoupCMS
 
       class RequestContext
 
-        def initialize(app_info, params = {})
-          @app_info = app_info
+        def initialize(application, params = {})
+          @application = application
           @params = params
         end
 
         attr_accessor :model_name
-        attr_reader :app_info, :params
+        attr_reader :application, :params
 
         def user_params
           @params.to_hash.delete('route_info')

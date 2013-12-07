@@ -4,9 +4,11 @@ module SoupCMS
 
       class Base
 
-        def initialize(app_info)
-          @app_info = app_info
+        def initialize(application)
+          @application = application
         end
+
+        attr_reader :application
 
       end
 

@@ -9,8 +9,8 @@ class SoupCMSApp < ::Grape::API
 
   group ':app_name' do
     get '*slug' do
-      app_info = SoupCMS::Core::Model::AppInfo.new(params['app_name'])
-      context = SoupCMS::Core::Model::RequestContext.new(app_info, params)
+      application = SoupCMS::Core::Model::Application.new(params['app_name'])
+      context = SoupCMS::Core::Model::RequestContext.new(application, params)
 
       app = SoupCMS::Core::PageRouteService.new(context)
       page = app.find(params['slug'])

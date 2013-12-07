@@ -4,7 +4,7 @@ module SoupCMS
 
       def initialize(context)
         @context = context
-        @data = context.app_info.data
+        @data = context.application.data
       end
 
       attr_reader :context, :data

@@ -4,8 +4,8 @@ include SoupCMS::Core::Model
 
 describe SoupCMS::Core::PageRouteService do
 
-  let (:app_info) { AppInfo.new('soupcms-test') }
-  let (:context) { RequestContext.new(app_info) }
+  let (:application) { Application.new('soupcms-test') }
+  let (:context) { RequestContext.new(application) }
   let (:page_route_service) { SoupCMS::Core::PageRouteService.new(context) }
 
   context 'page slugs' do

@@ -11,7 +11,7 @@ module SoupCMS
 
         def execute
           context = @page_module.page.context
-          service = context.app_info.data
+          service = context.application.data
           service.find(context.model_name,@recipe_hash['match'])
         end
 

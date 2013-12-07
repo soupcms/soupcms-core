@@ -2,7 +2,7 @@ module SoupCMS
   module Core
     module Model
 
-      class AppInfo
+      class Application
 
         def initialize(name)
           @name = name
