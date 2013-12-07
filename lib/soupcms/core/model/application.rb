@@ -11,12 +11,12 @@ module SoupCMS
 
         attr_reader :name
 
-        def data
-          @data ||= SoupCMS::Core::Data::Service.new(self)
+        def soup_cms_api
+          @soup_cms_api ||= SoupCMS::Core::Data::Service.new(self)
         end
 
-        def soupcms_api_host_url
-          @soupcms_api_host_url ||= SoupCMSApp.config.soupcms_api_host_url
+        def soup_cms_api_host_url
+          @soup_cms_api_host_url ||= SoupCMSApp.config.soup_cms_api_host_url
         end
 
         def self.get(name)

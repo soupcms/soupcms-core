@@ -8,7 +8,7 @@ module SoupCMS
       class Service < Base
 
         def connection
-          @connection ||= Faraday.new(url: "#{application.soupcms_api_host_url}/api/#{application.name}") do |faraday|
+          @connection ||= Faraday.new(url: "#{application.soup_cms_api_host_url}/api/#{application.name}") do |faraday|
             faraday.request :url_encoded
             faraday.adapter Faraday.default_adapter
           end
