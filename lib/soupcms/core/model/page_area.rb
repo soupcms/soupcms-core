@@ -12,7 +12,7 @@ module SoupCMS
         end
 
         attr_accessor :html
-        attr_reader :name
+        attr_reader :name, :page
 
         def modules
           @modules ||= @area_hash['modules'].collect { |module_hash| PageModule.new(module_hash, self) }

@@ -21,6 +21,11 @@ module SoupCMS
           return (JSON.parse(response.body)) if response.status == 200
         end
 
+        def find(model_name,filters)
+          response = @conn.get("posts?tags=popular")
+          JSON.parse(response.body)
+        end
+
       end
 
     end

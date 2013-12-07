@@ -11,7 +11,7 @@ module SoupCMS
         attr_reader :name
 
         def data
-          SoupCMS::Core::Data::Service.new(self)
+          @data ||= SoupCMS::Core::Data::Service.new(self)
         end
 
       end

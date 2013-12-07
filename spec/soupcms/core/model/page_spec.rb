@@ -6,7 +6,7 @@ include SoupCMS::Core::Model
 describe SoupCMS::Core::Model::Page do
 
   context 'with one area' do
-    let((:page)) { SoupCMS::Core::Model::Page.new(read_json('pages/single_module')) }
+    let(:page) { SoupCMS::Core::Model::Page.new(read_json('pages/single_module')) }
 
     it { expect(page.areas).to be_kind_of(Hash) }
     it { expect(page.areas.size).to eq(1) }
