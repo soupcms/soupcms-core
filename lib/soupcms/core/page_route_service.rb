@@ -1,11 +1,13 @@
 module SoupCMS
   module Core
-    class Application
+    class PageRouteService
 
-      def initialize(app_info)
-        @app_info = app_info
-        @data = @app_info.data
+      def initialize(context)
+        @context = context
+        @data = context.app_info.data
       end
+
+      attr_reader :context, :data
 
       def route_dsl
         <<-dsl
@@ -18,7 +20,7 @@ module SoupCMS
         dsl
       end
 
-      def find(slug, context = {})
+      def find(slug)
         slugs = slug.split('/').reject(&:empty?)
         if(slugs.size == 1)
           model_name = 'pages'

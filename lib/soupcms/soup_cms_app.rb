@@ -10,10 +10,10 @@ class SoupCMSApp < ::Grape::API
   group ':app_name' do
     get '*slug' do
       app_info = SoupCMS::Core::Model::AppInfo.new(params['app_name'])
-      app = SoupCMS::Core::Application.new(app_info)
-
       context = SoupCMS::Core::Model::RequestContext.new(app_info, params)
-      page = app.find(params['slug'], context)
+
+      app = SoupCMS::Core::PageRouteService.new(context)
+      page = app.find(params['slug'])
       error!("Page #{params['slug']} not found in application #{params['app_name']}", 404) if page.nil?
       page.render
     end

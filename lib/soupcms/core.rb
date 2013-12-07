@@ -19,5 +19,5 @@ require 'soupcms/core/data/base'
 require 'soupcms/core/data/api'
 require 'soupcms/core/data/service'
 
-require 'soupcms/core/application'
+require 'soupcms/core/page_route_service'
 require 'soupcms/soup_cms_app'
