@@ -12,7 +12,8 @@ module SoupCMS
         def execute
           context = @page_module.page.context
           soup_cms_api = context.application.soup_cms_api
-          soup_cms_api.find(context.model_name,@recipe_hash['match'])
+          model_name = @recipe_hash['model'] ? @recipe_hash['model'] : context.model_name
+          soup_cms_api.find(model_name,@recipe_hash['match'])
         end
 
       end

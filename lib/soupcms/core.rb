@@ -21,3 +21,6 @@ require 'soupcms/core/data/service'
 
 require 'soupcms/core/page_route_service'
 require 'soupcms/soup_cms_app'
+
+
+require 'slim'

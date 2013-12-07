@@ -9,6 +9,8 @@ module SoupCMS
       module ConfigDefaults
         TEMPLATE_DIR = File.dirname(__FILE__) + '/../template'
         RECIPES = {
+            'inline' => SoupCMS::Core::Recipe::Inline,
+            'soupcms-api' => SoupCMS::Core::Recipe::SoupCMSApi
         }
       end
 
@@ -21,9 +23,9 @@ module SoupCMS
           @sprockets = Sprockets::Environment.new
           @sprockets.append_path @template_dir
           Sprockets::Helpers.configure do |config|
-            config.environment  = sprockets
-            config.prefix       = '/assets'
-            config.public_path  = nil
+            config.environment = sprockets
+            config.prefix = '/assets'
+            config.public_path = nil
           end
         end
 

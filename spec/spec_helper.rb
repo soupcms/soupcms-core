@@ -16,7 +16,6 @@ RSpec.configure do |config|
 
   config.before(:suite) do
     SoupCMSApp.config.soup_cms_api_host_url = 'http://localhost:9292'
-    SoupCMSApp.config.register_recipes({ 'inline' => SoupCMS::Core::Recipe::Inline } )
   end
 
   config.before(:each) do
