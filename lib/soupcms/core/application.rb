@@ -23,14 +23,14 @@ module SoupCMS
         if(slugs.size == 1)
           model_name = 'pages'
           slug = slugs[0]
-          @app_info.context.model_name = model_name
+          context.model_name = model_name
           page_hash = @data.find_by_key(model_name, 'slug', slug)
           model = SoupCMS::Core::Model::Document.new(page_hash)
           page = SoupCMS::Core::Model::Page.new(page_hash, context, model) if page_hash
         else(slugs.size == 2)
           model_name = slugs[0]
           slug = slugs[1]
-          @app_info.context.model_name = model_name
+          context.model_name = model_name
           model_hash = @data.find_by_key(model_name, 'slug', slug)
           if model_hash
             model = SoupCMS::Core::Model::Document.new(model_hash)
