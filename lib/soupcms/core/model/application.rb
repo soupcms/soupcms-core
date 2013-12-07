@@ -14,6 +14,10 @@ module SoupCMS
           @data ||= SoupCMS::Core::Data::Service.new(self)
         end
 
+        def soupcms_api_host_url
+          @soupcms_api_host_url ||= SoupCMSApp.config.soupcms_api_host_url
+        end
+
       end
 
     end
