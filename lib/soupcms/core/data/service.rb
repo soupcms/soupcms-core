@@ -7,15 +7,12 @@ module SoupCMS
 
       class Service < Base
 
-        def initialize(application)
-          super(application)
-          @connection = Faraday.new(:url => "#{SoupCMSApp.config.soupcms_api_host_url}/api/#{application.name}") do |faraday|
+        def connection
+          @connection ||= Faraday.new(:url => "#{SoupCMSApp.config.soupcms_api_host_url}/api/#{application.name}") do |faraday|
             faraday.request :url_encoded
             faraday.adapter Faraday.default_adapter
           end
         end
-
-        attr_reader :connection
 
         def find_by_key(model, key, value)
           url = "#{model}/#{key}/#{value}"
