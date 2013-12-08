@@ -81,6 +81,32 @@
             ]
         },
         {
+            "name": "sidebar",
+            "modules": [
+                {
+                    "recipes": [
+                        {
+                            "type": "inline",
+                            "data": {
+                                "tags": [
+                                    "Design Principles",
+                                    "Refactoring",
+                                    "Agile Methodology",
+                                    "Software Development",
+                                    "Test Driven Development"
+                                ]
+                            },
+                            "return": "tag-cloud"
+                        }
+                    ],
+                    "template": {
+                        "type": "slim",
+                        "name": "bootstrap/tag-cloud"
+                    }
+                }
+            ]
+        },
+        {
             "name": "footer",
             "modules": [
                 {
