@@ -20,7 +20,7 @@ task :seed do
   Dir.glob('seed/**/*.json').each do |file|
     puts "Importing file... #{file}"
     file =  File.new(file)
-    model = file.path.split('/')[2]
+    model = file.path.split('/')[1]
     db[model].insert(JSON.parse(file.read))
   end
   conn.close

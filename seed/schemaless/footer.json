@@ -11,7 +11,28 @@
 
     "name": "footer",
 
-    "copyright": "Copyright 2013 soupCMS, Licensed under MIT.",
+    "copyright": "Copyright &copy; 2013 soupCMS, Licensed under <a href=\"http://opensource.org/licenses/mit-license.html\">MIT License.</a>",
+
+    "links" :[
+        {
+            "label": "About",
+            "link" : "http://www.soupcms.com/soupcms/about"
+        },
+        {
+            "label": "Contact Us",
+            "link" : "http://www.soupcms.com/contact-us",
+            "font_icon" : "fa fa-envelope-o"
+        },
+        {
+            "label": "License",
+            "link" : "http://opensource.org/licenses/mit-license.html"
+        },
+        {
+            "label": "Blog",
+            "link" : "http://www.soupcms.com/soupcms-blog"
+        }
+    ],
+
     "social" : {
         "twitter": "http://www.twitter.com/soupcms",
         "facebook": "http://www.facebook.com/soupcms",

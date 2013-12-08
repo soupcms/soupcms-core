@@ -53,13 +53,13 @@
         ],
         "right": [
             {
-                "label": "About",
-                "link" : "http://www.soupcms.com/soupcms/about"
-            },
-            {
                 "label": "Contact Us",
                 "link" : "http://www.soupcms.com/soupcms/contact-us",
                 "font_icon" : "fa fa-envelope-o"
+            },
+            {
+                "label": "About",
+                "link" : "http://www.soupcms.com/soupcms/about"
             }
         ]
     }
