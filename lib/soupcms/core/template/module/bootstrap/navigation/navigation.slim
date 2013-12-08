@@ -16,37 +16,54 @@ nav.navbar.navbar-default.navbar-fixed-top role="navigation"
       - if nav['menu']['left']
         ul.nav.navbar-nav
           - items = nav['menu']['left']
-          - items.each do |key, value|
-            - if value.kind_of?(String)
+          - items.each do |item|
+            - if item['submenu'].nil?
               li
-                a href="#{value}"
-                  = key
-            - if value.kind_of?(Hash)
+                a href="#{item['link']}"
+                  - if item['font_icon']
+                    i class="#{item['font_icon']}"
+                    | &nbsp;
+                  = item['label']
+            - if item['submenu']
               li.dropdown
                 a.dropdown-toggle data-toggle="dropdown" href="#"
-                  = key
+                  - if item['font_icon']
+                    i class="#{item['font_icon']}"
+                    | &nbsp;
+                  = item['label']
                   b.caret
                 ul.dropdown-menu
-                  - value.each do |l2_key,l2_value|
+                  - subitems = item['submenu']
+                  - subitems.each do |subitem|
                     li
-                      a href="#{l2_value}"
-                        = l2_key
+                      a href="#{subitem['link']}"
+                        = subitem['label']
+                        - if subitem['font_icon']
+                          | &nbsp; &nbsp;
+                          i class="#{subitem['font_icon']}"
 
       - if nav['menu']['right']
         ul.nav.navbar-nav.navbar-right
           - items = nav['menu']['right']
-          - items.each do |key, value|
-            - if value.kind_of?(String)
+          - items.each do |item|
+            - if item['submenu'].nil?
               li
-                a href="#{value}"
-                  = key
-            - if value.kind_of?(Hash)
+                a href="#{item['link']}"
+                  - if item['font_icon']
+                    i class="#{item['font_icon']}"
+                    | &nbsp;
+                  = item['label']
+            - if item['submenu']
               li.dropdown
                 a.dropdown-toggle data-toggle="dropdown" href="#"
-                  = key
+                  = item['label']
                   b.caret
                 ul.dropdown-menu
-                  - value.each do |l2_key,l2_value|
+                  - subitems = item['submenu']
+                  - subitems.each do |subitem|
                     li
-                      a href="#{l2_value}"
-                        = l2_key
+                      a href="#{subitem['link']}"
+                        = subitem['label']
+                        - if subitem['font_icon']
+                          | &nbsp; &nbsp;
+                          i class="#{subitem['font_icon']}"
