@@ -10,8 +10,8 @@ html lang="en"
     = page.include_stylesheets
 
     /![if lt IE 9]
-      | <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      | <script src="//oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+      <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="//oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
 
     - if areas['meta']
       .header
@@ -22,17 +22,22 @@ html lang="en"
 
   body
     .container
-      - if areas['header']
-        .header
-          = areas['header'].html
+      .row
+        - if areas['header']
+          .header
+            = areas['header'].html
+      .row
+        - if areas['body']
+          .body.col-md-9
+            = areas['body'].html
 
-      - if areas['body']
-        .body
-          = areas['body'].html
-
-      - if areas['footer']
-        .footer
-          = areas['footer'].html
+        - if areas['sidebar']
+          .body.col-md-9
+            = areas['sidebar'].html
+      .row
+        - if areas['footer']
+          .footer
+            = areas['footer'].html
 
     script src="//code.jquery.com/jquery-2.0.3.min.js"
     = page.include_javascripts

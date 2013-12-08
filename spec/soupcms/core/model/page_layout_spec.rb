@@ -24,9 +24,8 @@ describe SoupCMS::Core::Model::PageLayout do
     end
 
     it { expect(html(layout.render)).to have_title('Tech stuff that matters') }
-    it { expect(layout.javascript).to be_nil }
-    it { expect(layout.stylesheet).to be_nil }
-
+    it { expect(page.javascripts).to include('layout/bootstrap/default/default.js') }
+    it { expect(page.stylesheets).to include('layout/bootstrap/default/default.css') }
   end
 
 end

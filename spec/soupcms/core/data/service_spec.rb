@@ -35,7 +35,7 @@ describe SoupCMS::Core::Data::Service do
     end
 
     it 'should send appropriate request without quotes for integer value' do
-      stub_request(:get, /posts\?rank=100$/).to_return({body: read_files('posts/first-post', 'posts/second-post')})
+      stub_request(:get, /posts\?filters%5B0%5D=rank&rank=100$/).to_return({body: read_files('posts/first-post', 'posts/second-post')})
       docs = service.find('posts',{ rank: 100 })
       expect(docs.size).to eq(2)
     end
@@ -47,7 +47,7 @@ describe SoupCMS::Core::Data::Service do
     end
 
     it 'should handle multiple filter parameters' do
-      stub_request(:get, /posts\?rank=100&tags="popular"$/).to_return({body: read_files('posts/first-post', 'posts/second-post')})
+      stub_request(:get, /posts\?filters%5B0%5D=rank&rank=100&tags=%22popular%22$/).to_return({body: read_files('posts/first-post', 'posts/second-post')})
       docs = service.find('posts',{ rank: 100, tags: 'popular' })
       expect(docs.size).to eq(2)
     end

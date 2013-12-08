@@ -1,1 +1,8 @@
-h1 = data['jumbotron']['title']
+.row
+  .jumbotron
+    h1
+      = data['jumbotron']['title']
+      - if data['jumbotron']['subtitle']
+        small
+          = "&nbsp; #{data['jumbotron']['subtitle']}"
+    p = data['jumbotron']['sub_headline']

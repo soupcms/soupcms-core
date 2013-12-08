@@ -33,9 +33,11 @@ module SoupCMS
           filter_index = 0
           filters.each { |key, value|
             url.concat('&') if filter_index >= 1
-            url.concat("#{key}=\"#{value}\"") if value.kind_of?(String)
-            url.concat("#{key}=#{value}") if value.kind_of?(Integer)
-            if value.kind_of?(Array)
+            if value.kind_of?(String)
+              url.concat("#{key}=\"#{value}\"")
+            elsif value.kind_of?(Integer)
+              url.concat("#{key}=#{value}")
+            elsif value.kind_of?(Array)
               index = 0
               value.each do |val|
                 url.concat('&') if index >= 1
@@ -44,6 +46,7 @@ module SoupCMS
                 index += 1
               end
             end
+            url.concat("&filters[]=#{key}") unless key == "tags" || key == :tags
             filter_index += 1
           }
           url
