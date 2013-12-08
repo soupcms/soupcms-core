@@ -1,0 +1,107 @@
+{
+    "doc_id": 100,
+    "version": 1385717720,
+    "publish_datetime": 1385717720,
+    "create_datetime": 1385717720,
+    "created_by": "sunitparekh",
+    "locale": "en_US",
+
+    "slug": "home",
+
+    "state": "published",
+    "latest": true,
+
+    "title": "Welcome to soupcms, unobtrusive CMS ",
+    "seo": {
+        "keywords": "sunitparekh, sunit, parekh, blog, technical, software",
+        "description": "Sunit Parekh blog"
+
+    },
+
+    "layout": {
+        "type": "slim",
+        "name": "bootstrap/sidebar"
+    },
+
+    "areas": [
+        {
+            "name": "header",
+            "modules": [
+                {
+                    "recipes": [
+                        {
+                            "type": "soupcms-api",
+                            "model": "schemaless",
+                            "match": {
+                                "name": "navigation"
+                            },
+                            "return": "navigation"
+                        }
+                    ],
+                    "template": {
+                        "type": "slim",
+                        "name": "bootstrap/navigation"
+                    }
+                },
+                {
+                    "recipes": [
+                        {
+                            "type": "inline",
+                            "data": {
+                                "title": "soupCMS",
+                                "subtitle" : " unobtrusive CMS",
+                                "sub_headline": "CMS that integrates within your application without hassles."
+                            },
+                            "return": "jumbotron"
+                        }
+                    ],
+                    "template": {
+                        "type": "slim",
+                        "name": "bootstrap/jumbotron"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "body",
+            "modules": [
+                {
+                    "recipes": [
+                        {
+                            "type": "soupcms-api",
+                            "model": "posts",
+                            "return": "posts"
+                        }
+                    ],
+                    "template": {
+                        "type": "slim",
+                        "name": "bootstrap/article-list-view"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "footer",
+            "modules": [
+                {
+                    "recipes": [
+                        {
+                            "type": "soupcms-api",
+                            "model": "schemaless",
+                            "match": {
+                                "name": "footer"
+                            },
+                            "return": "footer"
+                        }
+                    ],
+                    "template": {
+                        "type": "slim",
+                        "name": "bootstrap/footer"
+                    }
+                }
+            ]
+        }
+    ]
+
+
+}

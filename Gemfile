@@ -11,6 +11,8 @@ gem 'sass'
 
 group :development do
   gem 'puma'
+  gem 'mongo'
+  gem 'bson_ext'
 end
 
 group :test do

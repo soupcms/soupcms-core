@@ -1,0 +1,21 @@
+{
+    "state": "published",
+    "latest": true,
+
+    "doc_id": 1001,
+    "version": 1385717720,
+    "publish_datetime": 1385717720,
+    "create_datetime": 1385717720,
+    "created_by": "sunitparekh",
+    "locale": "en_US",
+
+    "name": "footer",
+
+    "copyright": "Copyright 2013 soupCMS, Licensed under MIT.",
+    "social" : {
+        "twitter": "http://www.twitter.com/soupcms",
+        "facebook": "http://www.facebook.com/soupcms",
+        "youtube" : "http://www.youtube.com/user/soupcms",
+        "plus" : "https://plus.google.com/+soupCMS"
+    }
+}

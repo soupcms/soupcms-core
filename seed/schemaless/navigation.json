@@ -1,0 +1,67 @@
+{
+    "state": "published",
+    "latest": true,
+
+    "doc_id": 1000,
+    "version": 1385717720,
+    "publish_datetime": 1385717720,
+    "create_datetime": 1385717720,
+    "created_by": "sunitparekh",
+    "locale": "en_US",
+
+    "name": "navigation",
+
+    "logo": {
+        "font_icon" : "fa fa-magic",
+        "text": "soupCMS"
+    },
+
+    "menu": {
+        "left": [
+            {
+                "label": "Home",
+                "link" : "http://www.soupcms.com/soupcms",
+                "font_icon" : "fa fa-home"
+            },
+            {
+                "label": "Blog",
+                "link" : "http://www.soupcms.com/soupcms-blog"
+            },
+            {
+                "label": "Resources",
+                "submenu" : [
+                    {
+                        "label": "Screencasts",
+                        "link" : "http://www.soupcms.com/soupcms/resources/screencasts",
+                        "font_icon" : "fa fa-desktop"
+                    },
+                    {
+                        "label": "Getting started",
+                        "link" : "http://www.soupcms.com/soupcms/resources/getting-started"
+                    },
+                    {
+                        "label": "Documentation",
+                        "link" : "http://www.soupcms.com/soupcms/resources/documentation",
+                        "font_icon" : "fa fa-file-text"
+                    },
+                    {
+                        "label": "Demo",
+                        "link" : "http://www.soupcms.com/soupcms/demo"
+                    }
+                ]
+            }
+        ],
+        "right": [
+            {
+                "label": "About",
+                "link" : "http://www.soupcms.com/soupcms/about"
+            },
+            {
+                "label": "Contact Us",
+                "link" : "http://www.soupcms.com/soupcms/contact-us",
+                "font_icon" : "fa fa-envelope-o"
+            }
+        ]
+    }
+
+}
