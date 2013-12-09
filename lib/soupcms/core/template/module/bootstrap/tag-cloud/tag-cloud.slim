@@ -1,0 +1,10 @@
+.well
+  h3 Tag cloud
+  - data['tag-cloud']['tags'].each do |tag|
+    span
+      .btn-group
+        a.tag.btn.btn-default.btn-xs href="#{tag['link']}"
+          = tag['label']
+        a.tag.btn.btn-primary.btn-xs href="#{tag['link']}"
+          = tag['weight']
+      | &nbsp;

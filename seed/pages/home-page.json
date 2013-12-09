@@ -49,8 +49,8 @@
                             "type": "inline",
                             "data": {
                                 "title": "soupCMS",
-                                "subtitle" : " unobtrusive CMS",
-                                "sub_headline": "CMS that integrates within your application without hassles."
+                                "subtitle" : " unobtrusive CMS framework",
+                                "sub_headline": "CMS framework that integrates within your application without hassles."
                             },
                             "return": "jumbotron"
                         }
@@ -89,11 +89,31 @@
                             "type": "inline",
                             "data": {
                                 "tags": [
-                                    "Design Principles",
-                                    "Refactoring",
-                                    "Agile Methodology",
-                                    "Software Development",
-                                    "Test Driven Development"
+                                    {
+                                        "label" : "Design Principles",
+                                        "weight" : 10,
+                                        "link" : "http://www.soupcms.com/soupcms-test/posts/tags/design-principles"
+                                    },
+                                    {
+                                        "label" : "Refactoring",
+                                        "weight" : 35,
+                                        "link" : "http://www.soupcms.com/soupcms-test/posts/tags/refactoring"
+                                    },
+                                    {
+                                        "label" : "Agile Methodology",
+                                        "weight" : 143,
+                                        "link" : "http://www.soupcms.com/soupcms-test/posts/tags/agile-methodology"
+                                    },
+                                    {
+                                        "label" : "Software Development",
+                                        "weight" : 234,
+                                        "link" : "http://www.soupcms.com/soupcms-test/posts/tags/software-development"
+                                    },
+                                    {
+                                        "label" : "Test Driven Development",
+                                        "weight" : 10,
+                                        "link" : "http://www.soupcms.com/soupcms-test/posts/tags/test-driven-development"
+                                    }
                                 ]
                             },
                             "return": "tag-cloud"

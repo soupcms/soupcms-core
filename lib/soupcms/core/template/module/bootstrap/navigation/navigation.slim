@@ -1,69 +1,70 @@
 - nav = data['navigation'][0]
-nav.navbar.navbar-default.navbar-fixed-top.navbar-inverse role="navigation"
-  .container
+.container
+  nav.navbar.navbar-default.navbar-fixed-top.navbar-inverse role="navigation"
+    .container
 
-    .navbar-header
-      button.navbar-toggle data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button"
-        span.sr-only Toggle navigation
-        span.icon-bar
-        span.icon-bar
-        span.icon-bar
-      a.navbar-brand href="#"
-        i class="#{nav['logo']['font_icon']}"
-        = "&nbsp; #{nav['logo']['text']}"
+      .navbar-header
+        button.navbar-toggle data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button"
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a.navbar-brand href="#"
+          i class="#{nav['logo']['font_icon']}"
+          = "&nbsp; #{nav['logo']['text']}"
 
-    #soupcms-navbar-collapse.collapse.navbar-collapse
-      - if nav['menu']['left']
-        ul.nav.navbar-nav
-          - items = nav['menu']['left']
-          - items.each do |item|
-            - if item['submenu'].nil?
-              li
-                a href="#{item['link']}"
-                  - if item['font_icon']
-                    i class="#{item['font_icon']}"
-                    | &nbsp;
-                  = item['label']
-            - if item['submenu']
-              li.dropdown
-                a.dropdown-toggle data-toggle="dropdown" href="#"
-                  - if item['font_icon']
-                    i class="#{item['font_icon']}"
-                    | &nbsp;
-                  = item['label']
-                  b.caret
-                ul.dropdown-menu
-                  - subitems = item['submenu']
-                  - subitems.each do |subitem|
-                    li
-                      a href="#{subitem['link']}"
-                        = subitem['label']
-                        - if subitem['font_icon']
-                          | &nbsp; &nbsp;
-                          i class="#{subitem['font_icon']}"
+      #soupcms-navbar-collapse.collapse.navbar-collapse
+        - if nav['menu']['left']
+          ul.nav.navbar-nav
+            - items = nav['menu']['left']
+            - items.each do |item|
+              - if item['submenu'].nil?
+                li
+                  a href="#{item['link']}"
+                    - if item['font_icon']
+                      i class="#{item['font_icon']}"
+                      | &nbsp;
+                    = item['label']
+              - if item['submenu']
+                li.dropdown
+                  a.dropdown-toggle data-toggle="dropdown" href="#"
+                    - if item['font_icon']
+                      i class="#{item['font_icon']}"
+                      | &nbsp;
+                    = item['label']
+                    b.caret
+                  ul.dropdown-menu
+                    - subitems = item['submenu']
+                    - subitems.each do |subitem|
+                      li
+                        a href="#{subitem['link']}"
+                          = subitem['label']
+                          - if subitem['font_icon']
+                            | &nbsp; &nbsp;
+                            i class="#{subitem['font_icon']}"
 
-      - if nav['menu']['right']
-        ul.nav.navbar-nav.navbar-right
-          - items = nav['menu']['right']
-          - items.each do |item|
-            - if item['submenu'].nil?
-              li
-                a href="#{item['link']}"
-                  - if item['font_icon']
-                    i class="#{item['font_icon']}"
-                    | &nbsp;
-                  = item['label']
-            - if item['submenu']
-              li.dropdown
-                a.dropdown-toggle data-toggle="dropdown" href="#"
-                  = item['label']
-                  b.caret
-                ul.dropdown-menu
-                  - subitems = item['submenu']
-                  - subitems.each do |subitem|
-                    li
-                      a href="#{subitem['link']}"
-                        = subitem['label']
-                        - if subitem['font_icon']
-                          | &nbsp; &nbsp;
-                          i class="#{subitem['font_icon']}"
+        - if nav['menu']['right']
+          ul.nav.navbar-nav.navbar-right
+            - items = nav['menu']['right']
+            - items.each do |item|
+              - if item['submenu'].nil?
+                li
+                  a href="#{item['link']}"
+                    - if item['font_icon']
+                      i class="#{item['font_icon']}"
+                      | &nbsp;
+                    = item['label']
+              - if item['submenu']
+                li.dropdown
+                  a.dropdown-toggle data-toggle="dropdown" href="#"
+                    = item['label']
+                    b.caret
+                  ul.dropdown-menu
+                    - subitems = item['submenu']
+                    - subitems.each do |subitem|
+                      li
+                        a href="#{subitem['link']}"
+                          = subitem['label']
+                          - if subitem['font_icon']
+                            | &nbsp; &nbsp;
+                            i class="#{subitem['font_icon']}"

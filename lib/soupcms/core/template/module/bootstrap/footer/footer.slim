@@ -1,46 +1,47 @@
 - footer = data['footer'][0]
 hr
+.container
 
-h2
-  .row.center-block
-    .pull-right
-      - social = footer['social']
-      - if social['twitter']
-        a href="#{social['twitter']}"
-          i class="fa fa-twitter"
-        | &nbsp;&nbsp;
-      - if social['facebook']
-        a href="#{social['facebook']}"
-          i class="fa fa-facebook"
-        | &nbsp;&nbsp;
-      - if social['plus']
-        a href="#{social['plus']}"
-          i class="fa fa-google-plus"
-        | &nbsp;&nbsp;
-      - if social['youtube']
-        a href="#{social['youtube']}"
-          i class="fa fa-youtube"
-        | &nbsp;&nbsp;
-      - if social['github']
-        a href="#{social['github']}"
-          i class="fa fa-github"
-        | &nbsp;&nbsp;
+  h2
+    .row.center-block
+      .pull-right
+        - social = footer['social']
+        - if social['twitter']
+          a href="#{social['twitter']}"
+            i class="fa fa-twitter"
+          | &nbsp;&nbsp;
+        - if social['facebook']
+          a href="#{social['facebook']}"
+            i class="fa fa-facebook"
+          | &nbsp;&nbsp;
+        - if social['plus']
+          a href="#{social['plus']}"
+            i class="fa fa-google-plus"
+          | &nbsp;&nbsp;
+        - if social['youtube']
+          a href="#{social['youtube']}"
+            i class="fa fa-youtube"
+          | &nbsp;&nbsp;
+        - if social['github']
+          a href="#{social['github']}"
+            i class="fa fa-github"
+          | &nbsp;&nbsp;
 
-.row
-  .col-md-6
-    p
-      | #{footer['copyright']}
-  .col-md-6
-    - if footer['links']
-      - footer['links'].each do |item|
-        .pull-right
-          | &nbsp; &nbsp;
-          a href="#{item['link']}"
-            - if item['font_icon']
-              i class="#{item['font_icon']}"
-              | &nbsp;
-            = "#{item['label']}"
-          | &nbsp; &nbsp;
+  .row
+    .col-md-6
+      p
+        | #{footer['copyright']}
+    .col-md-6
+      - if footer['links']
+        - footer['links'].each do |item|
+          .pull-right
+            | &nbsp; &nbsp;
+            a href="#{item['link']}"
+              - if item['font_icon']
+                i class="#{item['font_icon']}"
+                | &nbsp;
+              = "#{item['label']}"
+            | &nbsp; &nbsp;
 
-.row
-  | &nbsp;
+  .row
+    | &nbsp;
