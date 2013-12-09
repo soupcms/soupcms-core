@@ -1,31 +1,30 @@
 .article-list-view
   - data['posts'].each do |post|
-    .row
-      .post
-        .page-header
-          h1.article-title = post['title']
-          .row.meta-info
-            .date.col-md-2.btn-group
-              btn.btn.btn-success.btn-xs
-                i.fa.fa-calendar
-                | &nbsp; 13 May
-              btn.btn.btn-default.btn-xs 2013
-            .author.col-md-4
+    .post
+      .page-header
+        h1.article-title = post['title']
+        .row.meta-info
+          .date.col-md-3.btn-group
+            btn.btn.btn-success.btn-xs
+              i.fa.fa-calendar
+              | &nbsp; 13 May
+            btn.btn.btn-default.btn-xs 2013
+          .author.col-md-3
+            span
+              i.fa.fa-edit
+              | &nbsp;
+            span
+              | Sunit Parekh
+          .tags.col-md-6
+            .pull-right
               span
-                i.fa.fa-edit
+                i.fa.fa-tags
                 | &nbsp;
               span
-                | Sunit Parekh
-            .tags.col-md-6
-              .pull-right
-                span
-                  i.fa.fa-tags
-                  | &nbsp;
-                span
-                  btn.btn.btn-primary.btn-xs Popular
-                  | &nbsp;
-                span
-                    btn.btn.btn-primary.btn-xs Software Development
+                btn.btn.btn-primary.btn-xs Popular
+                | &nbsp;
+              span
+                  btn.btn.btn-primary.btn-xs Software Development
 
 
-        p.article-description = post['description']
+      p.article-description = post['description']

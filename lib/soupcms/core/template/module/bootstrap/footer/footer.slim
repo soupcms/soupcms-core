@@ -1,7 +1,6 @@
 - footer = data['footer'][0]
 hr
 .container
-
   h2
     .row.center-block
       .pull-right
@@ -26,22 +25,22 @@ hr
           a href="#{social['github']}"
             i class="fa fa-github"
           | &nbsp;&nbsp;
-
-  .row
-    .col-md-6
-      p
-        | #{footer['copyright']}
-    .col-md-6
-      - if footer['links']
-        - footer['links'].each do |item|
-          .pull-right
-            | &nbsp; &nbsp;
-            a href="#{item['link']}"
-              - if item['font_icon']
-                i class="#{item['font_icon']}"
-                | &nbsp;
-              = "#{item['label']}"
-            | &nbsp; &nbsp;
+  .container
+    .row
+      .col-md-6
+        p
+          | #{footer['copyright']}
+      .col-md-6
+        - if footer['links']
+          - footer['links'].each do |item|
+            .pull-right
+              | &nbsp; &nbsp;
+              a href="#{item['link']}"
+                - if item['font_icon']
+                  i class="#{item['font_icon']}"
+                  | &nbsp;
+                = "#{item['label']}"
+              | &nbsp; &nbsp;
 
   .row
     | &nbsp;

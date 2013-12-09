@@ -1,17 +1,16 @@
-doctype
 html lang="en"
   head
     meta charset="utf-8"
     meta content="width=device-width, initial-scale=1.0" name="viewport"
 
-    link href="//fonts.googleapis.com/css?family=Open+Sans:400,300,700" rel="stylesheet" type="text/css"
+    link href="//fonts.googleapis.com/css?family=Roboto:400,400italic,700,300" rel="stylesheet" type="text/css"
     link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"
 
     = page.include_stylesheets
 
     /![if lt IE 9]
-      | <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      | <script src="//oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+      <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="//oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
 
     - if areas['meta']
       .header
@@ -21,17 +20,19 @@ html lang="en"
       title = page['title']
 
   body
-    .container
+    .row
       - if areas['header']
-        .header
+        header
           = areas['header'].html
+    .row
+      .container
+        - if areas['body']
+          main
+            = areas['body'].html
 
-      - if areas['body']
-        .body
-          = areas['body'].html
-
+    .row
       - if areas['footer']
-        .footer
+        footer
           = areas['footer'].html
 
     script src="//code.jquery.com/jquery-2.0.3.min.js"

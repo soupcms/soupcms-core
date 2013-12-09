@@ -1,8 +1,9 @@
 .page-title
   .container
-    h1
-      = data['jumbotron']['title']
-      - if data['jumbotron']['subtitle']
-        small
-          = "&nbsp; #{data['jumbotron']['subtitle']}"
-    .sub-headline = data['jumbotron']['sub_headline']
+    .container
+      h1
+        = data['jumbotron']['title']
+        - if data['jumbotron']['subtitle']
+          small
+            = "&nbsp; #{data['jumbotron']['subtitle']}"
+      .sub-headline = data['jumbotron']['sub_headline']
