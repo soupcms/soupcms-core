@@ -59,5 +59,26 @@ describe SoupCMS::Core::Recipe::SoupCMSApi do
     it { expect(posts[0]['title']).to eq('My first blog post') }
   end
 
+  context 'tag cloud' do
+    let(:recipe) do
+      recipe_json = <<-json
+      {
+          "type": "soupcms-api",
+          "url": "posts/tag-cloud",
+          "return": "tag-cloud"
+      }
+      json
+      SoupCMS::Core::Recipe::SoupCMSApi.new(JSON.parse(recipe_json), page_module)
+    end
+    let(:tagcloud) do
+      stub_request(:get, /posts\/tag\-cloud$/).to_return({body: read_file('posts/tag-cloud')})
+      recipe.execute
+    end
+
+    it { expect(tagcloud).to be_kind_of(Array) }
+    it { expect(tagcloud.size).to eq(5) }
+    it { expect(tagcloud[0]['label']).to eq('Design Principles') }
+  end
+
 
 end

@@ -1,0 +1,27 @@
+[
+    {
+        "label": "Design Principles",
+        "weight": 10,
+        "link": "http://www.soupcms.com/soupcms-test/posts/tags/design-principles"
+    },
+    {
+        "label": "Refactoring",
+        "weight": 35,
+        "link": "http://www.soupcms.com/soupcms-test/posts/tags/refactoring"
+    },
+    {
+        "label": "Agile Methodology",
+        "weight": 143,
+        "link": "http://www.soupcms.com/soupcms-test/posts/tags/agile-methodology"
+    },
+    {
+        "label": "Software Development",
+        "weight": 234,
+        "link": "http://www.soupcms.com/soupcms-test/posts/tags/software-development"
+    },
+    {
+        "label": "Test Driven Development",
+        "weight": 10,
+        "link": "http://www.soupcms.com/soupcms-test/posts/tags/test-driven-development"
+    }
+]

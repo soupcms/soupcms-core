@@ -27,6 +27,11 @@ module SoupCMS
           []
         end
 
+        def fetch_by_url(url)
+          response = connection.get(url)
+          JSON.parse(response.body) if response.status == 200
+        end
+
       end
 
     end
