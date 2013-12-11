@@ -13,6 +13,7 @@ require 'soupcms/core/model/request_context'
 require 'soupcms/core/recipe/inline'
 require 'soupcms/core/recipe/soup_cms_api'
 
+require 'soupcms/core/utils/url_builder'
 require 'soupcms/core/utils/config'
 
 require 'soupcms/core/data/base'
