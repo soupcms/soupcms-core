@@ -17,6 +17,10 @@ module SoupCMS
           @document
         end
 
+        def publish_datetime
+          Time.at(@document['publish_datetime'])
+        end
+
       end
 
 

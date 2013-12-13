@@ -17,19 +17,19 @@ module SoupCMS
         def find_by_key(model, key, value)
           url = "#{model}/#{key}/#{value}"
           response = execute(url)
-          return (JSON.parse(response.body)) if response.status == 200
+          parse_response(response) if response.status == 200
         end
 
         def find(model_name, filters = {})
           url = SoupCMS::Core::Utils::UrlBuilder.build(model_name, filters)
           response = execute(url)
-          return JSON.parse(response.body) if response.status == 200
+          return parse_response(response) if response.status == 200
           []
         end
 
         def fetch_by_url(url)
           response = execute(url)
-          JSON.parse(response.body) if response.status == 200
+          parse_response(response) if response.status == 200
         end
 
         private
@@ -39,6 +39,13 @@ module SoupCMS
             url = url.concat('include=drafts')
           end
           connection.get(url)
+        end
+
+
+        def parse_response(response)
+          docs = JSON.parse(response.body)
+          return docs.collect{ |doc| SoupCMS::Core::Model::Document.new(doc) } if docs.kind_of?(Array)
+          return SoupCMS::Core::Model::Document.new(docs)
         end
 
       end
