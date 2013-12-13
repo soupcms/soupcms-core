@@ -18,12 +18,11 @@
             .pull-right
               span
                 i.fa.fa-tags
-                | &nbsp;
               - post['tags'].each do |tag|
                 span
+                  | &nbsp;
                   a.btn.btn-primary.btn-xs href="#{tag['link']}"
                     = tag['label']
-                  | &nbsp;
 
       - if post['hero_image']
         a.pull-left href="#"
