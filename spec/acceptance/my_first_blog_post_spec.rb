@@ -41,4 +41,14 @@ describe 'Blog Post' do
 
   end
 
+  context 'draft page' do
+
+    it 'should pass draft parameter when requested' do
+      stub_request(:get,/pages\/slug\/home\?include=drafts$/).to_return( { body: read_file('pages/home') } )
+      get '/soupcms-test/home?include=drafts'
+      expect(last_response.status).to eq(200)
+    end
+
+  end
+
 end

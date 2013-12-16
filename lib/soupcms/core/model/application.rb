@@ -11,8 +11,8 @@ module SoupCMS
 
         attr_reader :name
 
-        def soup_cms_api
-          @soup_cms_api ||= SoupCMS::Core::Data::Service.new(self)
+        def soup_cms_api(drafts)
+          SoupCMS::Core::Data::Service.new(self,drafts)
         end
 
         def soup_cms_api_host_url

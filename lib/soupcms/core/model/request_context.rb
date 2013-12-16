@@ -16,6 +16,14 @@ module SoupCMS
           @params.to_hash.delete('route_info')
         end
 
+        def soup_cms_api
+          @soup_cms_api ||= application.soup_cms_api(drafts?)
+        end
+
+        def drafts?
+          params['include'] == 'drafts'
+        end
+
       end
 
     end

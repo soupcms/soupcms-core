@@ -1,43 +1,89 @@
-{
-    "doc_id": 101,
-    "version": 1385717720,
-    "publish_datetime": 1385717720,
-    "create_datetime": 1385717720,
-    "created_by": "sunitparekh",
-    "locale": "en_US",
+[
+    {
+        "doc_id": 101,
+        "version": 1385717720,
+        "publish_datetime": 1385717720,
+        "create_datetime": 1385717720,
+        "created_by": "sunitparekh",
+        "locale": "en_US",
 
-    "slug": "home",
+        "slug": "home",
 
-    "state": "published",
-    "latest": true,
+        "state": "published",
+        "latest": false,
 
-    "title": "Welcome to soupcms, unobtrusive CMS ",
-    "seo": {
-        "keywords": "sunitparekh, sunit, parekh, blog, technical, software",
-        "description": "Sunit Parekh blog"
+        "title": "Welcome to soupcms, unobtrusive CMS ",
+        "seo": {
+            "keywords": "sunitparekh, sunit, parekh, blog, technical, software",
+            "description": "Sunit Parekh blog"
+
+        },
+
+        "areas": [
+            {
+                "name": "body",
+                "modules": [
+                    {
+                        "recipes": [
+                            {
+                                "type": "soupcms-api",
+                                "model": "posts",
+                                "return": "posts"
+                            }
+                        ],
+                        "template": {
+                            "type": "slim",
+                            "name": "bootstrap/article-list-view"
+                        }
+                    }
+                ]
+            }
+        ]
+
 
     },
+    {
+        "doc_id": 101,
+        "version": 1405717720,
+        "publish_datetime": 1405717720,
+        "create_datetime": 1405717720,
+        "created_by": "sunitparekh",
+        "locale": "en_US",
 
-    "areas": [
-        {
-            "name": "body",
-            "modules": [
-                {
-                    "recipes": [
-                        {
-                            "type": "soupcms-api",
-                            "model": "posts",
-                            "return": "posts"
+        "slug": "home",
+
+        "state": "draft",
+        "latest": true,
+
+        "title": "Draft version of home page",
+        "seo": {
+            "keywords": "sunitparekh, sunit, parekh, blog, technical, software",
+            "description": "Sunit Parekh blog"
+
+        },
+
+        "areas": [
+            {
+                "name": "body",
+                "modules": [
+                    {
+                        "recipes": [
+                            {
+                                "type": "soupcms-api",
+                                "model": "posts",
+                                "return": "posts"
+                            }
+                        ],
+                        "template": {
+                            "type": "slim",
+                            "name": "bootstrap/article-list-view"
                         }
-                    ],
-                    "template": {
-                        "type": "slim",
-                        "name": "bootstrap/article-list-view"
                     }
-                }
-            ]
-        }
-    ]
+                ]
+            }
+        ]
 
 
-}
+    }
+
+]

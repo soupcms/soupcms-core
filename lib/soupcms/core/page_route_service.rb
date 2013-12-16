@@ -4,10 +4,13 @@ module SoupCMS
 
       def initialize(context)
         @context = context
-        @soup_cms_api = context.application.soup_cms_api
       end
 
-      attr_reader :context, :soup_cms_api
+      attr_reader :context
+
+      def soup_cms_api
+        context.soup_cms_api
+      end
 
       def route_dsl
         <<-dsl
