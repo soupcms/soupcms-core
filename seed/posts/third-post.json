@@ -11,7 +11,7 @@
     "tags": ["software","agile","third"],
     "slug": "my-third-blog-post",
 
-    "state": "published",
+    "state": "draft",
     "latest": true,
 
     "doc_id": 3,
