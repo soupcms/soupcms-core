@@ -33,7 +33,8 @@ module SoupCMS
         private
 
         def recipes
-          @recipes ||= @module_hash['recipes'].collect { |recipes_hash| ModuleRecipe.new(recipes_hash, self) }
+          recipes_hash = @module_hash['recipes'] || []
+          @recipes ||= recipes_hash.collect { |recipes_hash| ModuleRecipe.new(recipes_hash, self) }
         end
 
         def template

@@ -1,5 +1,5 @@
 {
-    "doc_id": 101,
+    "doc_id": 102,
     "version": 1385717720,
     "publish_datetime":  1385717720,
     "create_datetime": 1385717720,
@@ -10,11 +10,6 @@
     "latest": true,
 
     "model": "posts",
-
-    "layout": {
-        "type": "slim",
-        "name": "bootstrap/default"
-    },
 
     "areas": [
         {

@@ -5,7 +5,7 @@ include SoupCMS::Core::Model
 
 describe SoupCMS::Core::Model::PageModule do
 
-  let(:page) { Page.new({}) }
+  let(:page) { Page.new({'title' => 'Page title'}) }
   let(:page_area) { PageArea.new({},page) }
 
   context 'single inline recipe with jumbotron template' do
@@ -65,6 +65,23 @@ describe SoupCMS::Core::Model::PageModule do
     end
 
     it { expect(html(page_module.render)).to have_text('h1','Tech stuff that matters 2') }
+
+  end
+
+  let(:page_module) do
+    module_json = <<-json
+        {
+            "template": {
+                "type": "slim",
+                "name": "meta/page-title"
+            }
+        }
+    json
+    PageModule.new(JSON.parse(module_json), page_area)
+  end
+
+  it { expect(html(page_module.render)).to have_title('Page title') }
+  context 'no recipe' do
 
   end
 

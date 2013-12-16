@@ -1,21 +1,16 @@
 {
-    "doc_id": 101,
+    "doc_id": 100,
     "version": 1385717720,
     "publish_datetime": 1385717720,
     "create_datetime": 1385717720,
     "created_by": "sunitparekh",
     "locale": "en_US",
 
-    "slug": "home",
-
     "state": "published",
     "latest": true,
 
-    "title": "Welcome to soupcms, unobtrusive CMS ",
-    "seo": {
-        "keywords": "sunitparekh, sunit, parekh, blog, technical, software",
-        "description": "Sunit Parekh blog"
-
+    "meta": {
+        "name" : "enricher"
     },
 
     "layout": {
@@ -58,24 +53,6 @@
                     "template": {
                         "type": "slim",
                         "name": "bootstrap/jumbotron"
-                    }
-                }
-            ]
-        },
-        {
-            "name": "body",
-            "modules": [
-                {
-                    "recipes": [
-                        {
-                            "type": "soupcms-api",
-                            "model": "posts",
-                            "return": "posts"
-                        }
-                    ],
-                    "template": {
-                        "type": "slim",
-                        "name": "bootstrap/article-list-view"
                     }
                 }
             ]
