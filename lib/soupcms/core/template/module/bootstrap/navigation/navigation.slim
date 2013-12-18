@@ -16,54 +16,9 @@
         - if nav['menu']['left']
           ul.nav.navbar-nav
             - items = nav['menu']['left']
-            - items.each do |item|
-              - if item['submenu'].nil?
-                li
-                  a href="#{item['link']}"
-                    - if item['font_icon']
-                      i class="#{item['font_icon']}"
-                      | &nbsp;
-                    = item['label']
-              - if item['submenu']
-                li.dropdown
-                  a.dropdown-toggle data-toggle="dropdown" href="#"
-                    - if item['font_icon']
-                      i class="#{item['font_icon']}"
-                      | &nbsp;
-                    = item['label']
-                    b.caret
-                  ul.dropdown-menu
-                    - subitems = item['submenu']
-                    - subitems.each do |subitem|
-                      li
-                        a href="#{subitem['link']}"
-                          = subitem['label']
-                          - if subitem['font_icon']
-                            | &nbsp; &nbsp;
-                            i class="#{subitem['font_icon']}"
+            == render 'module/bootstrap/navigation/nav.slim', { items: items }
 
         - if nav['menu']['right']
           ul.nav.navbar-nav.navbar-right
             - items = nav['menu']['right']
-            - items.each do |item|
-              - if item['submenu'].nil?
-                li
-                  a href="#{item['link']}"
-                    - if item['font_icon']
-                      i class="#{item['font_icon']}"
-                      | &nbsp;
-                    = item['label']
-              - if item['submenu']
-                li.dropdown
-                  a.dropdown-toggle data-toggle="dropdown" href="#"
-                    = item['label']
-                    b.caret
-                  ul.dropdown-menu
-                    - subitems = item['submenu']
-                    - subitems.each do |subitem|
-                      li
-                        a href="#{subitem['link']}"
-                          = subitem['label']
-                          - if subitem['font_icon']
-                            | &nbsp; &nbsp;
-                            i class="#{subitem['font_icon']}"
+            == render 'module/bootstrap/navigation/nav.slim', { items: items }

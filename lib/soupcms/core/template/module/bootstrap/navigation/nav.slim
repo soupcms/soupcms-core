@@ -1,0 +1,26 @@
+- items = locals[:items]
+- items.each do |item|
+  - if item['submenu'].nil?
+    li
+      a href="#{item['link']}"
+        - if item['font_icon']
+          i class="#{item['font_icon']}"
+          | &nbsp;
+        = item['label']
+  - if item['submenu']
+    li.dropdown
+      a.dropdown-toggle data-toggle="dropdown" href="#"
+        - if item['font_icon']
+          i class="#{item['font_icon']}"
+          | &nbsp;
+        = item['label']
+        b.caret
+      ul.dropdown-menu
+        - subitems = item['submenu']
+        - subitems.each do |subitem|
+          li
+            a href="#{subitem['link']}"
+              = subitem['label']
+              - if subitem['font_icon']
+                | &nbsp; &nbsp;
+                i class="#{subitem['font_icon']}"

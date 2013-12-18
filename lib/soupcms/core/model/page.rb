@@ -7,6 +7,7 @@ module SoupCMS
 
       class Page
         include Sprockets::Helpers
+        include SoupCMS::Core::Utils::RenderPartials
 
         def initialize(page_hash, context = {}, model = {})
           @page_hash = page_hash
