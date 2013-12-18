@@ -1,7 +1,7 @@
 .page-title
   - if data['page-header']['image']
     .image
-      == rimg data['page-header']['image'], 'w_1460,h_200,c_fill', 'w_1048,h_200,c_fill', 'w_320,h_200,c_fill'
+      == rimg data['page-header']['image'], 'w_1460,h_200', 'w_1048,h_200', 'w_320,h_200'
       == render 'module/bootstrap/page-header/text-overlay.slim'
   - else
     == render 'module/bootstrap/page-header/text-overlay.slim'
