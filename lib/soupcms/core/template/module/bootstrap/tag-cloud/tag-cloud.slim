@@ -1,11 +1,12 @@
 .tag-cloud
-  .well.well-sm
-    .lead
-      strong Tags
-    - data['tag-cloud'].each do |tag|
-      .btn-group
-        a.tag.btn.btn-default.btn-xs href="#{tag['link']}"
-          = tag['label']
-        a.tag.btn.btn-primary.btn-xs href="#{tag['link']}"
-          = tag['weight']
-      | &nbsp;
+  .page-header
+    .well.well-sm
+      .lead
+        strong Tags
+      - data['tag-cloud'].each do |tag|
+        .btn-group
+          a.tag.btn.btn-default.btn-xs href="#{tag['link']}"
+            = tag['label']
+          a.tag.btn.btn-primary.btn-xs href="#{tag['link']}"
+            = tag['weight']
+        | &nbsp;

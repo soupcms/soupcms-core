@@ -2,7 +2,7 @@
   - data['posts'].each do |post|
     .post
       .page-header
-        h1.article-title = post['title']
+        h2.article-title = post['title']
         .row.meta-info
           .date.col-md-3.btn-group
             btn.btn.btn-success.btn-xs
@@ -25,6 +25,5 @@
                 | &nbsp;
               span
                   btn.btn.btn-primary.btn-xs Software Development
-
 
       p.article-description = post['description']
