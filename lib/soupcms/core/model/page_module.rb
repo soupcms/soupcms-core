@@ -32,7 +32,7 @@ module SoupCMS
           template.stylesheet
         end
 
-        def rimg(image, desktop, tablet, mobile)
+        def rimg(image, desktop, tablet = nil, mobile = nil)
           image = SoupCMS::Core::Model::ResponsiveImage.build(image, desktop, tablet, mobile)
           Tilt.new("#{SoupCMSApp.config.template_dir}/system/responsive-img.slim").render(image, {'page_module' => self})
         end

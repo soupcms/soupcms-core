@@ -4,6 +4,20 @@ module SoupCMS
 
       class ResponsiveImage
 
+        def self.register(source,klass)
+          @@providers ||= {}
+          @@providers[source] = klass
+        end
+
+        def self.clear_all
+          @@providers = {}
+        end
+
+        def self.build(image_hash, desktop, tablet, mobile)
+          provider = @@providers[image_hash['source']]
+          provider.new(image_hash, desktop, tablet, mobile)
+        end
+
         def initialize(image_hash, desktop, tablet, mobile)
           @image_hash = image_hash
           @desktop = desktop
@@ -12,11 +26,6 @@ module SoupCMS
         end
 
         attr_reader :image_hash
-
-        def self.build(image_hash, desktop, tablet, mobile)
-          #TODO: later support dynamic images from source other than cloudinary based on source in the image_hash
-          SoupCMS::Core::Model::CloudinaryResponsiveImage.new(image_hash, desktop, tablet, mobile)
-        end
 
         def desktop_url
           build_url(desktop_size, desktop_image)
@@ -57,7 +66,7 @@ module SoupCMS
         end
 
         def tablet_image
-          @image_hash['tablet'] || @image_hash['desktop']
+          @image_hash['tablet'] || desktop_image
         end
 
         def mobile_size
@@ -65,15 +74,15 @@ module SoupCMS
         end
 
         def mobile_image
-          @image_hash['mobile'] || @image_hash['tablet'] || @image_hash['desktop']
+          @image_hash['mobile'] || tablet_image || desktop_image
         end
 
-        def width(size)
-          size.split(',').select { |part| part.match(/^w/) }[0]
+        def retina_size(size)
+          raise 'implement retina_size method for the provider'
         end
 
-        def height(size)
-          size.split(',').select { |part| part.match(/^h/) }[0]
+        def build_url(size,image)
+          raise 'implement retina_size method for the provider'
         end
 
       end

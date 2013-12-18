@@ -1,6 +1,11 @@
 {
     "title": "My first blog post",
     "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac pretium metus, vitae vehicula libero. Integer eget nisi porttitor, pulvinar purus eget, commodo nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce fermentum viverra lorem ut porttitor. Praesent semper est sed augue consequat, eu placerat mi dapibus. Morbi pellentesque tellus in leo molestie, vel feugiat turpis tincidunt. Maecenas varius sagittis dictum. Ut aliquam mi vel sem vestibulum laoreet. Praesent magna nibh, rhoncus et leo a, cursus porttitor libero.",
+    "hero_image": {
+        "source": "cdnconnect",
+        "base_url": "http://sunitparekh.cdnconnect.com/soupcms-blog",
+        "desktop": "cms-patterns.png"
+    },
     "content": "This is my first blog post and I am really excited about this. \n I hope u will enjoy it. \n Thanks - Sunit",
     "author": {
         "name" : "Sunit Parekh",

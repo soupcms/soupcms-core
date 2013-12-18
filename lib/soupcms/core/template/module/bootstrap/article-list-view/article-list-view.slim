@@ -24,6 +24,9 @@
                 btn.btn.btn-primary.btn-xs Popular
                 | &nbsp;
               span
-                  btn.btn.btn-primary.btn-xs Software Development
+                btn.btn.btn-primary.btn-xs Software Development
 
-      p.article-description = post['description']
+      - if post['hero_image']
+        a.pull-left href="#"
+          == rimg post['hero_image'], 'w_300'
+      p = post['description']

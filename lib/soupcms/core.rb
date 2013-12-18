@@ -5,6 +5,7 @@ require 'soupcms/core/utils/url_builder'
 
 require 'soupcms/core/model/responsive_image'
 require 'soupcms/core/model/cloudinary_responsive_image'
+require 'soupcms/core/model/cdnconnect_responsive_image'
 
 require 'soupcms/core/model/application'
 require 'soupcms/core/model/document'

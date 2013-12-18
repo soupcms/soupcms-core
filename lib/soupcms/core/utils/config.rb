@@ -12,6 +12,10 @@ module SoupCMS
             'inline' => SoupCMS::Core::Recipe::Inline,
             'soupcms-api' => SoupCMS::Core::Recipe::SoupCMSApi
         }
+        RESPONSIVE_IMAGE_PROVIDERS = {
+            'cloudinary' => SoupCMS::Core::Model::CloudinaryResponsiveImage,
+            'cdnconnect' => SoupCMS::Core::Model::CdnConnectResponsiveImage
+        }
       end
 
       class Config
@@ -28,6 +32,10 @@ module SoupCMS
             config.public_path = nil
           end
           Slim::Engine.set_default_options pretty: true, disable_escape: true
+
+          ConfigDefaults::RESPONSIVE_IMAGE_PROVIDERS.each { |source,provider|
+            SoupCMS::Core::Model::ResponsiveImage.register source,provider
+          }
         end
 
         attr_accessor :soup_cms_api_host_url
