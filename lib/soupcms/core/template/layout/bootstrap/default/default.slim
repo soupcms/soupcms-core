@@ -19,20 +19,15 @@ html lang="en"
       title = page['title']
 
   body
-    .row
-      - if areas['header']
-        header
-          = areas['header'].html
-    .row
-      .container
-        - if areas['body']
-          main
-            = areas['body'].html
-
-    .row
-      - if areas['footer']
-        footer
-          = areas['footer'].html
+    - if areas['header']
+      header
+        = areas['header'].html
+    - if areas['body']
+      main
+        = areas['body'].html
+    - if areas['footer']
+      footer
+        = areas['footer'].html
 
     script src="//code.jquery.com/jquery-2.0.3.min.js"
     = page.include_javascripts
