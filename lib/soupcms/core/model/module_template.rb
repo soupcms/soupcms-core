@@ -16,7 +16,7 @@ module SoupCMS
           if inline_template
             Tilt.new(type) { inline_template }.render(@page_module)
           else
-            Tilt.new(template_file,{disable_escape: true}).render(@page_module)
+            Tilt.new(template_file).render(@page_module)
           end
         end
 

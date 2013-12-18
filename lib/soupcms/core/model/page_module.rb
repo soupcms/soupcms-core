@@ -19,7 +19,7 @@ module SoupCMS
         def render
           recipes.collect { |recipe| recipe.execute }
           module_html = template.render
-          @html = Tilt.new(module_wrapper_template,{disable_escape: true}).render(self, {html: module_html})
+          @html = Tilt.new(module_wrapper_template).render(self, {html: module_html})
         end
 
         def javascript
@@ -32,7 +32,7 @@ module SoupCMS
 
         def rimg(image, desktop, tablet, mobile)
           image = SoupCMS::Core::Model::ResponsiveImage.build(image, desktop, tablet, mobile)
-          Tilt.new("#{SoupCMSApp.config.template_dir}/system/responsive-img.slim",{disable_escape: true}).render(image, {'page_module' => self})
+          Tilt.new("#{SoupCMSApp.config.template_dir}/system/responsive-img.slim").render(image, {'page_module' => self})
         end
 
         private

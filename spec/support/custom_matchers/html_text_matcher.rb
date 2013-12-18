@@ -3,9 +3,9 @@ require 'rspec/expectations'
 RSpec::Matchers.define :have_text do |css_matcher,expected,index|
   match do |actual|
     if index.nil?
-      actual.css(css_matcher).text == expected
+      actual.css(css_matcher).text.strip == expected
     else
-      actual.css(css_matcher)[index].text == expected
+      actual.css(css_matcher)[index].text.strip == expected
     end
   end
   failure_message_for_should do |actual|

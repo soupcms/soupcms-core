@@ -27,6 +27,7 @@ module SoupCMS
             config.prefix = '/assets'
             config.public_path = nil
           end
+          Slim::Engine.set_default_options pretty: true, disable_escape: true
         end
 
         attr_accessor :soup_cms_api_host_url

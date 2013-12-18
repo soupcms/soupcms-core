@@ -10,7 +10,7 @@ module SoupCMS
         end
 
         def render
-          Tilt.new(layout_file,{disable_escape: true}).render(@page)
+          Tilt.new(layout_file).render(@page)
         end
 
         def javascript

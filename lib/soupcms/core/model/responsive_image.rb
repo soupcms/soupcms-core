@@ -86,7 +86,6 @@ module SoupCMS
         end
 
         def base_url
-          puts image_hash['base_url']
           image_hash['base_url']
         end
 
