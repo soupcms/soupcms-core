@@ -2,11 +2,10 @@
   .text
     h1
       = data['page-header']['title']
-      - if data['page-header']['subtitle']
-        small
-          = "&nbsp; #{data['page-header']['subtitle']}"
+    - if data['page-header']['subtitle']
+      h3.hidden-lg = data['page-header']['subtitle']
     - if data['page-header']['sub_headline']
-      h3 = data['page-header']['sub_headline']
+      h3.visible-lg = data['page-header']['sub_headline']
 
 
 

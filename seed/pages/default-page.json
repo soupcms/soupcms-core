@@ -45,7 +45,7 @@
                             "data": {
                                 "title": "soupCMS",
                                 "subtitle": "unobtrusive CMS framework",
-                                "sub_headline": "CMS framework that integrates within your application without hassles",
+                                "sub_headline": "unobtrusive CMS framework that integrates within your application",
                                 "image": {
                                     "source": "cloudinary",
                                     "base_url": "http://res.cloudinary.com/sunitparekh/image/upload",

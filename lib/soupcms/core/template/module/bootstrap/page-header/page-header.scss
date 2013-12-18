@@ -1,12 +1,14 @@
 .page-title {
   margin-bottom: 20px;
   background-color: #f5f5f5;
+  max-height: 200px;
+  overflow: hidden;
 
   .image {
     position: relative;
     .text {
       position: absolute;
-      top: 50px;
+      top: 25px;
       background-color: #f5f5f5;
       padding: 10px;
       opacity:0.7;
