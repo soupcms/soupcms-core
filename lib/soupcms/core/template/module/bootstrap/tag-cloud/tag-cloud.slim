@@ -1,7 +1,8 @@
-.well
-  h3 Tag cloud
-  - data['tag-cloud'].each do |tag|
-    span
+.tag-cloud
+  .well.well-sm
+    .lead
+      strong Tags
+    - data['tag-cloud'].each do |tag|
       .btn-group
         a.tag.btn.btn-default.btn-xs href="#{tag['link']}"
           = tag['label']

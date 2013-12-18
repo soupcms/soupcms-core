@@ -1,13 +1,10 @@
 .page-title
-  .image
-    - if data['page-header']['image']
+  - if data['page-header']['image']
+    .image
       == rimg data['page-header']['image'], 'w_1460,h_200,c_fill', 'w_768,h_250,c_crop', 'w_320,h_300,c_crop'
-    .container
-      .text
-        h1
-          = data['page-header']['title']
-          - if data['page-header']['subtitle']
-            small
-              = "&nbsp; #{data['page-header']['subtitle']}"
-        - if data['page-header']['sub_headline']
-          .sub-headline = data['page-header']['sub_headline']
+      == render 'module/bootstrap/page-header/text-overlay.slim'
+  - else
+    == render 'module/bootstrap/page-header/text-overlay.slim'
+
+
+
