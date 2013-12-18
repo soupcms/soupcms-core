@@ -16,7 +16,7 @@ module SoupCMS
           page_area.page
         end
 
-        def render
+        def render_module
           recipes.collect { |recipe| recipe.execute }
           module_html = template.render
           @html = Tilt.new(module_wrapper_template).render(self, {html: module_html})

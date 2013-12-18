@@ -30,8 +30,8 @@ describe SoupCMS::Core::Model::PageModule do
       PageModule.new(JSON.parse(module_json), page_area)
     end
 
-    it { expect(html(page_module.render)).to have_text('//h1','Tech stuff that matters') }
-    #it { expect(html(page_module.render)).to have_attribute('div.module','data-module-name','Tech stuff that matters') }
+    it { expect(html(page_module.render_module)).to have_text('//h1','Tech stuff that matters') }
+    #it { expect(html(page_module.render_module)).to have_attribute('div.module','data-module-name','Tech stuff that matters') }
 
   end
 
@@ -64,7 +64,7 @@ describe SoupCMS::Core::Model::PageModule do
       PageModule.new(JSON.parse(module_json), page_area)
     end
 
-    it { expect(html(page_module.render)).to have_text('h1','Tech stuff that matters 2') }
+    it { expect(html(page_module.render_module)).to have_text('h1','Tech stuff that matters 2') }
 
   end
 
@@ -80,7 +80,7 @@ describe SoupCMS::Core::Model::PageModule do
     PageModule.new(JSON.parse(module_json), page_area)
   end
 
-  it { expect(html(page_module.render)).to have_title('Page title') }
+  it { expect(html(page_module.render_module)).to have_title('Page title') }
   context 'no recipe' do
 
   end

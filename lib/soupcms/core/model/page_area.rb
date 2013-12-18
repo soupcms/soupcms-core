@@ -18,8 +18,8 @@ module SoupCMS
           @modules ||= @area_hash['modules'].collect { |module_hash| PageModule.new(module_hash, self) }
         end
 
-        def render
-          modules.collect { |page_module| page_module.render }.join("\n")
+        def render_area
+          modules.collect { |page_module| page_module.render_module }.join("\n")
         end
 
         def javascripts

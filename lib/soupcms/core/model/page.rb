@@ -16,8 +16,8 @@ module SoupCMS
 
         attr_accessor :context, :model
 
-        def render
-          areas.each { |name, area| area.html = area.render }
+        def render_page
+          areas.each { |name, area| area.html = area.render_area }
           layout.render
         end
 
