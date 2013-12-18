@@ -16,12 +16,12 @@
                                 "title": "title 1",
                                 "subHeadline": "sub headline 1"
                             },
-                            "return": "jumbotron"
+                            "return": "page-header"
                         }
                     ],
                     "template": {
                         "type": "slim",
-                        "name": "bootstrap/jumbotron"
+                        "name": "bootstrap/page-header"
                     }
                 },
                 {
@@ -32,12 +32,12 @@
                                 "title": "title 2",
                                 "subHeadline": "sub headline 2"
                             },
-                            "return": "jumbotron"
+                            "return": "page-header"
                         }
                     ],
                     "template": {
                         "type": "slim",
-                        "name": "bootstrap/jumbotron"
+                        "name": "bootstrap/page-header"
                     }
                 }
             ]

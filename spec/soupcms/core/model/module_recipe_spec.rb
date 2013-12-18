@@ -15,7 +15,7 @@ describe SoupCMS::Core::Model::ModuleRecipe do
           "data": {
               "title": "Tech stuff that matters"
           },
-          "return": "jumbotron"
+          "return": "page-header"
       }
       recipe_json
       ModuleRecipe.new(JSON.parse(recipe_json), page_module)
@@ -27,7 +27,7 @@ describe SoupCMS::Core::Model::ModuleRecipe do
 
     it 'should set data in the page with return object name' do
       recipe.execute
-      expect(page_module.data['jumbotron']['title']).to eq('Tech stuff that matters')
+      expect(page_module.data['page-header']['title']).to eq('Tech stuff that matters')
     end
 
   end

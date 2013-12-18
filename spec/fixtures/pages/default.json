@@ -20,7 +20,7 @@
                     ],
                     "template": {
                         "type": "slim",
-                        "name": "bootstrap/jumbotron"
+                        "name": "bootstrap/page-header"
                     }
                 }
             ]

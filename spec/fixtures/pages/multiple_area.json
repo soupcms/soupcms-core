@@ -16,12 +16,12 @@
                                 "title": "Tech stuff that matters",
                                 "subHeadline": "place where I write about technical solutions tried & implemented by me"
                             },
-                            "return": "jumbotron"
+                            "return": "page-header"
                         }
                     ],
                     "template": {
                         "type": "slim",
-                        "name": "bootstrap/jumbotron"
+                        "name": "bootstrap/page-header"
                     }
                 }
             ]
@@ -37,12 +37,12 @@
                                 "title": "Tech stuff that matters",
                                 "subHeadline": "place where I write about technical solutions tried & implemented by me"
                             },
-                            "return": "jumbotron"
+                            "return": "page-header"
                         }
                     ],
                     "template": {
                         "type": "slim",
-                        "name": "bootstrap/jumbotron"
+                        "name": "bootstrap/page-header"
                     }
                 }
             ]

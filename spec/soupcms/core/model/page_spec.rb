@@ -14,8 +14,8 @@ describe SoupCMS::Core::Model::Page do
 
     it { expect(page.javascripts.size).to be >= 2 }
     it { expect(page.stylesheets.size).to be >= 2 }
-    it { expect(page.javascripts).to include('module/bootstrap/jumbotron/jumbotron.js') }
-    it { expect(page.stylesheets).to include('module/bootstrap/jumbotron/jumbotron.css') }
+    it { expect(page.javascripts).to include('module/bootstrap/page-header/page-header.js') }
+    it { expect(page.stylesheets).to include('module/bootstrap/page-header/page-header.css') }
 
   end
 
@@ -30,8 +30,8 @@ describe SoupCMS::Core::Model::Page do
     context 'duplicate modules js and css should be removed' do
       it { expect(page.javascripts.size).to be >= 2 }
       it { expect(page.stylesheets.size).to be >= 2 }
-      it { expect(page.javascripts).to include('module/bootstrap/jumbotron/jumbotron.js') }
-      it { expect(page.stylesheets).to include('module/bootstrap/jumbotron/jumbotron.css') }
+      it { expect(page.javascripts).to include('module/bootstrap/page-header/page-header.js') }
+      it { expect(page.stylesheets).to include('module/bootstrap/page-header/page-header.css') }
     end
 
   end

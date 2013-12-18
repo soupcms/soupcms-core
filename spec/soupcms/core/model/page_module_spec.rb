@@ -8,7 +8,7 @@ describe SoupCMS::Core::Model::PageModule do
   let(:page) { Page.new({'title' => 'Page title'}) }
   let(:page_area) { PageArea.new({},page) }
 
-  context 'single inline recipe with jumbotron template' do
+  context 'single inline recipe with page-header template' do
     let(:page_module) do
       module_json = <<-json
         {
@@ -18,12 +18,12 @@ describe SoupCMS::Core::Model::PageModule do
                     "data": {
                         "title": "Tech stuff that matters"
                     },
-                    "return": "jumbotron"
+                    "return": "page-header"
                 }
             ],
             "template": {
                 "type": "slim",
-                "name": "bootstrap/jumbotron"
+                "name": "bootstrap/page-header"
             }
         }
       json
@@ -35,7 +35,7 @@ describe SoupCMS::Core::Model::PageModule do
 
   end
 
-  context 'multiple inline recipe with jumbotron template' do
+  context 'multiple inline recipe with page-header template' do
     let(:page_module) do
       module_json = <<-json
         {
@@ -45,19 +45,19 @@ describe SoupCMS::Core::Model::PageModule do
                     "data": {
                         "title": "Tech stuff that matters 1"
                     },
-                    "return": "jumbotron"
+                    "return": "page-header"
                 },
                 {
                     "type": "inline",
                     "data": {
                         "title": "Tech stuff that matters 2"
                     },
-                    "return": "jumbotron"
+                    "return": "page-header"
                 }
             ],
             "template": {
                 "type": "slim",
-                "name": "bootstrap/jumbotron"
+                "name": "bootstrap/page-header"
             }
         }
       json

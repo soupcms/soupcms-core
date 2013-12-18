@@ -30,6 +30,11 @@ module SoupCMS
           template.stylesheet
         end
 
+        def rimg(image, desktop, tablet, mobile)
+          image = SoupCMS::Core::Model::ResponsiveImage.build(image, desktop, tablet, mobile)
+          Tilt.new("#{SoupCMSApp.config.template_dir}/system/responsive-img.slim",{disable_escape: true}).render(image, {'page_module' => self})
+        end
+
         private
 
         def recipes

@@ -17,8 +17,8 @@ describe 'Blog Post' do
 
     it { expect(last_response.status).to eq(200) }
     it { expect(html_response).to have_title('Page title') }
-    it { expect(html_response).to have_attribute("link[href='/assets/module/bootstrap/jumbotron/jumbotron.css']",'href','/assets/module/bootstrap/jumbotron/jumbotron.css')}
-    it { expect(html_response).to have_attribute("script[src='/assets/module/bootstrap/jumbotron/jumbotron.js']",'src','/assets/module/bootstrap/jumbotron/jumbotron.js')}
+    it { expect(html_response).to have_attribute("link[href='/assets/module/bootstrap/page-header/page-header.css']",'href','/assets/module/bootstrap/page-header/page-header.css')}
+    it { expect(html_response).to have_attribute("script[src='/assets/module/bootstrap/page-header/page-header.js']",'src','/assets/module/bootstrap/page-header/page-header.js')}
   end
 
   context 'bad request urls' do
