@@ -1,0 +1,48 @@
+[
+    {
+        "doc_id": 103,
+        "version": 1385717720,
+        "publish_datetime": 1385717720,
+        "create_datetime": 1385717720,
+        "created_by": "sunitparekh",
+        "locale": "en_US",
+
+        "slug": "latest",
+
+        "state": "published",
+        "latest": false,
+
+        "title": "Latest blog posts on soupCMS",
+        "seo": {
+            "keywords": "sunitparekh, sunit, parekh, blog, technical, software",
+            "description": "Sunit Parekh blog"
+
+        },
+
+        "layout": {
+            "type": "slim",
+            "name": "bootstrap/default"
+        },
+
+        "areas": [
+            {
+                "name": "body",
+                "modules": [
+                    {
+                        "recipes": [
+                            {
+                                "type": "soupcms-api",
+                                "model": "posts",
+                                "return": "posts"
+                            }
+                        ],
+                        "template": {
+                            "type": "slim",
+                            "name": "bootstrap/article-tile-view"
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+]

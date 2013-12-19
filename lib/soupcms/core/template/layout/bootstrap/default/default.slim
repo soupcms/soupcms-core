@@ -23,8 +23,9 @@ html lang="en"
       header
         = areas['header'].html
     - if areas['body']
-      main
-        = areas['body'].html
+      .container
+        main
+          = areas['body'].html
     - if areas['footer']
       footer
         = areas['footer'].html

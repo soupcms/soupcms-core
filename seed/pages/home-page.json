@@ -33,7 +33,7 @@
                         ],
                         "template": {
                             "type": "slim",
-                            "name": "bootstrap/article-tile-view"
+                            "name": "bootstrap/article-list-view"
                         }
                     }
                 ]
