@@ -13,7 +13,7 @@ module SoupCMS
           @@providers = {}
         end
 
-        def self.build(image_hash, desktop, tablet, mobile)
+        def self.build(image_hash, desktop, tablet = nil, mobile = nil)
           provider = @@providers[image_hash['source']]
           provider.new(image_hash, desktop, tablet, mobile)
         end

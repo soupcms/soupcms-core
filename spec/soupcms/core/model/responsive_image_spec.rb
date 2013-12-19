@@ -32,7 +32,7 @@ describe SoupCMS::Core::Model::ResponsiveImage do
       it { expect(image.mobile_retina_url).to eq('http://t.co/image/w_960,h_400,c_crop/img1m.jpg') }
     end
 
-    context 'default crop as fill' do
+    context 'default crop as fit' do
       let(:image) { SoupCMS::Core::Model::ResponsiveImage.build(JSON.parse(image_hash), 'w_1660,h_200', 'w_960,h_200', 'w_480,h_200') }
       it { expect(image.desktop_retina_url).to eq('http://t.co/image/w_3320,h_400,c_fit/img1.jpg') }
       it { expect(image.tablet_retina_url).to eq('http://t.co/image/w_1920,h_400,c_fit/img1.jpg') }
@@ -64,6 +64,25 @@ describe SoupCMS::Core::Model::ResponsiveImage do
       it { expect(image.desktop_retina_url).to eq('http://t.co/image/img1.jpg?w=1660&h=200&x=2&mode=max') }
       it { expect(image.tablet_retina_url).to eq('http://t.co/image/img1.jpg?w=960&h=200&x=2&mode=max') }
       it { expect(image.mobile_retina_url).to eq('http://t.co/image/img1m.jpg?w=480&h=200&x=2&mode=max') }
+    end
+
+    context 'crop mapping from cloudinary' do
+      it 'should map pad to default' do
+        image = SoupCMS::Core::Model::ResponsiveImage.build(JSON.parse(image_hash), 'w_1660,h_200,c_pad')
+        expect(image.desktop_url).to eq('http://t.co/image/img1.jpg?w=1660&h=200&mode=default')
+      end
+
+      it 'should map fill to crop' do
+        image = SoupCMS::Core::Model::ResponsiveImage.build(JSON.parse(image_hash), 'w_1660,h_200,c_fill')
+        expect(image.desktop_url).to eq('http://t.co/image/img1.jpg?w=1660&h=200&mode=crop')
+      end
+
+      it 'should map scale to stretch' do
+        image = SoupCMS::Core::Model::ResponsiveImage.build(JSON.parse(image_hash), 'w_1660,h_200,c_scale')
+        expect(image.desktop_url).to eq('http://t.co/image/img1.jpg?w=1660&h=200&mode=stretch')
+      end
+
+
     end
 
   end
