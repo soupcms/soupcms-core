@@ -43,7 +43,7 @@
                         {
                             "type": "inline",
                             "data": {
-                                "title": "soupCMS",
+                                "title": "soupCMS blog",
                                 "subtitle": "unobtrusive CMS framework",
                                 "sub_headline": "unobtrusive CMS framework that integrates within your application",
                                 "image": {

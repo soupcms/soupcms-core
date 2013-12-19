@@ -1,7 +1,6 @@
 .article-tile-view
-  ul
   - data['posts'].each do |post|
-    li.tile.col-md-3
+    .tile.col-md-3
       .thumbnail
         - if post['hero_image']
           == rimg post['hero_image'], 'w_250,h_200'
@@ -10,3 +9,4 @@
 
         .caption
           .lead = post['title']
+          a.btn.btn-primary href="#{post['url']}" Read
