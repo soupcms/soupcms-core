@@ -34,9 +34,9 @@ describe SoupCMS::Core::Model::ResponsiveImage do
 
     context 'default crop as fill' do
       let(:image) { SoupCMS::Core::Model::ResponsiveImage.build(JSON.parse(image_hash), 'w_1660,h_200', 'w_960,h_200', 'w_480,h_200') }
-      it { expect(image.desktop_retina_url).to eq('http://t.co/image/w_3320,h_400,c_fill/img1.jpg') }
-      it { expect(image.tablet_retina_url).to eq('http://t.co/image/w_1920,h_400,c_fill/img1.jpg') }
-      it { expect(image.mobile_retina_url).to eq('http://t.co/image/w_960,h_400,c_fill/img1m.jpg') }
+      it { expect(image.desktop_retina_url).to eq('http://t.co/image/w_3320,h_400,c_fit/img1.jpg') }
+      it { expect(image.tablet_retina_url).to eq('http://t.co/image/w_1920,h_400,c_fit/img1.jpg') }
+      it { expect(image.mobile_retina_url).to eq('http://t.co/image/w_960,h_400,c_fit/img1m.jpg') }
     end
 
   end

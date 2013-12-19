@@ -1,0 +1,12 @@
+.article-tile-view
+  ul
+  - data['posts'].each do |post|
+    li.tile.col-md-4
+      .thumbnail
+        - if post['hero_image']
+          == rimg post['hero_image'], 'w_250,h_200'
+        - else
+          img data-src="holder.js/250x200/lava"
+
+        .caption
+          .lead = post['title']

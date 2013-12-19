@@ -17,6 +17,10 @@ module SoupCMS
         def build_params(size)
           params = size.gsub('_','=').gsub(',','&')
           params.concat("&#{image_hash['params']}") if image_hash['params']
+          params.gsub!('c=pad','mode=default')
+          params.gsub!('c=fit','mode=max')
+          params.gsub!('c=fill','mode=crop')
+          params.gsub!('c=scale','mode=stretch')
           params.concat('&mode=max') unless params.include?('mode=')
           params
         end

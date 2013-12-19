@@ -49,7 +49,9 @@
                                 "image": {
                                     "source": "cloudinary",
                                     "base_url": "http://res.cloudinary.com/sunitparekh/image/upload",
-                                    "desktop": "purple-textures-low_xiamgc.jpg"
+                                    "desktop": "purple-textures-low_xiamgc.jpg",
+                                    "params": "c_fill"
+
                                 }
                             },
                             "return": "page-header"

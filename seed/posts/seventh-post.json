@@ -1,0 +1,28 @@
+{
+    "title": "My seventh blog post with long title of the post",
+    "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac pretium metus, vitae vehicula libero. Integer eget nisi porttitor, pulvinar purus eget, commodo nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce fermentum viverra lorem ut porttitor. Praesent semper est sed augue consequat, eu placerat mi dapibus. Morbi pellentesque tellus in leo molestie, vel feugiat turpis tincidunt. Maecenas varius sagittis dictum. Ut aliquam mi vel sem vestibulum laoreet. Praesent magna nibh, rhoncus et leo a, cursus porttitor libero.",
+    "hero_image": {
+        "source": "cloudinary",
+        "base_url": "http://res.cloudinary.com/sunitparekh/image/upload",
+        "desktop": "cms-patterns_uzhgaa.png"
+    },
+    "content": "This is my seventh blog post and I am really exiced about this. \n I hope u will enjoy it. \n Thanks - Sunit",
+    "author": {
+        "name" : "Sunit Parekh",
+        "twitter_handle" : "sunitparekh",
+        "email" : "parekh.sunit@gmail.com"
+    },
+
+    "tags": ["software","agile","fourth","popular"],
+    "slug": "my-seventh-blog-post",
+
+    "state": "published",
+    "latest": true,
+
+    "doc_id": 7,
+    "version": 1406717720,
+    "publish_datetime":  1406717720,
+    "create_datetime": 1406717720,
+    "created_by": "sunitparekh",
+    "locale": "en_US"
+}
