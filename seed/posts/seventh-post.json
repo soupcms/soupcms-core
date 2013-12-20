@@ -6,7 +6,7 @@
         "base_url": "http://res.cloudinary.com/sunitparekh/image/upload",
         "desktop": "cms-patterns_uzhgaa.png"
     },
-    "content": "This is my seventh blog post and I am really exiced about this. \n I hope u will enjoy it. \n Thanks - Sunit",
+    "content": "$file:README.md",
     "author": {
         "name" : "Sunit Parekh",
         "twitter_handle" : "sunitparekh",

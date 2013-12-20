@@ -39,7 +39,7 @@ module SoupCMS
           model_hash = soup_cms_api.find_by_key(model_name, 'slug', slug)
           if model_hash
             model = SoupCMS::Core::Model::Document.new(model_hash)
-            page_hash = soup_cms_api.find_by_key('pages', 'model', model_name)
+            page_hash = soup_cms_api.find_by_key('pages', 'meta.model', model_name)
             page = SoupCMS::Core::Model::Page.new(page_hash, context, model) if page_hash
           end
         end

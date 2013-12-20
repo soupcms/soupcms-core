@@ -21,7 +21,39 @@ task :seed do
     puts "Importing file... #{file}"
     file =  File.new(file)
     model = file.path.split('/')[1]
-    db[model].insert(JSON.parse(file.read))
+    document_hash = JSON.parse(file.read)
+    document = ParseFileContent.new(File.dirname(file)).parse(document_hash)
+    db[model].insert(document)
   end
   conn.close
+end
+
+
+class ParseFileContent
+
+  def initialize(path)
+    @path = path
+  end
+
+  def parse(document)
+    if document.kind_of?(Array)
+      document.collect { |doc| parse_for_file(doc) }
+    elsif document.kind_of?(Hash)
+      parse_for_file(document)
+    end
+  end
+
+  def parse_for_file(document)
+    document.each do |key, value|
+      if value.kind_of?(Array)
+        document[key] = value.collect { |item| item.kind_of?(Hash) ? parse_for_file(item) : item }
+      elsif value.kind_of?(Hash)
+        document[key] = parse_for_file(value)
+      elsif value.kind_of?(String) && value.match(/^\$file:/)
+        document[key] = File.read(File.join(@path,value.match(/\$file:([\w\.\-]*)/).captures[0]))
+      end
+    end
+    @document = document
+  end
+
 end

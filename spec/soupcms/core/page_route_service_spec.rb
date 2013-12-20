@@ -28,7 +28,7 @@ describe SoupCMS::Core::PageRouteService do
   context 'model slugs' do
     it 'should find a page with model' do
       stub_request(:get, /posts\/slug\/my-first-blog-post$/).to_return({body: {document: 'document'}.to_json})
-      stub_request(:get, /pages\/model\/posts$/).to_return({body: read_file('pages/home')})
+      stub_request(:get, /pages\/meta\.model\/posts$/).to_return({body: read_file('pages/home')})
       page = page_route_service.find('/posts/my-first-blog-post')
       expect(page).to be_kind_of(Page)
       expect(page.model).to be_kind_of(Document)

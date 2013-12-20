@@ -1,7 +1,7 @@
 {
     "doc_id": 102,
     "version": 1385717720,
-    "publish_datetime":  1385717720,
+    "publish_datetime": 1385717720,
     "create_datetime": 1385717720,
     "created_by": "sunitparekh",
     "locale": "en_US",
@@ -9,49 +9,24 @@
     "state": "published",
     "latest": true,
 
-    "model": "posts",
+    "meta": {
+        "model": "posts"
+    },
+
+    "layout": {
+        "type": "slim",
+        "name": "bootstrap/default"
+    },
 
     "areas": [
         {
             "name": "body",
-            "modules" : [
+            "modules": [
                 {
-                    "recipes": [
-                        {
-                            "type": "soupcms-api",
-                            "model": "#{context['model']}",
-                            "match": {
-                                "slug": "#{context['slug']}"
-                            },
-                            "return": "document"
-                        }
-                    ],
-                    "postProcessors":[
-                        {
-                            "name":"markdown",
-                            "fields": ["data['document']['content']"]
-                        }
-                    ],
+
                     "template": {
                         "type": "slim",
                         "name": "bootstrap/article"
-                    }
-                },
-                {
-                    "recipes": [
-                        {
-                            "type": "soupcms-api",
-                            "model": "posts",
-                            "match": {
-                                "tags": "#{data['document']['tags']}"
-                            },
-                            "limit" : 3,
-                            "return": "posts"
-                        }
-                    ],
-                    "template": {
-                        "type": "slim",
-                        "name": "bootstrap/article-list-view"
                     }
                 }
             ]
