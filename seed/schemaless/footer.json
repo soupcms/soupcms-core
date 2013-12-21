@@ -31,13 +31,5 @@
             "label": "Blog",
             "link" : "http://www.soupcms.com/soupcms-blog"
         }
-    ],
-
-    "social" : {
-        "twitter": "http://www.twitter.com/soupcms",
-        "facebook": "http://www.facebook.com/soupcms",
-        "youtube" : "http://www.youtube.com/user/soupcms",
-        "plus" : "https://plus.google.com/+soupCMS",
-        "github" : "https://www.github.com/soupcms"
-    }
+    ]
 }

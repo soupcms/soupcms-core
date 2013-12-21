@@ -69,6 +69,22 @@
                     "recipes": [
                         {
                             "type": "soupcms-api",
+                            "model": "schemaless",
+                            "match": {
+                                "name": "social-toolbar"
+                            },
+                            "return": "social-toolbar"
+                        }
+                    ],
+                    "template": {
+                        "type": "slim",
+                        "name": "bootstrap/social-toolbar"
+                    }
+                },
+                {
+                    "recipes": [
+                        {
+                            "type": "soupcms-api",
                             "url": "posts/tag-cloud",
                             "return": "tag-cloud"
                         }

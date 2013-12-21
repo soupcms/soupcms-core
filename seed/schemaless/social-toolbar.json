@@ -1,0 +1,21 @@
+{
+    "state": "published",
+    "latest": true,
+
+    "doc_id": 1002,
+    "version": 1385717720,
+    "publish_datetime": 1385717720,
+    "create_datetime": 1385717720,
+    "created_by": "sunitparekh",
+    "locale": "en_US",
+
+    "name": "social-toolbar",
+
+    "social" : {
+        "twitter": "http://www.twitter.com/soupcms",
+        "facebook": "http://www.facebook.com/soupcms",
+        "youtube" : "http://www.youtube.com/user/soupcms",
+        "plus" : "https://plus.google.com/+soupCMS",
+        "github" : "https://www.github.com/soupcms"
+    }
+}
