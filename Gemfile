@@ -2,11 +2,12 @@ source 'https://rubygems.org'
 
 gemspec
 
-gem 'therubyracer'
-gem 'sprockets', github: 'soupcms/sprockets'
+gem 'grape'
+gem 'tilt'
+gem 'slim'
+gem 'sprockets', github: 'sstephenson/sprockets'
 gem 'sprockets-helpers'
-gem 'coffee-script'
-gem 'less'
+gem 'therubyracer'
 gem 'sass'
 
 group :development do

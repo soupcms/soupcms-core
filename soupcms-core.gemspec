@@ -18,8 +18,4 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency('grape', '~> 0.6.1')
-  spec.add_dependency('tilt', '~> 2.0.0')
-  spec.add_dependency('slim', '~> 2.0.2')
-
 end
