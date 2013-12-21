@@ -12,7 +12,6 @@ describe SoupCMS::Core::Data::Service do
       it 'should return parsed JSON object for 200 response' do
         stub_request(:get, /pages\/slug\/home/).to_return({body: read_file('pages/home')})
         doc = service.find_by_key('pages', 'slug', 'home')
-        puts doc
         expect(doc['title']).to eq('Page title')
       end
 

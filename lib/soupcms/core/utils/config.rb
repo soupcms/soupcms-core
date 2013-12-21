@@ -21,7 +21,7 @@ module SoupCMS
       class Config
 
         def initialize
-          @soup_cms_api_host_url = 'http://localhost:9292'
+          @soup_cms_api_host_url = 'http://localhost:9292/'
           @recipes = ConfigDefaults::RECIPES
           @template_dir = ConfigDefaults::TEMPLATE_DIR
           @sprockets = Sprockets::Environment.new

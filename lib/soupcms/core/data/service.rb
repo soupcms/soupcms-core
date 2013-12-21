@@ -6,10 +6,6 @@ module SoupCMS
 
       class Service < Base
 
-        def connection
-          @http ||= Net::HTTP.new(application.soup_cms_api_host_url)
-        end
-
         def find_by_key(model, key, value)
           url = "#{model}/#{key}/#{value}"
           response = execute(url)
@@ -28,14 +24,19 @@ module SoupCMS
           parse_response(response) if response.code == '200'
         end
 
-        private
+        protected
+
         def execute(url)
           if drafts?
             url.include?('?') ? url.concat('&') : url.concat('?')
             url = url.concat('include=drafts')
           end
-          url = File.join('/api', application.name, url)
-          connection.request(Net::HTTP::Get.new(url))
+          execute_url(url)
+        end
+
+        def execute_url(url)
+          file_join = File.join(application.soup_cms_api_host_url, '/api', application.name, url)
+          Net::HTTP.get_response(URI.parse(URI.escape(file_join)))
         end
 
 
