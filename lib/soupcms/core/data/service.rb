@@ -1,4 +1,3 @@
-require 'faraday'
 require 'json'
 
 module SoupCMS
@@ -8,28 +7,25 @@ module SoupCMS
       class Service < Base
 
         def connection
-          @connection ||= Faraday.new(url: "#{application.soup_cms_api_host_url}/api/#{application.name}") do |faraday|
-            faraday.request :url_encoded
-            faraday.adapter Faraday.default_adapter
-          end
+          @http ||= Net::HTTP.new(application.soup_cms_api_host_url)
         end
 
         def find_by_key(model, key, value)
           url = "#{model}/#{key}/#{value}"
           response = execute(url)
-          parse_response(response) if response.status == 200
+          parse_response(response) if response.code == '200'
         end
 
         def find(model_name, filters = {})
           url = SoupCMS::Core::Utils::UrlBuilder.build(model_name, filters)
           response = execute(url)
-          return parse_response(response) if response.status == 200
+          return parse_response(response) if response.code == '200'
           []
         end
 
         def fetch_by_url(url)
           response = execute(url)
-          parse_response(response) if response.status == 200
+          parse_response(response) if response.code == '200'
         end
 
         private
@@ -38,7 +34,8 @@ module SoupCMS
             url.include?('?') ? url.concat('&') : url.concat('?')
             url = url.concat('include=drafts')
           end
-          connection.get(url)
+          url = File.join('/api', application.name, url)
+          connection.request(Net::HTTP::Get.new(url))
         end
 
 
