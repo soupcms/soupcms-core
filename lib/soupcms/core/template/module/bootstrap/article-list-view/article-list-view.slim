@@ -21,7 +21,7 @@
               - post['tags'].each do |tag|
                 span
                   | &nbsp;
-                  a.btn.btn-primary.btn-xs href="#{tag['link']}"
+                  a.btn.btn-primary.btn-xs href="#{tag['link']['url']}"
                     = tag['label']
 
       - if post['hero_image']

@@ -6,7 +6,10 @@
         "base_url": "http://res.cloudinary.com/sunitparekh/image/upload",
         "desktop": "cms-patterns_uzhgaa.png"
     },
-    "content": "$file:README.md",
+    "content": {
+        "type": "markdown",
+        "value":"$file:README.md"
+    },
     "author": {
         "name" : "Sunit Parekh",
         "twitter_handle" : "sunitparekh",

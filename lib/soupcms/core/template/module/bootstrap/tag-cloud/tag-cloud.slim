@@ -4,8 +4,8 @@
       strong Tags
     - data['tag-cloud'].each do |tag|
       .btn-group
-        a.tag.btn.btn-default.btn-xs href="#{tag['link']}"
+        a.tag.btn.btn-default.btn-xs href="#{tag['link']['url']}"
           = tag['label']
-        a.tag.btn.btn-primary.btn-xs href="#{tag['link']}"
+        a.tag.btn.btn-primary.btn-xs href="#{tag['link']['url']}"
           = tag['weight']
       | &nbsp;

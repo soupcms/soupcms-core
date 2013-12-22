@@ -39,20 +39,21 @@ module SoupCMS
         end
 
         attr_accessor :soup_cms_api_host_url
-        attr_reader :sprockets, :template_dir
+        attr_reader :sprockets, :template_dir, :recipes
 
         def template_dir=(template_dir)
           @template_dir = template_dir
           @sprockets.append_path template_dir
         end
 
-        def register_recipes(recipes)
-          @recipes.merge! recipes
+        def register_recipe(type, recipe)
+          @recipes[type] = recipe
         end
 
-        def recipes
-          @recipes
+        def clear_recipes
+          @recipes = []
         end
+
 
       end
 
