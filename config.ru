@@ -5,11 +5,13 @@ require 'rack/cache'
 require 'faraday'
 require 'faraday_middleware'
 
+
 use Rack::Cache,
     :metastore   => 'heap:/',
     :entitystore => 'heap:/',
     :verbose     => true
 
+# http client with caching based on cache headers
 SoupCMS::Core::Utils::HttpClient.connection = Faraday.new do |faraday|
   faraday.use FaradayMiddleware::RackCompatible, Rack::Cache::Context,
               :metastore   => 'heap:/',
@@ -17,17 +19,15 @@ SoupCMS::Core::Utils::HttpClient.connection = Faraday.new do |faraday|
               :verbose => true,
               :ignore_headers => %w[Set-Cookie X-Content-Digest]
 
-  faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
-end
-
-Sprockets::Helpers.configure do |config|
-  config.digest = true
+  faraday.adapter  Faraday.default_adapter
 end
 
 
 map '/assets' do
-  sprockets_envrionment = SoupCMS::Core::Config.configs.sprockets
-  run sprockets_envrionment
+  Sprockets::Helpers.configure do |config|
+    config.digest = true
+  end
+  run SoupCMS::Core::Config.configs.sprockets
 end
 
 map '/' do
