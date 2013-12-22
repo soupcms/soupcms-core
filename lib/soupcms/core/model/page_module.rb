@@ -21,7 +21,7 @@ module SoupCMS
         def render_module
           recipes.collect { |recipe| recipe.execute }
           module_html = template.render
-          @html = Tilt.new(module_wrapper_template).render(self, {html: module_html})
+          @html = module_wrapper_template.render(self, {html: module_html})
         end
 
         def javascript
@@ -48,7 +48,7 @@ module SoupCMS
         end
 
         def module_wrapper_template
-          "#{SoupCMS::Core::Config.configs.template_dir}/system/module_wrapper.slim"
+          SoupCMS::Core::Config.configs.template_manager.find_partial('system/module_wrapper.slim')
         end
 
       end

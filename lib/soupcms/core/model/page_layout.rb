@@ -10,7 +10,7 @@ module SoupCMS
         end
 
         def render
-          Tilt.new(layout_file).render(@page)
+          layout.render(@page)
         end
 
         def javascript
@@ -37,8 +37,8 @@ module SoupCMS
           @layout_hash['type']
         end
 
-        def layout_file
-          "#{SoupCMS::Core::Config.configs.template_dir}/layout/#{full_name}/#{name}.#{type}"
+        def layout
+          SoupCMS::Core::Config.configs.template_manager.find('layout',full_name,type)
         end
 
       end

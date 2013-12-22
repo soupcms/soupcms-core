@@ -16,7 +16,7 @@ module SoupCMS
           if inline_template
             Tilt.new(type) { inline_template }.render(@page_module)
           else
-            Tilt.new(template_file).render(@page_module)
+            template.render(@page_module)
           end
         end
 
@@ -42,8 +42,8 @@ module SoupCMS
           full_name.split('/').last
         end
 
-        def template_file
-          "#{SoupCMS::Core::Config.configs.template_dir}/module/#{full_name}/#{name}.#{type}"
+        def template
+          SoupCMS::Core::Config.configs.template_manager.find('module',full_name,type)
         end
 
         def type

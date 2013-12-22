@@ -5,8 +5,8 @@ module SoupCMS
 
       module RenderPartials
 
-        def render(template_path_from_template_root, locals = {})
-          Tilt.new("#{SoupCMS::Core::Config.configs.template_dir}/#{template_path_from_template_root}").render(self, locals)
+        def render(template_path, locals = {})
+          SoupCMS::Core::Config.configs.template_manager.find_partial(template_path).render(self, locals)
         end
 
       end

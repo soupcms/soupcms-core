@@ -53,7 +53,7 @@ module SoupCMS
         end
 
         def render_image(locals = {})
-          Tilt.new("#{SoupCMS::Core::Config.configs.template_dir}/system/responsive-img.slim").render(self, locals)
+          SoupCMS::Core::Config.configs.template_manager.find_partial('system/responsive-img.slim').render(self, locals)
         end
 
         def html_options
