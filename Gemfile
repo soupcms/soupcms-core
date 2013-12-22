@@ -9,6 +9,9 @@ gem 'sprockets', github: 'sstephenson/sprockets'
 gem 'sprockets-helpers'
 gem 'therubyracer'
 gem 'sass'
+gem 'faraday'
+gem 'rack-cache'
+gem 'faraday_middleware'
 
 group :development do
   gem 'puma'

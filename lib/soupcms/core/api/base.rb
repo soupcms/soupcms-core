@@ -9,11 +9,7 @@ module SoupCMS
           @drafts = drafts
         end
 
-        attr_reader :application
-
-        def drafts?
-          @drafts
-        end
+        attr_reader :application, :drafts
 
       end
 

@@ -30,6 +30,14 @@ module SoupCMS
           url
         end
 
+        def self.drafts(url, drafts)
+          if drafts
+            url.include?('?') ? url.concat('&') : url.concat('?')
+            url.concat('include=drafts')
+          end
+          url
+        end
+
 
       end
 

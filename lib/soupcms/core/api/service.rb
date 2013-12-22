@@ -8,35 +8,30 @@ module SoupCMS
 
         def find_by_key(model, key, value)
           url = "#{model}/#{key}/#{value}"
-          response = execute(url)
-          parse_response(response) if response.code == '200'
+          url = SoupCMS::Core::Utils::UrlBuilder.drafts(url, drafts)
+          response = execute_url(url)
+          parse_response(response) if response.status == 200
         end
 
         def find(model_name, filters = {})
           url = SoupCMS::Core::Utils::UrlBuilder.build(model_name, filters)
-          response = execute(url)
-          return parse_response(response) if response.code == '200'
+          url = SoupCMS::Core::Utils::UrlBuilder.drafts(url, drafts)
+          response = execute_url(url)
+          return parse_response(response) if response.status == 200
           []
         end
 
         def fetch_by_url(url)
-          response = execute(url)
-          parse_response(response) if response.code == '200'
+          url = SoupCMS::Core::Utils::UrlBuilder.drafts(url, drafts)
+          response = execute_url(url)
+          parse_response(response) if response.status == 200
         end
 
         protected
 
-        def execute(url)
-          if drafts?
-            url.include?('?') ? url.concat('&') : url.concat('?')
-            url = url.concat('include=drafts')
-          end
-          execute_url(url)
-        end
-
         def execute_url(url)
-          file_join = File.join(application.soupcms_api_host_url, '/api', application.name, url)
-          Net::HTTP.get_response(URI.parse(URI.escape(file_join)))
+          url = File.join(application.soupcms_api_host_url, '/api', application.name, url)
+          SoupCMS::Core::Utils::HttpClient.new.get(url)
         end
 
 

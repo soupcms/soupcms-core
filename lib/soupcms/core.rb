@@ -2,6 +2,7 @@ require 'soupcms/core/version'
 
 require 'soupcms/core/utils/render_partials'
 require 'soupcms/core/utils/url_builder'
+require 'soupcms/core/utils/http_client'
 
 require 'soupcms/core/model/responsive_image'
 require 'soupcms/core/model/cloudinary_responsive_image'

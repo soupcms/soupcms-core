@@ -1,6 +1,12 @@
 require 'tilt'
 require 'sprockets'
 require 'soupcms/core'
+require 'rack/cache'
+
+use Rack::Cache,
+    :metastore   => 'heap:/',
+    :entitystore => 'heap:/',
+    :verbose     => true
 
 Sprockets::Helpers.configure do |config|
   config.digest = true
