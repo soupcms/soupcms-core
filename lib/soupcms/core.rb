@@ -31,6 +31,3 @@ require 'soupcms/core/api/service'
 
 require 'soupcms/core/page_route_service'
 require 'soupcms/soupcms_app'
-
-
-require 'slim'

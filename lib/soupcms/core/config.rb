@@ -1,5 +1,6 @@
 require 'sprockets'
 require 'sprockets-helpers'
+require 'slim'
 
 module SoupCMS
   module Core
@@ -44,8 +45,8 @@ module SoupCMS
           }
         end
 
-        attr_accessor :soupcms_api_host_url, :responsive_image
-        attr_reader :sprockets, :recipes, :template_manager
+        attr_accessor :soupcms_api_host_url, :responsive_image, :template_manager
+        attr_reader :sprockets, :recipes
 
         def register_recipe(type, recipe)
           @recipes[type] = recipe

@@ -14,7 +14,7 @@ module SoupCMS
 
         def render
           if inline_template
-            Tilt.new(type) { inline_template }.render(@page_module)
+            SoupCMS::Core::Config.configs.template_manager.inline(inline_template, type).render(@page_module)
           else
             template.render(@page_module)
           end

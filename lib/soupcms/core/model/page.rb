@@ -45,11 +45,11 @@ module SoupCMS
         end
 
         def include_stylesheets
-          SoupCMS::Core::Config.configs.template_manager.find_partial('system/include_stylesheets.slim').render(self)
+          SoupCMS::Core::Config.configs.template_manager.find_partial('partial/system/include_stylesheets.slim').render(self)
         end
 
         def include_javascripts
-          SoupCMS::Core::Config.configs.template_manager.find_partial('system/include_javascripts.slim').render(self)
+          SoupCMS::Core::Config.configs.template_manager.find_partial('partial/system/include_javascripts.slim').render(self)
         end
 
         def [](key)

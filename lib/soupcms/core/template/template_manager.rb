@@ -1,3 +1,5 @@
+require 'tilt'
+
 module SoupCMS
   module Core
     module Template
@@ -46,6 +48,10 @@ module SoupCMS
             end
           end
           @cache[key]
+        end
+
+        def inline(template_content, type)
+          Tilt.new(type) { template_content }
         end
 
       end
