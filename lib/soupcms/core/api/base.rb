@@ -1,6 +1,6 @@
 module SoupCMS
   module Core
-    module Data
+    module Api
 
       class Base
 

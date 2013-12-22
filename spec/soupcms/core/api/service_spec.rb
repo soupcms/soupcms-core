@@ -1,12 +1,12 @@
 require 'spec_helper'
 
-describe SoupCMS::Core::Data::Service do
+describe SoupCMS::Core::Api::Service do
 
   let (:application) { SoupCMS::Core::Model::Application.new('soupcms-test') }
 
   context 'published' do
 
-    let (:service) { SoupCMS::Core::Data::Service.new(application) }
+    let (:service) { SoupCMS::Core::Api::Service.new(application) }
 
     context 'find module by key' do
       it 'should return parsed JSON object for 200 response' do
@@ -66,7 +66,7 @@ describe SoupCMS::Core::Data::Service do
 
 
   context 'draft' do
-    let (:service) { SoupCMS::Core::Data::Service.new(application, true) }
+    let (:service) { SoupCMS::Core::Api::Service.new(application, true) }
 
     it 'should include draft when in request for find module by key' do
       stub_request(:get, /pages\/slug\/home\?include=drafts$/).to_return({body: read_file('pages/home')})

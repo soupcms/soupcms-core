@@ -2,7 +2,7 @@ require 'json'
 
 module SoupCMS
   module Core
-    module Data
+    module Api
 
       class Service < Base
 

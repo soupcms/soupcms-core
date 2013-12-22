@@ -22,9 +22,8 @@ require 'soupcms/core/recipe/soupcms_api'
 
 require 'soupcms/core/config'
 
-require 'soupcms/core/data/base'
-require 'soupcms/core/data/api'
-require 'soupcms/core/data/service'
+require 'soupcms/core/api/base'
+require 'soupcms/core/api/service'
 
 require 'soupcms/core/page_route_service'
 require 'soupcms/soupcms_app'

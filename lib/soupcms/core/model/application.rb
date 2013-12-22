@@ -12,7 +12,7 @@ module SoupCMS
         attr_reader :name
 
         def soupcms_api(drafts)
-          SoupCMS::Core::Data::Service.new(self,drafts)
+          SoupCMS::Core::Api::Service.new(self,drafts)
         end
 
         def soupcms_api_host_url
