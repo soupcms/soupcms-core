@@ -10,13 +10,13 @@ gem 'sprockets-helpers'
 gem 'therubyracer'
 gem 'sass'
 gem 'faraday'
-gem 'rack-cache'
-gem 'faraday_middleware'
 
 group :development do
   gem 'puma'
+  gem 'rack-cache'
   gem 'mongo'
   gem 'bson_ext'
+  gem 'faraday_middleware'
 end
 
 group :test do

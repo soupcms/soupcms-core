@@ -1,6 +1,4 @@
 require 'faraday'
-require 'rack/cache'
-require 'faraday_middleware'
 
 module SoupCMS
   module Core
@@ -9,18 +7,16 @@ module SoupCMS
 
       class HttpClient
 
-        @@conn = Faraday.new do |faraday|
-          faraday.use FaradayMiddleware::RackCompatible, Rack::Cache::Context,
-                      :metastore   => 'heap:/',
-                      :entitystore => 'heap:/',
-                      :verbose => true,
-                      :ignore_headers => %w[Set-Cookie X-Content-Digest]
+        def self.connection=(connection)
+          @@connection = connection
+        end
 
-          faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
+        def connection
+          @@connection ||= Faraday.new { |faraday| faraday.adapter Faraday.default_adapter}
         end
 
         def get(url)
-          @@conn.get url
+          connection.get url
         end
 
       end
