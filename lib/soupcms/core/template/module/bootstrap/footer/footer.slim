@@ -1,22 +1,19 @@
 - footer = data['footer'][0]
 hr
 .container
-  .container
-    .row
-      .col-md-6
-        p
-          | #{footer['copyright']}
-      .col-md-6
+  .row
+    .col-md-6
+      .pull-left = footer['copyright']
+    .col-md-6
+      ul.list-inline.pull-right
         - if footer['links']
           - footer['links'].each do |item|
-            .pull-right
-              | &nbsp; &nbsp;
+            li
               a href="#{item['link']}"
                 - if item['font_icon']
                   i class="#{item['font_icon']}"
                   | &nbsp;
                 = "#{item['label']}"
-              | &nbsp; &nbsp;
 
   .row
     | &nbsp;

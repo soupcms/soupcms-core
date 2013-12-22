@@ -1,24 +1,23 @@
 h2
-  .row.center-block
-    .pull-right
-      - social = data['social-toolbar'][0]['social']
-      - if social['twitter']
+  ul.list-inline
+    - social = data['social-toolbar'][0]['social']
+    - if social['twitter']
+      li
         a href="#{social['twitter']}"
           i class="fa fa-twitter"
-        | &nbsp;&nbsp;
-      - if social['facebook']
+    - if social['facebook']
+      li
         a href="#{social['facebook']}"
           i class="fa fa-facebook"
-        | &nbsp;&nbsp;
-      - if social['plus']
+    - if social['plus']
+      li
         a href="#{social['plus']}"
           i class="fa fa-google-plus"
-        | &nbsp;&nbsp;
-      - if social['youtube']
+    - if social['youtube']
+      li
         a href="#{social['youtube']}"
           i class="fa fa-youtube"
-        | &nbsp;&nbsp;
-      - if social['github']
+    - if social['github']
+      li
         a href="#{social['github']}"
           i class="fa fa-github"
-        | &nbsp;&nbsp;
