@@ -30,7 +30,8 @@ html lang="en"
 
         - if areas['sidebar']
           sidebar.col-lg-3
-            = areas['sidebar'].html
+            .col-xs-12
+              = areas['sidebar'].html
     - if areas['footer']
       footer
         = areas['footer'].html
