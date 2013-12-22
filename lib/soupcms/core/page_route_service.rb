@@ -8,8 +8,8 @@ module SoupCMS
 
       attr_reader :context
 
-      def soup_cms_api
-        context.soup_cms_api
+      def soupcms_api
+        context.soupcms_api
       end
 
       def route_dsl
@@ -29,17 +29,17 @@ module SoupCMS
           model_name = 'pages'
           slug = slugs[0]
           context.model_name = model_name
-          page_hash = soup_cms_api.find_by_key(model_name, 'slug', slug)
+          page_hash = soupcms_api.find_by_key(model_name, 'slug', slug)
           model = SoupCMS::Core::Model::Document.new(page_hash)
           page = SoupCMS::Core::Model::Page.new(page_hash, context, model) if page_hash
         else(slugs.size == 2)
           model_name = slugs[0]
           slug = slugs[1]
           context.model_name = model_name
-          model_hash = soup_cms_api.find_by_key(model_name, 'slug', slug)
+          model_hash = soupcms_api.find_by_key(model_name, 'slug', slug)
           if model_hash
             model = SoupCMS::Core::Model::Document.new(model_hash)
-            page_hash = soup_cms_api.find_by_key('pages', 'meta.model', model_name)
+            page_hash = soupcms_api.find_by_key('pages', 'meta.model', model_name)
             page = SoupCMS::Core::Model::Page.new(page_hash, context, model) if page_hash
           end
         end

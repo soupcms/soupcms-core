@@ -11,10 +11,10 @@ module SoupCMS
 
         def execute
           context = @page_module.page.context
-          soup_cms_api = context.soup_cms_api
+          soupcms_api = context.soupcms_api
           model_name = @recipe_hash['model'] ? @recipe_hash['model'] : context.model_name
-          return soup_cms_api.fetch_by_url(@recipe_hash['url']) if @recipe_hash['url']
-          soup_cms_api.find(model_name, @recipe_hash['match'])
+          return soupcms_api.fetch_by_url(@recipe_hash['url']) if @recipe_hash['url']
+          soupcms_api.find(model_name, @recipe_hash['match'])
         end
 
       end

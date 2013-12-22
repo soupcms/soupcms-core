@@ -11,7 +11,7 @@ module SoupCMS
 
         attr_reader :name
 
-        def soup_cms_api(drafts)
+        def soupcms_api(drafts)
           SoupCMS::Core::Data::Service.new(self,drafts)
         end
 
