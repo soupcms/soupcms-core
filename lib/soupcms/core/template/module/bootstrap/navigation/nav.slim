@@ -4,15 +4,13 @@
     li
       a href="#{item['link']}"
         - if item['font_icon']
-          i class="#{item['font_icon']}"
-          | &nbsp;
+          i class="#{item['font_icon']} fa-fw"
         = item['label']
   - if item['submenu']
     li.dropdown
       a.dropdown-toggle data-toggle="dropdown" href="#"
         - if item['font_icon']
-          i class="#{item['font_icon']}"
-          | &nbsp;
+          i class="#{item['font_icon']} fa-fw"
         = item['label']
         b.caret
       ul.dropdown-menu
@@ -22,5 +20,4 @@
             a href="#{subitem['link']}"
               = subitem['label']
               - if subitem['font_icon']
-                | &nbsp; &nbsp;
-                i class="#{subitem['font_icon']}"
+                i class="#{subitem['font_icon']} fa-fw"

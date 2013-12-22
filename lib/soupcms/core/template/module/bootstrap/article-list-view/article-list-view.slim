@@ -6,25 +6,23 @@
         .row.meta-info
           .date.col-md-3.btn-group
             btn.btn.btn-success.btn-xs
-              i.fa.fa-calendar
-              | &nbsp; #{post.publish_datetime.strftime('%d %b')}
+              i.fa.fa-fw.fa-calendar
+              | #{post.publish_datetime.strftime('%d %b')}
             btn.btn.btn-default.btn-xs = post.publish_datetime.strftime('%Y')
           .author.col-md-3
             span
-              i.fa.fa-edit
-              | &nbsp;
+              i.fa.fa-fw.fa-edit
             span = post['author']['name']
           .tags.col-md-6
-            .pull-right
-              span
-                i.fa.fa-tags
+            ul.list-inline
+              li
+                i.fa.fa-fw.fa-tags
               - post['tags'].each do |tag|
-                span
-                  | &nbsp;
+                li
                   a.btn.btn-primary.btn-xs href="#{tag['link']['url']}"
                     = tag['label']
 
       - if post['hero_image']
-        a.pull-left href="#"
+        a.col-md-4 href="#"
           == rimg post['hero_image'], 'w_300'
       p = post['description']
