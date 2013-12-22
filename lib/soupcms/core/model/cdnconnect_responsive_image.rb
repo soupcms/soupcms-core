@@ -9,14 +9,14 @@ module SoupCMS
           size.concat(',x_2')
         end
 
-        def build_url(size, image)
-          url = File.join(base_url,image)
+        def build_url(size, image_name)
+          url = File.join(base_url,image_name)
           size ? url.concat("?#{build_params(size)}") : url
         end
 
         def build_params(size)
           params = size.gsub('_','=').gsub(',','&')
-          params.concat("&#{image_hash['params']}") if image_hash['params']
+          params.concat("&#{image['params']}") if image['params']
           params.gsub!('c=pad','mode=default')
           params.gsub!('c=fit','mode=max')
           params.gsub!('c=fill','mode=crop')
@@ -26,7 +26,7 @@ module SoupCMS
         end
 
         def base_url
-          image_hash['base_url']
+          image['base_url']
         end
 
       end

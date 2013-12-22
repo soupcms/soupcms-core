@@ -3,10 +3,6 @@ require 'grape'
 class SoupCMSApp < ::Grape::API
   content_type :txt, 'text/html'
 
-  def self.config
-    @@config ||= SoupCMS::Core::Utils::Config.new
-  end
-
   group ':app_name' do
 
     params do

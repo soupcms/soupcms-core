@@ -6,7 +6,7 @@ module SoupCMS
       module RenderPartials
 
         def render(template_path_from_template_root, locals = {})
-          Tilt.new("#{SoupCMSApp.config.template_dir}/#{template_path_from_template_root}").render(self, locals)
+          Tilt.new("#{SoupCMS::Core::Config.configs.template_dir}/#{template_path_from_template_root}").render(self, locals)
         end
 
       end

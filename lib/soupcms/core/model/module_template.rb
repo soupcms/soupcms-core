@@ -27,13 +27,13 @@ module SoupCMS
         def javascript
           return if inline_template
           js = "module/#{full_name}/#{name}.js"
-          return js if SoupCMSApp.config.sprockets[js]
+          return js if SoupCMS::Core::Config.configs.sprockets[js]
         end
 
         def stylesheet
           return if inline_template
           css = "module/#{full_name}/#{name}.css"
-          return css if SoupCMSApp.config.sprockets[css]
+          return css if SoupCMS::Core::Config.configs.sprockets[css]
         end
 
         private
@@ -43,7 +43,7 @@ module SoupCMS
         end
 
         def template_file
-          "#{SoupCMSApp.config.template_dir}/module/#{full_name}/#{name}.#{type}"
+          "#{SoupCMS::Core::Config.configs.template_dir}/module/#{full_name}/#{name}.#{type}"
         end
 
         def type

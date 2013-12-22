@@ -16,7 +16,7 @@ module SoupCMS
         end
 
         def soup_cms_api_host_url
-          @soup_cms_api_host_url ||= SoupCMSApp.config.soup_cms_api_host_url
+          @soup_cms_api_host_url ||= SoupCMS::Core::Config.configs.soup_cms_api_host_url
         end
 
         def self.get(name)

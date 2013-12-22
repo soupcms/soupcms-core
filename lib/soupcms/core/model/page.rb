@@ -45,11 +45,11 @@ module SoupCMS
         end
 
         def include_stylesheets
-          Tilt.new("#{SoupCMSApp.config.template_dir}/system/include_stylesheets.slim").render(self)
+          Tilt.new("#{SoupCMS::Core::Config.configs.template_dir}/system/include_stylesheets.slim").render(self)
         end
 
         def include_javascripts
-          Tilt.new("#{SoupCMSApp.config.template_dir}/system/include_javascripts.slim").render(self)
+          Tilt.new("#{SoupCMS::Core::Config.configs.template_dir}/system/include_javascripts.slim").render(self)
         end
 
         def [](key)

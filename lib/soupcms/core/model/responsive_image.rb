@@ -19,14 +19,14 @@ module SoupCMS
         end
 
         def initialize(responsive_image_hash)
-          @image_hash = responsive_image_hash[:image]
+          @image = responsive_image_hash[:image]
           @desktop = responsive_image_hash[:desktop]
           @tablet = responsive_image_hash[:tablet]
           @mobile = responsive_image_hash[:mobile]
           @html_options = responsive_image_hash[:html_options]
         end
 
-        attr_reader :image_hash
+        attr_reader :image
 
         def desktop_url
           build_url(desktop_size, desktop_image)
@@ -53,7 +53,7 @@ module SoupCMS
         end
 
         def render_image(locals = {})
-          Tilt.new("#{SoupCMSApp.config.template_dir}/system/responsive-img.slim").render(self, locals)
+          Tilt.new("#{SoupCMS::Core::Config.configs.template_dir}/system/responsive-img.slim").render(self, locals)
         end
 
         def html_options
@@ -67,7 +67,7 @@ module SoupCMS
         end
 
         def desktop_image
-          @image_hash['desktop']
+          @image['desktop']
         end
 
         def tablet_size
@@ -75,7 +75,7 @@ module SoupCMS
         end
 
         def tablet_image
-          @image_hash['tablet'] || desktop_image
+          @image['tablet'] || desktop_image
         end
 
         def mobile_size
@@ -83,7 +83,7 @@ module SoupCMS
         end
 
         def mobile_image
-          @image_hash['mobile'] || tablet_image || desktop_image
+          @image['mobile'] || tablet_image || desktop_image
         end
 
         def retina_size(size)

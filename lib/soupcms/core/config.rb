@@ -4,10 +4,8 @@ require 'sprockets-helpers'
 module SoupCMS
   module Core
 
-    module Utils
-
       module ConfigDefaults
-        TEMPLATE_DIR = File.dirname(__FILE__) + '/../template'
+        TEMPLATE_DIR = File.join(File.dirname(__FILE__),'template')
         RECIPES = {
             'inline' => SoupCMS::Core::Recipe::Inline,
             'soupcms-api' => SoupCMS::Core::Recipe::SoupCMSApi
@@ -20,8 +18,13 @@ module SoupCMS
 
       class Config
 
+        def self.configs
+          @@config ||= SoupCMS::Core::Config.new
+        end
+
         def initialize
           @soup_cms_api_host_url = 'http://localhost:9292/'
+          @responsive_image = SoupCMS::Core::Model::ResponsiveImage
           @recipes = ConfigDefaults::RECIPES
           @template_dir = ConfigDefaults::TEMPLATE_DIR
           @sprockets = Sprockets::Environment.new
@@ -38,7 +41,7 @@ module SoupCMS
           }
         end
 
-        attr_accessor :soup_cms_api_host_url
+        attr_accessor :soup_cms_api_host_url, :responsive_image
         attr_reader :sprockets, :template_dir, :recipes
 
         def template_dir=(template_dir)
@@ -54,9 +57,8 @@ module SoupCMS
           @recipes = []
         end
 
-
       end
 
-    end
+
   end
 end

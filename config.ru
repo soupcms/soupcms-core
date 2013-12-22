@@ -8,7 +8,7 @@ end
 
 
 map '/assets' do
-  sprockets_envrionment = SoupCMSApp.config.sprockets
+  sprockets_envrionment = SoupCMS::Core::Config.configs.sprockets
   run sprockets_envrionment
 end
 
