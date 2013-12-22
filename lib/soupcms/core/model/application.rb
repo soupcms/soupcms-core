@@ -15,8 +15,8 @@ module SoupCMS
           SoupCMS::Core::Data::Service.new(self,drafts)
         end
 
-        def soup_cms_api_host_url
-          @soup_cms_api_host_url ||= SoupCMS::Core::Config.configs.soup_cms_api_host_url
+        def soupcms_api_host_url
+          @soupcms_api_host_url ||= SoupCMS::Core::Config.configs.soupcms_api_host_url
         end
 
         def self.get(name)

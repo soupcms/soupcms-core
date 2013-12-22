@@ -27,7 +27,7 @@ require 'soupcms/core/data/api'
 require 'soupcms/core/data/service'
 
 require 'soupcms/core/page_route_service'
-require 'soupcms/soup_cms_app'
+require 'soupcms/soupcms_app'
 
 
 require 'slim'

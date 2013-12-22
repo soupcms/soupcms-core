@@ -23,7 +23,7 @@ module SoupCMS
         end
 
         def initialize
-          @soup_cms_api_host_url = 'http://localhost:9292/'
+          @soupcms_api_host_url = 'http://localhost:9292/'
           @responsive_image = SoupCMS::Core::Model::ResponsiveImage
           @recipes = ConfigDefaults::RECIPES
           @template_dir = ConfigDefaults::TEMPLATE_DIR
@@ -41,7 +41,7 @@ module SoupCMS
           }
         end
 
-        attr_accessor :soup_cms_api_host_url, :responsive_image
+        attr_accessor :soupcms_api_host_url, :responsive_image
         attr_reader :sprockets, :template_dir, :recipes
 
         def template_dir=(template_dir)

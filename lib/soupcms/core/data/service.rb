@@ -35,7 +35,7 @@ module SoupCMS
         end
 
         def execute_url(url)
-          file_join = File.join(application.soup_cms_api_host_url, '/api', application.name, url)
+          file_join = File.join(application.soupcms_api_host_url, '/api', application.name, url)
           Net::HTTP.get_response(URI.parse(URI.escape(file_join)))
         end
 
