@@ -13,16 +13,17 @@ module SoupCMS
           @@providers = {}
         end
 
-        def self.build(image_hash, desktop, tablet = nil, mobile = nil)
-          provider = @@providers[image_hash['source']]
-          provider.new(image_hash, desktop, tablet, mobile)
+        def self.build(responsive_image_hash)
+          provider = @@providers[responsive_image_hash[:image]['source']]
+          provider.new(responsive_image_hash)
         end
 
-        def initialize(image_hash, desktop, tablet, mobile)
-          @image_hash = image_hash
-          @desktop = desktop
-          @tablet = tablet
-          @mobile = mobile
+        def initialize(responsive_image_hash)
+          @image_hash = responsive_image_hash[:image]
+          @desktop = responsive_image_hash[:desktop]
+          @tablet = responsive_image_hash[:tablet]
+          @mobile = responsive_image_hash[:mobile]
+          @html_options = responsive_image_hash[:html_options]
         end
 
         attr_reader :image_hash
@@ -49,6 +50,14 @@ module SoupCMS
 
         def mobile_retina_url
           build_url(retina_size(mobile_size), mobile_image)
+        end
+
+        def render_image(locals = {})
+          Tilt.new("#{SoupCMSApp.config.template_dir}/system/responsive-img.slim").render(self, locals)
+        end
+
+        def html_options
+          @html_options || {}
         end
 
         protected
