@@ -7,10 +7,11 @@
         "desktop": "card-wall_bejrz3.jpg"
     },
     "content": "This is my sixth blog post and I am really exiced about this. \n I hope u will enjoy it. \n Thanks - Sunit",
-    "author": {
-        "name" : "Sunit Parekh",
-        "twitter_handle" : "sunitparekh",
-        "email" : "parekh.sunit@gmail.com"
+    "author_ref": {
+        "model" : "authors",
+        "match" : {
+            "email": "parekh.sunit@gmail.com"
+        }
     },
 
     "tags": ["software","agile","fourth","popular"],

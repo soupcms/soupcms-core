@@ -1,8 +1,18 @@
-[
-    {
-        "username": "sunitparekh",
-        "first_name": "Sunit",
-        "last_name": "Parekh",
-        "email": "parekh.sunit@gmail.com"
-    }
-]
+{
+    "name": "Sunit Parekh",
+    "first_name": "Sunit",
+    "last_name": "Parekh",
+    "email": "parekh.sunit@gmail.com",
+    "twitter_handle": "sunitparekh",
+
+    "state": "published",
+    "latest": true,
+
+    "doc_id": 500,
+    "version": 1395717720,
+    "publish_datetime":  1395717720,
+    "create_datetime": 1395717720,
+    "created_by": "sunitparekh",
+    "locale": "en_US"
+
+}

@@ -2,10 +2,11 @@
     "title": "My fourth blog post",
     "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac pretium metus, vitae vehicula libero. Integer eget nisi porttitor, pulvinar purus eget, commodo nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce fermentum viverra lorem ut porttitor. Praesent semper est sed augue consequat, eu placerat mi dapibus. Morbi pellentesque tellus in leo molestie, vel feugiat turpis tincidunt. Maecenas varius sagittis dictum. Ut aliquam mi vel sem vestibulum laoreet. Praesent magna nibh, rhoncus et leo a, cursus porttitor libero.",
     "content": "This is my fourth blog post and I am really exiced about this. \n I hope u will enjoy it. \n Thanks - Sunit",
-    "author": {
-        "name" : "Sunit Parekh",
-        "twitter_handle" : "sunitparekh",
-        "email" : "parekh.sunit@gmail.com"
+    "author_ref": {
+        "model" : "authors",
+        "match" : {
+            "email": "parekh.sunit@gmail.com"
+        }
     },
 
     "tags": ["software","agile","fourth","popular"],

@@ -10,10 +10,11 @@
         "type": "markdown",
         "value":"$file:README.md"
     },
-    "author": {
-        "name" : "Sunit Parekh",
-        "twitter_handle" : "sunitparekh",
-        "email" : "parekh.sunit@gmail.com"
+    "author_ref": {
+        "model" : "authors",
+        "match" : {
+            "email": "parekh.sunit@gmail.com"
+        }
     },
 
     "tags": ["software","agile","fourth","popular"],
