@@ -48,7 +48,7 @@ module SoupCMS
         end
 
         def module_wrapper_template
-          SoupCMS::Core::Config.configs.template_manager.find_partial('partial/system/module_wrapper.slim')
+          SoupCMS::Core::Config.configs.template_manager.find('partial/system/module-wrapper.slim')
         end
 
       end

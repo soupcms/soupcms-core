@@ -21,41 +21,38 @@ module SoupCMS
           @cache = {}
         end
 
-        def find(kind, template_name, type)
-          key = "#{kind}/#{template_name}/#{type}"
-          unless @cache[key]
-            @stores.each do |store|
-              value = store.find(kind, template_name, type)
-              unless value.nil?
-                @cache[key] = Tilt.new(type) { value }
-                break
-              end
-            end
-          end
-          @cache[key]
+        def find_module(template_name, type)
+          find_template(template_name, type, 'module')
         end
 
-        def find_partial(template_path)
-          key = "partial/#{template_path}"
-          type = template_path.split('.').last
-          unless @cache[key]
-            @stores.each do |store|
-              value = store.find_partial(template_path)
-              unless value.nil?
-                @cache[key] = Tilt.new(type) { value }
-                break
-              end
-            end
-          end
-          @cache[key]
+        def find_layout(template_name, type)
+          find_template(template_name, type, 'layout')
+        end
+
+        def find(template_path)
+          find_template(template_path.split('.').first, template_path.split('.').last)
         end
 
         def inline(template_content, type)
           Tilt.new(type) { template_content }
         end
 
-      end
+        private
+        def find_template(template_name, type, kind = nil)
+          key = "#{kind}/#{template_name}/#{type}"
+          unless @cache[key]
+            @stores.each do |store|
+              value = store.find(template_name, type, kind)
+              unless value.nil?
+                @cache[key] = Tilt.new(type) { value }
+                break
+              end
+            end
+          end
+          @cache[key]
+        end
 
+      end
 
 
     end

@@ -9,14 +9,15 @@ module SoupCMS
           @file_path = file_path
         end
 
-        def find(kind, template_name, type)
-          file = File.join(@file_path, kind, template_name, "#{template_name.split('/').last}.#{type}")
+        def find(template_path, type, kind = nil)
+          template_path = build_path(template_path,kind) if kind
+          file = File.join(@file_path, "#{template_path}.#{type}")
           File.read(file) if File.exist?(file)
         end
 
-        def find_partial(template_path)
-          file = File.join(@file_path, template_path)
-          File.read(file) if File.exist?(file)
+        private
+        def build_path(template_name, kind)
+          File.join(kind, template_name, template_name.split('/').last)
         end
 
       end

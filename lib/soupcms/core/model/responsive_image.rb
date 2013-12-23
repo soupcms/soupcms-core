@@ -53,7 +53,7 @@ module SoupCMS
         end
 
         def render_image(locals = {})
-          SoupCMS::Core::Config.configs.template_manager.find_partial('partial/system/responsive-img.slim').render(self, locals)
+          SoupCMS::Core::Config.configs.template_manager.find('partial/system/responsive-img.slim').render(self, locals)
         end
 
         def html_options

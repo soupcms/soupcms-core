@@ -44,14 +44,6 @@ module SoupCMS
           [layout.stylesheet].concat(areas.collect { |name, area| area.stylesheets }.flatten.uniq).compact
         end
 
-        def include_stylesheets
-          SoupCMS::Core::Config.configs.template_manager.find_partial('partial/system/include_stylesheets.slim').render(self)
-        end
-
-        def include_javascripts
-          SoupCMS::Core::Config.configs.template_manager.find_partial('partial/system/include_javascripts.slim').render(self)
-        end
-
         def [](key)
           @page_hash[key]
         end

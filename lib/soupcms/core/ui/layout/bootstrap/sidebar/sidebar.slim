@@ -5,7 +5,7 @@ html lang="en"
 
     link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"
 
-    = page.include_stylesheets
+    = render 'partial/system/include-stylesheets.slim'
 
     /![if lt IE 9]
       <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -37,4 +37,4 @@ html lang="en"
         = areas['footer'].html
 
     script src="//code.jquery.com/jquery-2.0.3.min.js"
-    = page.include_javascripts
+    = render 'partial/system/include-javascripts.slim'

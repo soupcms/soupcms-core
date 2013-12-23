@@ -43,7 +43,7 @@ module SoupCMS
         end
 
         def template
-          SoupCMS::Core::Config.configs.template_manager.find('module',full_name,type)
+          SoupCMS::Core::Config.configs.template_manager.find_module(full_name,type)
         end
 
         def type
