@@ -23,7 +23,16 @@
             "name": "body",
             "modules": [
                 {
-
+                    "recipes": [
+                        {
+                            "type": "soupcms-api",
+                            "model": "#{context.model_name}",
+                            "match": {
+                                "slug": "#{context.slug}"
+                            },
+                            "return": "document"
+                        }
+                    ],
                     "template": {
                         "type": "slim",
                         "name": "bootstrap/article"

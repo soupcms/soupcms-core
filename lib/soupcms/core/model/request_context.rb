@@ -9,7 +9,7 @@ module SoupCMS
           @params = params
         end
 
-        attr_accessor :model_name
+        attr_accessor :model_name, :slug
         attr_reader :application, :params
 
         def user_params

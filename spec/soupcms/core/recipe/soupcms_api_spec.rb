@@ -80,5 +80,29 @@ describe SoupCMS::Core::Recipe::SoupCMSApi do
     it { expect(tagcloud[0]['label']).to eq('Design Principles') }
   end
 
+  context 'eval values in recipe' do
+
+    let(:recipe) do
+      recipe_json = <<-json
+    {
+        "type": "soupcms-api",
+        "model": "posts",
+        "match": {
+            "tags": "#{page.context.application.name}-append"
+        },
+        "return": "posts"
+    }
+      json
+      SoupCMS::Core::Recipe::SoupCMSApi.new(JSON.parse(recipe_json), page_module)
+    end
+    let(:posts) do
+      stub_request(:get, /posts\?tags="soupcms-test-append"$/).to_return({body: read_files('posts/first-post', 'posts/second-post')})
+      recipe.execute
+    end
+
+    it { expect(posts).to be_kind_of(Array) }
+    it { expect(posts.size).to eq(2) }
+  end
+
 
 end

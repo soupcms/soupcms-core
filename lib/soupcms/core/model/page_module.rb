@@ -18,6 +18,10 @@ module SoupCMS
           page_area.page
         end
 
+        def context
+          page.context
+        end
+
         def render_module
           recipes.collect { |recipe| recipe.execute }
           module_html = template.render

@@ -26,20 +26,18 @@ module SoupCMS
       def find(slug)
         slugs = slug.split('/').reject(&:empty?)
         if(slugs.size == 1)
-          model_name = 'pages'
-          slug = slugs[0]
-          context.model_name = model_name
-          page_hash = soupcms_api.find_by_key(model_name, 'slug', slug)
+          context.model_name = 'pages'
+          context.slug = slugs[0]
+          page_hash = soupcms_api.find_by_key(context.model_name, 'slug', context.slug)
           model = SoupCMS::Core::Model::Document.new(page_hash)
           page = SoupCMS::Core::Model::Page.new(page_hash, context, model) if page_hash
         else(slugs.size == 2)
-          model_name = slugs[0]
-          slug = slugs[1]
-          context.model_name = model_name
-          model_hash = soupcms_api.find_by_key(model_name, 'slug', slug)
+          context.model_name = slugs[0]
+          context.slug = slugs[1]
+          model_hash = soupcms_api.find_by_key(context.model_name, 'slug', context.slug)
           if model_hash
             model = SoupCMS::Core::Model::Document.new(model_hash)
-            page_hash = soupcms_api.find_by_key('pages', 'meta.model', model_name)
+            page_hash = soupcms_api.find_by_key('pages', 'meta.model', context.model_name)
             page = SoupCMS::Core::Model::Page.new(page_hash, context, model) if page_hash
           end
         end

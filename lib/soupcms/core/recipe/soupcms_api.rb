@@ -12,9 +12,28 @@ module SoupCMS
         def execute
           context = @page_module.page.context
           soupcms_api = context.soupcms_api
-          model_name = @recipe_hash['model'] ? @recipe_hash['model'] : context.model_name
-          return soupcms_api.fetch_by_url(@recipe_hash['url']) if @recipe_hash['url']
-          soupcms_api.find(model_name, @recipe_hash['match'])
+          model_name = @recipe_hash['model'] ? eval_value(@recipe_hash['model']) : context.model_name
+          return soupcms_api.fetch_by_url(eval_value(@recipe_hash['url'])) if @recipe_hash['url']
+          soupcms_api.find(model_name, eval_hash(@recipe_hash['match']))
+        end
+
+        def eval_hash(document)
+          return {} if document.nil?
+          document.each do |key, value|
+            if value.kind_of?(Array)
+              document[key] = value.collect { |item| item.kind_of?(Hash) ? eval_hash(item) : eval_value(item) }
+            elsif value.kind_of?(Hash)
+              document[key] = eval_hash(value)
+            elsif
+              document[key] = eval_value(value)
+            end
+
+          end
+        end
+
+        def eval_value(value)
+          return value unless value.kind_of?(String)
+          @page_module.instance_eval "\"#{value}\""
         end
 
       end
