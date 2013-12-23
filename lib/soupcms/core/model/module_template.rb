@@ -14,7 +14,7 @@ module SoupCMS
 
         def render
           if inline_template
-            SoupCMS::Core::Config.configs.template_manager.inline(inline_template, type).render(@page_module)
+            SoupCMS::Core::Config.configs.template_manager.inline(@page_module.context, inline_template, type).render(@page_module)
           else
             template.render(@page_module)
           end
@@ -43,7 +43,7 @@ module SoupCMS
         end
 
         def template
-          SoupCMS::Core::Config.configs.template_manager.find_module(full_name,type)
+          SoupCMS::Core::Config.configs.template_manager.find_module(@page_module.context,full_name,type)
         end
 
         def type

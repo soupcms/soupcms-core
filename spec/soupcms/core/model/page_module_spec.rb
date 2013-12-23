@@ -5,7 +5,9 @@ include SoupCMS::Core::Model
 
 describe SoupCMS::Core::Model::PageModule do
 
-  let(:page) { Page.new({'title' => 'Page title'}) }
+  let (:application) { Application.new('soupcms-test') }
+  let (:context) { RequestContext.new(application) }
+  let(:page) { Page.new({'title' => 'Page title'}, context) }
   let(:page_area) { PageArea.new({},page) }
 
   context 'single inline recipe with page-header template' do
@@ -68,21 +70,20 @@ describe SoupCMS::Core::Model::PageModule do
 
   end
 
-  let(:page_module) do
-    module_json = <<-json
+  context 'no recipe' do
+    let(:page_module) do
+      module_json = <<-json
         {
             "template": {
                 "type": "slim",
                 "name": "meta/page-title"
             }
         }
-    json
-    PageModule.new(JSON.parse(module_json), page_area)
-  end
+      json
+      PageModule.new(JSON.parse(module_json), page_area)
+    end
 
-  it { expect(html(page_module.render_module)).to have_title('Page title') }
-  context 'no recipe' do
-
+    it { expect(html(page_module.render_module)).to have_title('Page title') }
   end
 
 

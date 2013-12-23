@@ -13,17 +13,18 @@ module SoupCMS
           @@providers = {}
         end
 
-        def self.build(responsive_image_hash)
+        def self.build(context, responsive_image_hash)
           provider = @@providers[responsive_image_hash[:image]['source']]
-          provider.new(responsive_image_hash)
+          provider.new(context, responsive_image_hash)
         end
 
-        def initialize(responsive_image_hash)
+        def initialize(context, responsive_image_hash)
           @image = responsive_image_hash[:image]
           @desktop = responsive_image_hash[:desktop]
           @tablet = responsive_image_hash[:tablet]
           @mobile = responsive_image_hash[:mobile]
           @html_options = responsive_image_hash[:html_options]
+          @context = context
         end
 
         attr_reader :image
@@ -53,7 +54,7 @@ module SoupCMS
         end
 
         def render_image(locals = {})
-          SoupCMS::Core::Config.configs.template_manager.find('partial/system/responsive-img.slim').render(self, locals)
+          SoupCMS::Core::Config.configs.template_manager.find(@context,'partial/system/responsive-img.slim').render(self, locals)
         end
 
         def html_options

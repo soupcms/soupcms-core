@@ -39,6 +39,7 @@ module SoupCMS
 
           @template_manager = SoupCMS::Core::Template::TemplateManager.new
           @template_manager.register(SoupCMS::Core::Template::TemplateFileStore.new(ConfigDefaults::TEMPLATE_DIR))
+          @template_manager.register(SoupCMS::Core::Template::TemplateSoupCMSApiStore)
           @sprockets.append_path ConfigDefaults::TEMPLATE_DIR
 
           ConfigDefaults::RESPONSIVE_IMAGE_PROVIDERS.each { |source,provider|

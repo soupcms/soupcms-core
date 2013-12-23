@@ -5,8 +5,11 @@ include SoupCMS::Core::Model
 
 describe SoupCMS::Core::Model::Page do
 
+  let (:application) { Application.new('soupcms-test') }
+  let (:context) { RequestContext.new(application) }
+
   context 'with one area' do
-    let(:page) { SoupCMS::Core::Model::Page.new(read_json('pages/single_module')) }
+    let(:page) { SoupCMS::Core::Model::Page.new(read_json('pages/single_module'), context) }
 
     it { expect(page.areas).to be_kind_of(Hash) }
     it { expect(page.areas.size).to eq(1) }
@@ -20,7 +23,7 @@ describe SoupCMS::Core::Model::Page do
   end
 
   context 'with multiple area' do
-    let((:page)) { SoupCMS::Core::Model::Page.new(read_json('pages/multiple_area')) }
+    let((:page)) { SoupCMS::Core::Model::Page.new(read_json('pages/multiple_area'), context) }
 
     it { expect(page.areas).to be_kind_of(Hash) }
     it { expect(page.areas.size).to eq(2) }

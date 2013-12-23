@@ -26,7 +26,7 @@
                 "font_icon" : "fa fa-home"
             },
             {
-                "label": "Latest Blog Posts",
+                "label": "Blog",
                 "link" : {
                     "url" : "latest"
                 }

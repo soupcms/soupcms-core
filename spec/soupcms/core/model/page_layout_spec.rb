@@ -5,6 +5,9 @@ include SoupCMS::Core::Model
 
 describe SoupCMS::Core::Model::PageLayout do
 
+  let (:application) { Application.new('soupcms-test') }
+  let (:context) { RequestContext.new(application) }
+
   let(:page) do
     page_with_layout = <<-json
     {
@@ -15,7 +18,7 @@ describe SoupCMS::Core::Model::PageLayout do
       }
     }
     json
-    Page.new(JSON.parse(page_with_layout))
+    Page.new(JSON.parse(page_with_layout), context)
   end
 
   context 'render default slim layout template' do

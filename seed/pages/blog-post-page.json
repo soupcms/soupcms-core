@@ -20,6 +20,43 @@
 
     "areas": [
         {
+            "name": "header",
+            "modules": [
+                {
+                    "recipes": [
+                        {
+                            "type": "soupcms-api",
+                            "model": "schemaless",
+                            "match": {
+                                "name": "navigation"
+                            },
+                            "return": "navigation"
+                        }
+                    ],
+                    "template": {
+                        "type": "slim",
+                        "name": "bootstrap/navigation"
+                    }
+                },
+                {
+                    "recipes": [
+                        {
+                            "type": "soupcms-api",
+                            "model": "#{context.model_name}",
+                            "match": {
+                                "slug": "#{context.slug}"
+                            },
+                            "return": "page-header"
+                        }
+                    ],
+                    "template": {
+                        "type": "slim",
+                        "name": "bootstrap/simple-page-header"
+                    }
+                }
+            ]
+        },
+        {
             "name": "body",
             "modules": [
                 {

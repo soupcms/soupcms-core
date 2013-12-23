@@ -4,8 +4,10 @@ class SoupCMSApp < ::Grape::API
   content_type :txt, 'text/html'
 
   after do
-    caching_strategy = SoupCMS::Core::Config.configs.http_caching_strategy.new
-    caching_strategy.headers(@context).each { |key, value| header key, value }
+    if @context.environment == 'production'
+      caching_strategy = SoupCMS::Core::Config.configs.http_caching_strategy.new
+      caching_strategy.headers(@context).each { |key, value| header(key, value) }
+    end
   end
 
   group ':app_name' do

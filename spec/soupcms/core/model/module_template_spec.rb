@@ -5,7 +5,9 @@ include SoupCMS::Core::Model
 
 describe SoupCMS::Core::Model::ModuleTemplate do
 
-  let(:page) { Page.new({'title' => 'Page title', 'description' => 'Page description'}) }
+  let (:application) { Application.new('soupcms-test') }
+  let (:context) { RequestContext.new(application) }
+  let(:page) { Page.new({'title' => 'Page title', 'description' => 'Page description'}, context) }
   let(:page_area) { PageArea.new({},page) }
   let(:page_module) do
     page_module = PageModule.new({}, page)

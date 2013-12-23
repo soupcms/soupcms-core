@@ -38,7 +38,7 @@ module SoupCMS
         end
 
         def layout
-          SoupCMS::Core::Config.configs.template_manager.find_layout(full_name,type)
+          SoupCMS::Core::Config.configs.template_manager.find_layout(@page.context,full_name,type)
         end
 
       end

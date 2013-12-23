@@ -6,7 +6,7 @@ module SoupCMS
       module RenderPartials
 
         def render(template_path, locals = {})
-          SoupCMS::Core::Config.configs.template_manager.find(template_path).render(self, locals)
+          SoupCMS::Core::Config.configs.template_manager.find(context,template_path).render(self, locals)
         end
 
       end

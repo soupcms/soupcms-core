@@ -21,30 +21,33 @@ module SoupCMS
           @cache = {}
         end
 
-        def find_module(template_name, type)
-          find_template(template_name, type, 'module')
+        def find_module(context, template_name, type)
+          find_template(context, template_name, type, 'module')
         end
 
-        def find_layout(template_name, type)
-          find_template(template_name, type, 'layout')
+        def find_layout(context, template_name, type)
+          find_template(context, template_name, type, 'layout')
         end
 
-        def find(template_path)
-          find_template(template_path.split('.').first, template_path.split('.').last)
+        def find(context, template_path)
+          find_template(context, template_path.split('.').first, template_path.split('.').last)
         end
 
-        def inline(template_content, type)
+        def inline(context, template_content, type)
           Tilt.new(type) { template_content }
         end
 
         private
-        def find_template(template_name, type, kind = nil)
-          key = "#{kind}/#{template_name}/#{type}"
+        def find_template(context, template_name, type, kind = nil)
+          key = "#{kind}/#{template_name}.#{type}"
           unless @cache[key]
             @stores.each do |store|
-              value = store.find(template_name, type, kind)
+              store = store.new if store.kind_of?(Class)
+              value = store.find(context, template_name, type, kind)
               unless value.nil?
-                @cache[key] = Tilt.new(type) { value }
+                template = Tilt.new(key) { value }
+                return template if context.environment != 'production'
+                @cache[key] = template
                 break
               end
             end

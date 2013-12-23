@@ -24,6 +24,10 @@ module SoupCMS
           params['include'] == 'drafts'
         end
 
+        def environment
+          ENV['RACK_ENV']  || 'test'
+        end
+
       end
 
     end
