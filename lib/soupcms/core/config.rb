@@ -27,6 +27,7 @@ module SoupCMS
           @soupcms_api_host_url = 'http://localhost:9292/'
           @responsive_image = SoupCMS::Core::Model::ResponsiveImage
           @recipes = ConfigDefaults::RECIPES
+          @http_caching_strategy = SoupCMS::Core::Utils::HttpCacheStrategy
 
           @sprockets = Sprockets::Environment.new
           Sprockets::Helpers.configure do |config|
@@ -45,7 +46,7 @@ module SoupCMS
           }
         end
 
-        attr_accessor :soupcms_api_host_url, :responsive_image, :template_manager
+        attr_accessor :soupcms_api_host_url, :responsive_image, :template_manager, :http_caching_strategy
         attr_reader :sprockets, :recipes
 
         def register_recipe(type, recipe)

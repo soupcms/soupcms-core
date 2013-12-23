@@ -2,7 +2,7 @@
 - items.each do |item|
   - if item['submenu'].nil?
     li
-      a href="#{item['link']}"
+      a href="#{item['link']['url']}"
         - if item['font_icon']
           i class="#{item['font_icon']} fa-fw"
         = item['label']
@@ -17,7 +17,7 @@
         - subitems = item['submenu']
         - subitems.each do |subitem|
           li
-            a href="#{subitem['link']}"
+            a href="#{subitem['link']['url']}"
               = subitem['label']
               - if subitem['font_icon']
                 i class="#{subitem['font_icon']} fa-fw"

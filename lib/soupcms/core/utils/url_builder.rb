@@ -24,7 +24,7 @@ module SoupCMS
                 index += 1
               end
             end
-            url.concat("&filters[]=#{key}") unless key == "tags" || key == :tags
+            url.concat("&filters[]=#{key}") unless key == 'tags' || key == :tags
             filter_index += 1
           }
           url

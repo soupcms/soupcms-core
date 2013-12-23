@@ -3,6 +3,7 @@ require 'soupcms/core/version'
 require 'soupcms/core/utils/render_partials'
 require 'soupcms/core/utils/url_builder'
 require 'soupcms/core/utils/http_client'
+require 'soupcms/core/utils/http_cache_strategy'
 
 require 'soupcms/core/template/template_manager'
 require 'soupcms/core/template/template_file_store'

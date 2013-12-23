@@ -16,6 +16,8 @@ describe 'Blog Post' do
     end
 
     it { expect(last_response.status).to eq(200) }
+    it { expect(last_response.headers['Cache-Control']).to eq('public, max-age=300') }
+    it { expect(last_response.headers['Expires']).not_to be_nil }
     it { expect(html_response).to have_title('Page title') }
     it { expect(html_response).to have_attribute("link[href='/assets/module/bootstrap/page-header/page-header.css']",'href','/assets/module/bootstrap/page-header/page-header.css')}
     it { expect(html_response).to have_attribute("script[src='/assets/module/bootstrap/page-header/page-header.js']",'src','/assets/module/bootstrap/page-header/page-header.js')}
@@ -31,6 +33,8 @@ describe 'Blog Post' do
       stub_request(:get,/pages\/slug\/invalid-url/).to_return( { status: 404 } )
       get '/soupcms-api-test/invalid-url'
       expect(last_response.status).to eq(404)
+      expect(last_response.headers['Cache-Control']).to be_nil
+      expect(last_response.headers['Expires']).to be_nil
     end
 
     it 'invalid posts slug' do

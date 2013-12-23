@@ -20,33 +20,45 @@
         "left": [
             {
                 "label": "Home",
-                "link" : "http://www.soupcms.com/soupcms",
+                "link" : {
+                    "url" : "home"
+                },
                 "font_icon" : "fa fa-home"
             },
             {
-                "label": "Blog",
-                "link" : "http://www.soupcms.com/soupcms-blog"
+                "label": "Latest Blog Posts",
+                "link" : {
+                    "url" : "latest"
+                }
             },
             {
                 "label": "Resources",
                 "submenu" : [
                     {
                         "label": "Screencasts",
-                        "link" : "http://www.soupcms.com/soupcms/resources/screencasts",
+                        "link" : {
+                            "url":"http://www.soupcms.com/soupcms/resources/screencasts"
+                        },
                         "font_icon" : "fa fa-desktop"
                     },
                     {
                         "label": "Getting started",
-                        "link" : "http://www.soupcms.com/soupcms/resources/getting-started"
+                        "link" : {
+                            "url": "http://www.soupcms.com/soupcms/resources/getting-started"
+                        }
                     },
                     {
                         "label": "Documentation",
-                        "link" : "http://www.soupcms.com/soupcms/resources/documentation",
+                        "link" : {
+                            "url": "http://www.soupcms.com/soupcms/resources/documentation"
+                        },
                         "font_icon" : "fa fa-file-text"
                     },
                     {
                         "label": "Demo",
-                        "link" : "http://www.soupcms.com/soupcms/demo"
+                        "link" : {
+                            "url": "http://www.soupcms.com/soupcms/demo"
+                        }
                     }
                 ]
             }
@@ -54,12 +66,16 @@
         "right": [
             {
                 "label": "Contact Us",
-                "link" : "http://www.soupcms.com/soupcms/contact-us",
+                "link" : {
+                    "url":"http://www.soupcms.com/soupcms/contact-us"
+                },
                 "font_icon" : "fa fa-envelope-o"
             },
             {
                 "label": "About",
-                "link" : "http://www.soupcms.com/soupcms/about"
+                "link" : {
+                    "url":"http://www.soupcms.com/soupcms/about"
+                }
             }
         ]
     }

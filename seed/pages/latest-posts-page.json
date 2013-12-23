@@ -10,7 +10,7 @@
         "slug": "latest",
 
         "state": "published",
-        "latest": false,
+        "latest": true,
 
         "title": "Latest blog posts on soupCMS",
         "seo": {
