@@ -28,6 +28,7 @@
                             {
                                 "type": "soupcms-api",
                                 "model": "posts",
+                                "fields": ["title","slug","description","hero_image", "author_ref", "tags","publish_datetime"],
                                 "return": "posts"
                             }
                         ],

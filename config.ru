@@ -9,14 +9,14 @@ require 'faraday_middleware'
 use Rack::Cache,
     :metastore   => 'heap:/',
     :entitystore => 'heap:/',
-    :verbose     => true
+    :verbose     => false
 
 # http client with caching based on cache headers
 SoupCMS::Core::Utils::HttpClient.connection = Faraday.new do |faraday|
   faraday.use FaradayMiddleware::RackCompatible, Rack::Cache::Context,
               :metastore   => 'heap:/',
               :entitystore => 'heap:/',
-              :verbose => true,
+              :verbose => false,
               :ignore_headers => %w[Set-Cookie X-Content-Digest]
 
   faraday.adapter  Faraday.default_adapter

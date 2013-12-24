@@ -6,17 +6,21 @@ module SoupCMS
 
       class Service < Base
 
-        def find_by_key(model, key, value)
+        def find_by_key(model, key, value, fields = [])
           url = "#{model}/#{key}/#{value}"
           url = SoupCMS::Core::Utils::UrlBuilder.drafts(url, drafts)
-          response = execute_url(url)
+          params = {}
+          params[:fields] = fields unless fields.nil? || fields.empty?
+          response = execute_url(url, params)
           parse_response(response) if response.status == 200
         end
 
-        def find(model_name, filters = {})
+        def find(model_name, filters = {}, fields = [])
           url = SoupCMS::Core::Utils::UrlBuilder.build(model_name, filters)
           url = SoupCMS::Core::Utils::UrlBuilder.drafts(url, drafts)
-          response = execute_url(url)
+          params = {}
+          params[:fields] = fields unless fields.nil? || fields.empty?
+          response = execute_url(url, params)
           return parse_response(response) if response.status == 200
           []
         end
@@ -29,9 +33,9 @@ module SoupCMS
 
         protected
 
-        def execute_url(url)
+        def execute_url(url, params = {} )
           url = File.join(application.soupcms_api_host_url, '/api', application.name, url)
-          SoupCMS::Core::Utils::HttpClient.new.get(url)
+          SoupCMS::Core::Utils::HttpClient.new.get(url, params)
         end
 
 

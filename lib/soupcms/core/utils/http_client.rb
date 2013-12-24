@@ -15,8 +15,8 @@ module SoupCMS
           @@connection ||= Faraday.new { |faraday| faraday.adapter Faraday.default_adapter}
         end
 
-        def get(url)
-          connection.get url
+        def get(url, params)
+          connection.get url, params
         end
 
       end
