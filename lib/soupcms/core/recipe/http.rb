@@ -2,7 +2,7 @@ module SoupCMS
   module Core
     module Recipe
 
-      class SoupCMSApi
+      class Http
 
         def initialize(recipe_hash, page_module)
           @recipe_hash = recipe_hash
@@ -10,13 +10,13 @@ module SoupCMS
         end
 
         def execute
-          context = @page_module.page.context
-          soupcms_api = context.soupcms_api
-          model_name = @recipe_hash['model'] ? eval_value(@recipe_hash['model']) : context.model_name
-          return soupcms_api.fetch_by_url(eval_value(@recipe_hash['url'])) if @recipe_hash['url']
-          soupcms_api.find(model_name, eval_hash(@recipe_hash['match']), @recipe_hash['fields'])
+          @page_module.context
+          url = @page_module.instance_eval("\"#{@recipe_hash['url']}\"")
+          response = SoupCMS::Core::Utils::HttpClient.new.get(url, eval_hash(@recipe_hash['params']))
+          JSON.parse(response.body) if response.status == 200
         end
 
+        private
         def eval_hash(document)
           return {} if document.nil?
           document.each do |key, value|

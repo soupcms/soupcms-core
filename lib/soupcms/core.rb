@@ -23,6 +23,7 @@ require 'soupcms/core/model/module_template'
 require 'soupcms/core/model/request_context'
 
 require 'soupcms/core/recipe/inline'
+require 'soupcms/core/recipe/http'
 require 'soupcms/core/recipe/soupcms_api'
 
 require 'soupcms/core/config'

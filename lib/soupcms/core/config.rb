@@ -9,6 +9,7 @@ module SoupCMS
         TEMPLATE_DIR = File.join(File.dirname(__FILE__),'ui')
         RECIPES = {
             'inline' => SoupCMS::Core::Recipe::Inline,
+            'http' => SoupCMS::Core::Recipe::Http,
             'soupcms-api' => SoupCMS::Core::Recipe::SoupCMSApi
         }
         RESPONSIVE_IMAGE_PROVIDERS = {

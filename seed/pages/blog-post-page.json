@@ -41,11 +41,8 @@
                 {
                     "recipes": [
                         {
-                            "type": "soupcms-api",
-                            "model": "#{context.model_name}",
-                            "match": {
-                                "slug": "#{context.slug}"
-                            },
+                            "type": "http",
+                            "url" : "http://localhost:9292/api/soupcms-test/#{context.model_name}/slug/#{context.slug}",
                             "return": "page-header"
                         }
                     ],
