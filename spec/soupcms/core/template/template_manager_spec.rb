@@ -25,7 +25,7 @@ describe SoupCMS::Core::Template::TemplateManager do
   #end
 
   it 'should return nil when file does not exist' do
-    stub_request(:get,/templates\?filters%5B0%5D=kind&filters%5B1%5D=template_name&filters%5B2%5D=type&kind=%22module%22&template_name=%22bootstrap\/invalid\-module%22&type=%22slim%22$/).to_return( { status: 404 } )
+    stub_request(:get,/templates\?filters%5B0%5D=kind&filters%5B1%5D=template_name&filters%5B2%5D=type&kind=module&template_name=bootstrap\/invalid\-module&type=slim$/).to_return( { status: 404 } )
     template = manager.find_module(context,'bootstrap/invalid-module','slim')
     expect(template).to be_nil
   end

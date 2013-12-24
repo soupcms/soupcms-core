@@ -11,7 +11,9 @@ module SoupCMS
         end
 
         def build_filters(kind, template_path, type)
-          {'kind' => kind, 'template_name' => template_path, 'type' => type}
+          kind.nil? ?
+              {'template_name' => template_path, 'type' => type} :
+              {'kind' => kind, 'template_name' => template_path, 'type' => type}
         end
 
 
