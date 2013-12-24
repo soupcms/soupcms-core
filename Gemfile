@@ -2,14 +2,7 @@ source 'https://rubygems.org'
 
 gemspec
 
-gem 'grape'
-gem 'tilt'
-gem 'slim'
 gem 'sprockets', github: 'sstephenson/sprockets'
-gem 'sprockets-helpers'
-gem 'therubyracer'
-gem 'sass'
-gem 'faraday'
 
 group :development do
   gem 'puma'
