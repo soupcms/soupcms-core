@@ -6,7 +6,7 @@ module SoupCMS
   module Core
 
       module ConfigDefaults
-        TEMPLATE_DIR = File.join(File.dirname(__FILE__),'ui')
+        TEMPLATE_DIR = File.join(File.dirname(__FILE__),'../../../ui')
         RECIPES = {
             'inline' => SoupCMS::Core::Recipe::Inline,
             'http' => SoupCMS::Core::Recipe::Http,
