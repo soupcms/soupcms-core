@@ -5,7 +5,7 @@ require 'soupcms/core/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'soupcms-core'
-  spec.version       = Soupcms::Core::VERSION
+  spec.version       = SoupCMS::Core::VERSION
   spec.authors       = ['Sunit Parekh']
   spec.email         = ['parekh.sunit@gmail.com']
   spec.summary       = %q{soupCMS core project provides core CMS capability of building pages with data recipe and ui recipe.}
