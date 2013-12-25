@@ -13,7 +13,7 @@ module SoupCMS
           @page_module.context
           url = @page_module.instance_eval("\"#{@recipe_hash['url']}\"")
           response = SoupCMS::Core::Utils::HttpClient.new.get(url, eval_hash(@recipe_hash['params']))
-          JSON.parse(response.body) if response.status == 200
+          JSON.parse(response) unless response.nil?
         end
 
         private

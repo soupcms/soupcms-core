@@ -11,7 +11,7 @@ module SoupCMS
           params = {}
           params[:fields] = fields unless fields.nil? || fields.empty?
           response = execute_url(url, params)
-          parse_response(response) if response.status == 200
+          parse_response(response) unless response.nil?
         end
 
         def find(model_name, filters = {}, fields = [])
@@ -23,13 +23,13 @@ module SoupCMS
           params[:filters] = filter_keys unless filter_keys.empty?
           params[:fields] = fields unless fields.nil? || fields.empty?
           response = execute_url(url, params)
-          return parse_response(response) if response.status == 200
+          return parse_response(response) unless response.nil?
           []
         end
 
         def fetch_by_url(url)
           response = execute_url(url)
-          parse_response(response) if response.status == 200
+          parse_response(response) unless response.nil?
         end
 
         protected
@@ -42,7 +42,7 @@ module SoupCMS
 
 
         def parse_response(response)
-          docs = JSON.parse(response.body)
+          docs = JSON.parse(response)
           return docs.collect{ |doc| SoupCMS::Core::Model::Document.new(doc) } if docs.kind_of?(Array)
           return SoupCMS::Core::Model::Document.new(docs)
         end

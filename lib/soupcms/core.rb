@@ -1,5 +1,6 @@
 require 'soupcms/core/version'
 
+require 'soupcms/core/utils/params_hash'
 require 'soupcms/core/utils/render_partials'
 require 'soupcms/core/utils/http_client'
 require 'soupcms/core/utils/http_cache_strategy'

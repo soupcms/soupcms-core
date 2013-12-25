@@ -9,6 +9,7 @@ group :development do
   gem 'rack-cache'
   gem 'mongo'
   gem 'bson_ext'
+  gem 'faraday'
   gem 'faraday_middleware'
 end
 

@@ -23,6 +23,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency('slim')
   spec.add_dependency('sprockets-helpers')
   spec.add_dependency('sass')
-  spec.add_dependency('faraday')
 
 end
