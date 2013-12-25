@@ -3,7 +3,7 @@ module SoupCMS
     module Template
 
 
-      class TemplateFileStore
+      class FileStore
 
         def initialize(file_path)
           @file_path = file_path

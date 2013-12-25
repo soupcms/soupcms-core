@@ -1,11 +1,11 @@
 require 'spec_helper'
 
-describe SoupCMS::Core::Template::TemplateFileStore do
+describe SoupCMS::Core::Template::FileStore do
 
   let (:application) { Application.new('soupcms-test') }
   let (:context) { RequestContext.new(application) }
 
-  let(:store) { SoupCMS::Core::Template::TemplateFileStore.new(SoupCMS::Core::Template::TemplateManager::DEFAULT_TEMPLATE_DIR) }
+  let(:store) { SoupCMS::Core::Template::FileStore.new(SoupCMS::Core::Template::Manager::DEFAULT_TEMPLATE_DIR) }
 
   it 'should return file content when file exist' do
     template = store.find(context,'bootstrap/page-header','slim', 'module')

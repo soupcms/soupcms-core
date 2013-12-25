@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-describe SoupCMS::Core::Template::TemplateSoupCMSApiStore do
+describe SoupCMS::Core::Template::SoupCMSApiStore do
 
   let (:application) { SoupCMS::Core::Model::Application.new('soupcms-test') }
   let (:context) { SoupCMS::Core::Model::RequestContext.new(application) }
-  let(:store) { SoupCMS::Core::Template::TemplateSoupCMSApiStore.new }
+  let(:store) { SoupCMS::Core::Template::SoupCMSApiStore.new }
 
   it 'should return file content when file exist' do
     response_json = <<-json

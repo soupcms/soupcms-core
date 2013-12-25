@@ -5,9 +5,9 @@ require 'soupcms/core/utils/render_partials'
 require 'soupcms/core/utils/http_client'
 require 'soupcms/core/utils/http_cache_strategy'
 
-require 'soupcms/core/template/template_manager'
-require 'soupcms/core/template/template_file_store'
-require 'soupcms/core/template/template_soupcms_api_store'
+require 'soupcms/core/template/manager'
+require 'soupcms/core/template/file_store'
+require 'soupcms/core/template/soupcms_api_store'
 
 require 'soupcms/core/model/responsive_image'
 require 'soupcms/core/model/cloudinary_responsive_image'

@@ -4,14 +4,14 @@ module SoupCMS
   module Core
     module Template
 
-      class TemplateManager
+      class Manager
 
         DEFAULT_TEMPLATE_DIR = File.join(File.dirname(__FILE__), '../../../../ui')
 
         def self.stores
           @@stores ||= [
-              SoupCMS::Core::Template::TemplateFileStore.new(DEFAULT_TEMPLATE_DIR),
-              SoupCMS::Core::Template::TemplateSoupCMSApiStore
+              SoupCMS::Core::Template::FileStore.new(DEFAULT_TEMPLATE_DIR),
+              SoupCMS::Core::Template::SoupCMSApiStore
           ]
         end
 

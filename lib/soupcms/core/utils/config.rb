@@ -38,7 +38,7 @@ module SoupCMS
         end
 
         def template_manager
-          @template_manager ||= SoupCMS::Core::Template::TemplateManager
+          @template_manager ||= SoupCMS::Core::Template::Manager
         end
 
         def template_manager=(manager)

@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-describe SoupCMS::Core::Template::TemplateManager do
+describe SoupCMS::Core::Template::Manager do
 
   let (:application) { SoupCMS::Core::Model::Application.new('soupcms-test') }
   let (:context) { SoupCMS::Core::Model::RequestContext.new(application) }
-  let(:manager) { SoupCMS::Core::Template::TemplateManager.new }
+  let(:manager) { SoupCMS::Core::Template::Manager.new }
 
   it 'should return tilt parsed template when file exist' do
     template = manager.find_module(context,'bootstrap/page-header','slim')

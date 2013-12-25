@@ -3,7 +3,7 @@ module SoupCMS
     module Template
 
 
-      class TemplateSoupCMSApiStore
+      class SoupCMSApiStore
 
         def find(context, template_path, type, kind = nil)
           documents = context.soupcms_api.find('templates', build_filters(kind, template_path, type))
