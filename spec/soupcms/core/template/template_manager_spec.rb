@@ -4,13 +4,7 @@ describe SoupCMS::Core::Template::TemplateManager do
 
   let (:application) { SoupCMS::Core::Model::Application.new('soupcms-test') }
   let (:context) { SoupCMS::Core::Model::RequestContext.new(application) }
-
-  let(:manager) do
-    mgr = SoupCMS::Core::Template::TemplateManager.new
-    mgr.register(SoupCMS::Core::Template::TemplateFileStore.new(SoupCMS::Core::Utils::ConfigDefaults::TEMPLATE_DIR))
-    mgr.register(SoupCMS::Core::Template::TemplateSoupCMSApiStore)
-    mgr
-  end
+  let(:manager) { SoupCMS::Core::Template::TemplateManager.new }
 
   it 'should return tilt parsed template when file exist' do
     template = manager.find_module(context,'bootstrap/page-header','slim')

@@ -52,7 +52,7 @@ module SoupCMS
         end
 
         def module_wrapper_template
-          SoupCMSCore.config.template_manager.find(context,'partial/system/module-wrapper.slim')
+          SoupCMSCore.config.template_manager.new.find(context,'partial/system/module-wrapper.slim')
         end
 
       end

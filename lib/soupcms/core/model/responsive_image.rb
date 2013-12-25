@@ -4,9 +4,15 @@ module SoupCMS
 
       class ResponsiveImage
 
-        def self.register(source,klass)
-          @@providers ||= {}
-          @@providers[source] = klass
+        def self.providers
+          @@providers ||= {
+              'cloudinary' => SoupCMS::Core::Model::CloudinaryResponsiveImage,
+              'cdnconnect' => SoupCMS::Core::Model::CdnConnectResponsiveImage
+          }
+        end
+
+        def self.register(source, klass)
+          providers[source] = klass
         end
 
         def self.clear_all
@@ -14,7 +20,7 @@ module SoupCMS
         end
 
         def self.build(context, responsive_image_hash)
-          provider = @@providers[responsive_image_hash[:image]['source']]
+          provider = providers[responsive_image_hash[:image]['source']]
           provider.new(context, responsive_image_hash)
         end
 
@@ -54,7 +60,7 @@ module SoupCMS
         end
 
         def render_image(locals = {})
-          SoupCMSCore.config.template_manager.find(@context,'partial/system/responsive-img.slim').render(self, locals)
+          SoupCMSCore.config.template_manager.new.find(@context, 'partial/system/responsive-img.slim').render(self, locals)
         end
 
         def html_options
@@ -91,7 +97,7 @@ module SoupCMS
           raise 'implement retina_size method for the provider'
         end
 
-        def build_url(size,image)
+        def build_url(size, image)
           raise 'implement retina_size method for the provider'
         end
 

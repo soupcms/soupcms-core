@@ -4,22 +4,36 @@ module SoupCMS
   module Core
     module Template
 
-
       class TemplateManager
 
-        def initialize
-          @stores = []
-          @cache = {}
+        DEFAULT_TEMPLATE_DIR = File.join(File.dirname(__FILE__), '../../../../ui')
+
+        def self.stores
+          @@stores ||= [
+              SoupCMS::Core::Template::TemplateFileStore.new(DEFAULT_TEMPLATE_DIR),
+              SoupCMS::Core::Template::TemplateSoupCMSApiStore
+          ]
         end
 
-        def register(*templates)
-          @stores.concat templates
+        def self.template_cache
+          @@cache ||= {}
         end
 
-        def clear
-          @stores = []
-          @cache = {}
+        def self.append_store(*templates)
+          stores.concat templates
         end
+
+        def self.prepend_store(*templates)
+          stores.unshift templates
+        end
+
+        def self.clear
+          @@stores = []
+          @@cache = {}
+        end
+
+
+
 
         def find_module(context, template_name, type)
           find_template(context, template_name, type, 'module')
@@ -40,19 +54,20 @@ module SoupCMS
         private
         def find_template(context, template_name, type, kind = nil)
           key = "#{kind}/#{template_name}.#{type}"
-          unless @cache[key]
-            @stores.each do |store|
+          cache = self.class.template_cache
+          unless cache[key]
+            self.class.stores.each do |store|
               store = store.new if store.kind_of?(Class)
               value = store.find(context, template_name, type, kind)
               unless value.nil?
                 template = Tilt.new(key) { value }
                 return template if context.environment != 'production'
-                @cache[key] = template
+                cache[key] = template
                 break
               end
             end
           end
-          @cache[key]
+          cache[key]
         end
 
       end

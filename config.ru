@@ -25,13 +25,20 @@ end
 
 
 map '/assets' do
+  sprockets = SoupCMSCore.config.sprockets
   Sprockets::Helpers.configure do |config|
+    config.environment = sprockets
+    config.prefix = '/assets'
+    config.public_path = nil
     config.digest = true
   end
-  run SoupCMSCore.config.sprockets
+  run sprockets
 end
 
 map '/' do
+  SoupCMSCore.configure do |config|
+    config.soupcms_api_host_url = 'http://localhost:9292/'
+  end
   run SoupCMSRackApp.new
 end
 

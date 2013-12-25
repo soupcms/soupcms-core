@@ -7,6 +7,7 @@ module SoupCMS
 
         def initialize(file_path)
           @file_path = file_path
+          SoupCMSCore.config.sprockets.append_path(file_path) if SoupCMSCore.config.sprockets
         end
 
         def find(context, template_path, type, kind = nil)
