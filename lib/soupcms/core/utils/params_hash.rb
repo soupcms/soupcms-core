@@ -5,44 +5,38 @@ module SoupCMS
 
       class ParamsHash < Hash
 
-
-        def to_query_params
-          params = ''
-          stack = []
-
-          each do |k, v|
-            if v.is_a?(Hash)
-              stack << [k,v]
-            elsif v.is_a?(Array)
-              stack << [k,Hash.from_array(v)]
-            else
-              params << "#{k}=#{v}&"
-            end
-          end
-
-          stack.each do |parent, hash|
-            hash.each do |k, v|
-              if v.is_a?(Hash)
-                stack << ["#{parent}[#{k}]", v]
-              else
-                params << "#{parent}[]=#{v}&"
-              end
-            end
-          end
-
-          params.chop!
-          params
+        def to_query
+          build_nested_query(self)
         end
 
-        def self.from_array(array = [])
-          h = Hash.new
-          array.size.times do |t|
-            h[t] = array[t]
+        private
+
+        def build_nested_query(value, prefix = nil)
+          case value
+            when Array
+              value.map { |v| build_nested_query(v, "#{prefix}%5B%5D") }.join("&")
+            when Hash
+              value.map { |k, v|
+                build_nested_query(v, prefix ? "#{prefix}%5B#{escape(k)}%5D" : escape(k))
+              }.join("&")
+            when NilClass
+              prefix
+            else
+              raise ArgumentError, "value must be a Hash" if prefix.nil?
+              "#{prefix}=#{escape(value)}"
           end
-          h
+        end
+
+        ESCAPE_RE = /[^a-zA-Z0-9 .~_-]/
+
+        def escape(s)
+          s.to_s.gsub(ESCAPE_RE) {|match|
+            '%' + match.unpack('H2' * match.bytesize).join('%').upcase
+          }.tr(' ', '+')
         end
 
       end
+
 
 
     end

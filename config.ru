@@ -1,6 +1,7 @@
 require 'tilt'
 require 'sprockets'
 require 'soupcms/core'
+
 require 'rack/cache'
 require 'faraday'
 require 'faraday_middleware'
@@ -31,5 +32,7 @@ map '/assets' do
 end
 
 map '/' do
-  run SoupCMSApp
+  run SoupCMSRackApp.new
 end
+
+

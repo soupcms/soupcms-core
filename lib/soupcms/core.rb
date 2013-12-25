@@ -33,4 +33,4 @@ require 'soupcms/core/api/base'
 require 'soupcms/core/api/service'
 
 require 'soupcms/core/page_route_service'
-require 'soupcms/soupcms_app'
+require 'soupcms/soupcms_rack_app'

@@ -4,7 +4,7 @@ describe 'Blog Post' do
   include Rack::Test::Methods
 
   def app
-    SoupCMSApp
+    SoupCMSRackApp.new
   end
 
 
