@@ -37,7 +37,7 @@ module SoupCMS
         end
 
         def rimg(responsive_image_hash)
-          SoupCMS::Core::Config.configs.responsive_image.build(context,responsive_image_hash).render_image('page_module' => self)
+          SoupCMSCore.config.responsive_image.build(context,responsive_image_hash).render_image('page_module' => self)
         end
 
         private
@@ -52,7 +52,7 @@ module SoupCMS
         end
 
         def module_wrapper_template
-          SoupCMS::Core::Config.configs.template_manager.find(context,'partial/system/module-wrapper.slim')
+          SoupCMSCore.config.template_manager.find(context,'partial/system/module-wrapper.slim')
         end
 
       end

@@ -28,7 +28,7 @@ map '/assets' do
   Sprockets::Helpers.configure do |config|
     config.digest = true
   end
-  run SoupCMS::Core::Config.configs.sprockets
+  run SoupCMSCore.config.sprockets
 end
 
 map '/' do

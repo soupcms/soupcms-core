@@ -4,9 +4,10 @@ require 'slim'
 
 module SoupCMS
   module Core
+    module Utils
 
       module ConfigDefaults
-        TEMPLATE_DIR = File.join(File.dirname(__FILE__),'../../../ui')
+        TEMPLATE_DIR = File.join(File.dirname(__FILE__),'../../../../ui')
         RECIPES = {
             'inline' => SoupCMS::Core::Recipe::Inline,
             'http' => SoupCMS::Core::Recipe::Http,
@@ -19,10 +20,6 @@ module SoupCMS
       end
 
       class Config
-
-        def self.configs
-          @@config ||= SoupCMS::Core::Config.new
-        end
 
         def initialize
           @soupcms_api_host_url = 'http://localhost:9292/'
@@ -43,8 +40,8 @@ module SoupCMS
           @template_manager.register(SoupCMS::Core::Template::TemplateSoupCMSApiStore)
           @sprockets.append_path ConfigDefaults::TEMPLATE_DIR
 
-          ConfigDefaults::RESPONSIVE_IMAGE_PROVIDERS.each { |source,provider|
-            SoupCMS::Core::Model::ResponsiveImage.register source,provider
+          ConfigDefaults::RESPONSIVE_IMAGE_PROVIDERS.each { |source, provider|
+            SoupCMS::Core::Model::ResponsiveImage.register source, provider
           }
         end
 
@@ -62,5 +59,6 @@ module SoupCMS
       end
 
 
+    end
   end
 end

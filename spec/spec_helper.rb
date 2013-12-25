@@ -15,7 +15,7 @@ RSpec.configure do |config|
 
 
   config.before(:suite) do
-    SoupCMS::Core::Config.configs.soupcms_api_host_url = 'http://localhost:9292'
+    SoupCMSCore.config.soupcms_api_host_url = 'http://localhost:9292'
   end
 
   config.before(:each) do

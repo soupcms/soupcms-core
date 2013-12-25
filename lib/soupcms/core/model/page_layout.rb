@@ -15,12 +15,12 @@ module SoupCMS
 
         def javascript
           js = "layout/#{full_name}/#{name}.js"
-          return js if SoupCMS::Core::Config.configs.sprockets[js]
+          return js if SoupCMSCore.config.sprockets[js]
         end
 
         def stylesheet
           css = "layout/#{full_name}/#{name}.css"
-          return css if SoupCMS::Core::Config.configs.sprockets[css]
+          return css if SoupCMSCore.config.sprockets[css]
         end
 
         private
@@ -38,7 +38,7 @@ module SoupCMS
         end
 
         def layout
-          SoupCMS::Core::Config.configs.template_manager.find_layout(@page.context,full_name,type)
+          SoupCMSCore.config.template_manager.find_layout(@page.context,full_name,type)
         end
 
       end

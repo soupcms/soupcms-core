@@ -27,10 +27,11 @@ require 'soupcms/core/recipe/inline'
 require 'soupcms/core/recipe/http'
 require 'soupcms/core/recipe/soupcms_api'
 
-require 'soupcms/core/config'
+require 'soupcms/core/utils/config'
 
 require 'soupcms/core/api/base'
 require 'soupcms/core/api/service'
 
 require 'soupcms/core/page_route_service'
 require 'soupcms/soupcms_rack_app'
+require 'soupcms/soupcms_core'

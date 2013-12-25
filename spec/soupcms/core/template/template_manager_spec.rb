@@ -7,7 +7,7 @@ describe SoupCMS::Core::Template::TemplateManager do
 
   let(:manager) do
     mgr = SoupCMS::Core::Template::TemplateManager.new
-    mgr.register(SoupCMS::Core::Template::TemplateFileStore.new(SoupCMS::Core::ConfigDefaults::TEMPLATE_DIR))
+    mgr.register(SoupCMS::Core::Template::TemplateFileStore.new(SoupCMS::Core::Utils::ConfigDefaults::TEMPLATE_DIR))
     mgr.register(SoupCMS::Core::Template::TemplateSoupCMSApiStore)
     mgr
   end

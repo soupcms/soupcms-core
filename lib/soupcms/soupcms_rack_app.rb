@@ -16,7 +16,7 @@ class SoupCMSRackApp
 
     return [404, headers, ["Page '#{slug}' not found in application '#{app_name}'"]] if page.nil?
 
-    headers.merge! SoupCMS::Core::Config.configs.http_caching_strategy.new.headers(context) if context.environment == 'production'
+    headers.merge! SoupCMSCore.config.http_caching_strategy.new.headers(context) if context.environment == 'production'
     body = page.render_page
     [status, headers, [body]]
 

@@ -5,7 +5,7 @@ describe SoupCMS::Core::Template::TemplateFileStore do
   let (:application) { Application.new('soupcms-test') }
   let (:context) { RequestContext.new(application) }
 
-  let(:store) { SoupCMS::Core::Template::TemplateFileStore.new(SoupCMS::Core::ConfigDefaults::TEMPLATE_DIR) }
+  let(:store) { SoupCMS::Core::Template::TemplateFileStore.new(SoupCMS::Core::Utils::ConfigDefaults::TEMPLATE_DIR) }
 
   it 'should return file content when file exist' do
     template = store.find(context,'bootstrap/page-header','slim', 'module')

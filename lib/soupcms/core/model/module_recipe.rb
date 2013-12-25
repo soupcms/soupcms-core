@@ -15,7 +15,7 @@ module SoupCMS
         end
 
         def recipe
-          @recipe ||= SoupCMS::Core::Config.configs.recipes[@recipe_hash['type']].new(@recipe_hash,@page_module)
+          @recipe ||= SoupCMSCore.config.recipes[@recipe_hash['type']].new(@recipe_hash,@page_module)
         end
 
         def execute
