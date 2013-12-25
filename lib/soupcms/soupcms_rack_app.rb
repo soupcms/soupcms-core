@@ -3,20 +3,16 @@ class SoupCMSRackApp
   def call(env)
     status = 200
     headers = {'Content-Type' => 'text/html'}
+
     request = Rack::Request.new(env)
-    m = request.path.match(/\/[\w\.\-]*\//)
-
-    return [404, headers, ["Invalid url request #{request.path}"]] if m.nil?
-
-    app_name = m[0].gsub('/', '')
-    slug = m.post_match
-
+    app_name, slug = parse_path(request)
+    return [404, headers, ["Page '#{slug}' not found in application '#{app_name}'"]] if app_name.nil? || slug.nil?
 
     application = SoupCMS::Core::Model::Application.get(app_name)
     context = SoupCMS::Core::Model::RequestContext.new(application, request.params)
 
-    app = SoupCMS::Core::PageRouteService.new(context)
-    page = app.find(slug)
+    service = SoupCMS::Core::PageRouteService.new(context)
+    page = service.find(slug)
 
     return [404, headers, ["Page '#{slug}' not found in application '#{app_name}'"]] if page.nil?
 
@@ -24,6 +20,15 @@ class SoupCMSRackApp
     body = page.render_page
     [status, headers, [body]]
 
+  end
+
+  def parse_path(request)
+    url_parser = request.path.match(/\/[\w\.\-]*\//)
+    if url_parser
+      app_name = url_parser[0].gsub('/', '')
+      slug = url_parser.post_match
+      return app_name, slug
+    end
   end
 
 end
