@@ -1,9 +1,8 @@
 - page_header = data['page-header']
-.container
-  .page-header
-    h1
-      = page_header['title']
-      - if page_header['subtitle']
-        small = page_header['subtitle']
-    - if page_header['sub_headline']
-      h3 = page_header['sub_headline']
+.page-header
+  h1
+    = page_header['title']
+    - if page_header['subtitle']
+      small = page_header['subtitle']
+  - if page_header['sub_headline']
+    h3 = page_header['sub_headline']
