@@ -9,10 +9,11 @@
             | #{post.publish_datetime.strftime('%d %b')}
           btn.btn.btn-default.btn-xs = post.publish_datetime.strftime('%Y')
         span &nbsp; &nbsp; &nbsp; &nbsp;
-        span.author
-          span
-            i.fa.fa-fw.fa-edit
-          span = post['author_ref']['name']
+        - if post['author_ref']
+          span.author
+            span
+              i.fa.fa-fw.fa-edit
+            span = post['author_ref']['name']
 
       hr
 

@@ -1,10 +1,11 @@
 .tag-cloud
-  .well.well-sm
-    .lead Tag Cloud
-    .tags
-      - data['tag-cloud'].each do |tag|
-        .btn-group
-          a.tag.btn.btn-default.btn-xs href="#{tag['link']['url']}"
-            = tag['label']
-          a.tag.btn.btn-primary.btn-xs href="#{tag['link']['url']}"
-            = tag['weight']
+  - if data['tag-cloud'] && !data['tag-cloud'].empty?
+    .well.well-sm
+      .lead Tag Cloud
+      .tags
+        - data['tag-cloud'].each do |tag|
+          .btn-group
+            a.tag.btn.btn-default.btn-xs href="#{tag['link']['url']}"
+              = tag['label']
+            a.tag.btn.btn-primary.btn-xs href="#{tag['link']['url']}"
+              = tag['weight']

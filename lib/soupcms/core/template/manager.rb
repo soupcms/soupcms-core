@@ -19,12 +19,12 @@ module SoupCMS
           @@cache ||= {}
         end
 
-        def self.append_store(*templates)
-          stores.concat templates
+        def self.append_store(template)
+          stores.concat template
         end
 
-        def self.prepend_store(*templates)
-          stores.unshift templates
+        def self.prepend_store(template)
+          stores.unshift template
         end
 
         def self.clear
@@ -57,8 +57,8 @@ module SoupCMS
           cache = self.class.template_cache
           unless cache[key]
             self.class.stores.each do |store|
-              store = store.new if store.kind_of?(Class)
-              value = store.find(context, template_name, type, kind)
+              store = store.kind_of?(Class) ? store.new : store
+              value = store.find_template(context, template_name, type, kind)
               unless value.nil?
                 template = Tilt.new(key) { value }
                 return template if context.environment != 'production'

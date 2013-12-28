@@ -5,7 +5,7 @@ module SoupCMS
 
       class SoupCMSApiStore
 
-        def find(context, template_path, type, kind = nil)
+        def find_template(context, template_path, type, kind = nil)
           documents = context.soupcms_api.find('templates', build_filters(kind, template_path, type))
           return documents[0]['template'] if documents[0]
         end

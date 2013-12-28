@@ -6,7 +6,7 @@
         "base_url": "http://sunitparekh.cdnconnect.com/soupcms-blog",
         "desktop": "cms-patterns.png"
     },
-    "content": "This is my fifth blog post and I am really exiced about this. \n I hope u will enjoy it. \n Thanks - Sunit",
+    "content": "This is my fifth blog post and I am really excited about this. \n I hope u will enjoy it. \n Thanks - Sunit",
     "author_ref": {
         "model" : "authors",
         "match" : {
