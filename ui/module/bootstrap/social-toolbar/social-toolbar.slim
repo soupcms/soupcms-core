@@ -1,23 +1,24 @@
-h2
-  ul.list-inline
-    - social = data['social-toolbar'][0]['social']
-    - if social['twitter']
-      li
-        a href="#{social['twitter']}"
-          i class="fa fa-twitter"
-    - if social['facebook']
-      li
-        a href="#{social['facebook']}"
-          i class="fa fa-facebook"
-    - if social['plus']
-      li
-        a href="#{social['plus']}"
-          i class="fa fa-google-plus"
-    - if social['youtube']
-      li
-        a href="#{social['youtube']}"
-          i class="fa fa-youtube"
-    - if social['github']
-      li
-        a href="#{social['github']}"
-          i class="fa fa-github"
+.social-toolbar
+  h2.pull-right
+    ul.list-inline
+      - social = data['social-toolbar'][0]['social']
+      - if social['twitter']
+        li
+          a href="#{social['twitter']}"
+            i class="fa fa-twitter"
+      - if social['facebook']
+        li
+          a href="#{social['facebook']}"
+            i class="fa fa-facebook"
+      - if social['plus']
+        li
+          a href="#{social['plus']}"
+            i class="fa fa-google-plus"
+      - if social['youtube']
+        li
+          a href="#{social['youtube']}"
+            i class="fa fa-youtube"
+      - if social['github']
+        li
+          a href="#{social['github']}"
+            i class="fa fa-github"

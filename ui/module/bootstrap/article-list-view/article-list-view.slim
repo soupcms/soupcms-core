@@ -13,14 +13,6 @@
             span
               i.fa.fa-fw.fa-edit
             span = post['author_ref']['name']
-          .tags.col-md-6
-            ul.list-inline
-              li
-                i.fa.fa-fw.fa-tags
-              - post['tags'].each do |tag|
-                li
-                  a.btn.btn-primary.btn-xs href="#{tag['link']['url']}"
-                    = tag['label']
 
       - if post['hero_image']
         a.col-md-4 href="#"

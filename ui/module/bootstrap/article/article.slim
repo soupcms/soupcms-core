@@ -1,3 +1,23 @@
 - post = data['document'][0]
+.post
+  .page-header
+    h1.article-title = post['title']
+    .row.meta-info
+      .date.col-md-3.btn-group
+        btn.btn.btn-success.btn-xs
+          i.fa.fa-fw.fa-calendar
+          | #{post.publish_datetime.strftime('%d %b')}
+        btn.btn.btn-default.btn-xs = post.publish_datetime.strftime('%Y')
+      .author.col-md-3
+        span
+          i.fa.fa-fw.fa-edit
+        span = post['author_ref']['name']
+      .tags.col-md-6
+        .pull-right
+          i.fa.fa-fw.fa-tags
+          - post['tags'].each do |tag|
+            .btn-group
+              a.btn.btn-default.btn-xs href="#{tag['link']['url']}"
+                = tag['label']
 .article
   p = post['content']['value']
