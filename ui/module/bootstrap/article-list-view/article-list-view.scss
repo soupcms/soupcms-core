@@ -1,5 +1,10 @@
 .article-list-view {
   .post {
+    overflow: auto;
+    width: 100%;
+    hr {
+      margin: 7px 0;
+    }
     img {
       padding: 0 10px 10px 0;
     }

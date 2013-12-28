@@ -1,21 +1,25 @@
 .article-list-view
   - data['posts'].each do |post|
     .post
-      .page-header
-        h1.article-title = post['title']
-        .row.meta-info
-          .date.col-md-3.btn-group
-            btn.btn.btn-success.btn-xs
-              i.fa.fa-fw.fa-calendar
-              | #{post.publish_datetime.strftime('%d %b')}
-            btn.btn.btn-default.btn-xs = post.publish_datetime.strftime('%Y')
-          .author.col-md-3
-            span
-              i.fa.fa-fw.fa-edit
-            span = post['author_ref']['name']
+      h2.article-title = post['title']
+      .meta-info
+        span.date.btn-group
+          btn.btn.btn-success.btn-xs
+            i.fa.fa-fw.fa-calendar
+            | #{post.publish_datetime.strftime('%d %b')}
+          btn.btn.btn-default.btn-xs = post.publish_datetime.strftime('%Y')
+        span &nbsp; &nbsp; &nbsp; &nbsp;
+        span.author
+          span
+            i.fa.fa-fw.fa-edit
+          span = post['author_ref']['name']
+
+      hr
 
       - if post['hero_image']
         a.col-md-4 href="#"
           == rimg image: post['hero_image'], desktop: 'w_300', html_options: { class: 'hero' }
+
       p = post['description']
-      a.pull-right.btn.btn-primary href="#{post['url']}" Read
+
+      a.pull-right.btn.btn-sm.btn-primary href="#{post['url']}" Read More
