@@ -8,7 +8,8 @@
     },
     "content": {
         "type": "markdown",
-        "value":"$file:README.md"
+        "flavor": "redcarpet",
+        "value":"$file:seven.md"
     },
     "author_ref": {
         "model" : "authors",

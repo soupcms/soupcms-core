@@ -6,7 +6,11 @@
         "base_url": "http://res.cloudinary.com/sunitparekh/image/upload",
         "desktop": "card-wall_bejrz3.jpg"
     },
-    "content": "This is my sixth blog post and I am really exiced about this. \n I hope u will enjoy it. \n Thanks - Sunit",
+    "content": {
+        "type": "markdown",
+        "flavor": "kramdown",
+        "value":"$file:six.md"
+    },
     "author_ref": {
         "model" : "authors",
         "match" : {
