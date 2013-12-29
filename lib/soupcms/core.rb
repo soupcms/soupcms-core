@@ -5,6 +5,13 @@ require 'soupcms/core/utils/render_partials'
 require 'soupcms/core/utils/http_client'
 require 'soupcms/core/utils/http_cache_strategy'
 
+begin
+  require 'nokogiri'
+  require 'soupcms/core/processor/nokogiri_toc'
+rescue LoadError
+  #puts "To load nokogiri_toc add gems 'nokogiri'"
+end
+
 require 'soupcms/core/template/manager'
 require 'soupcms/core/template/file_store'
 require 'soupcms/core/template/soupcms_api_store'
