@@ -10,5 +10,16 @@
   ul {
     list-style-type: none;
     padding-left: 20px;
+    li {
+      padding-top: 2px;
+      padding-bottom: 2px;
+      a:hover {
+        text-decoration: none;
+        font-weight: bolder;
+      }
+      .active {
+        font-weight: bolder;
+      }
+    }
   }
 }

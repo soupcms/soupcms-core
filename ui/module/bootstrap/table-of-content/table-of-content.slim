@@ -1,6 +1,6 @@
 - toc = data['table-of-content']
 - if toc && !toc.empty?
-  .table-of-content.affix
+  .table-of-content
     ul
       - toc.each do |item|
         == render 'module/bootstrap/table-of-content/nav.slim', { item: item }
