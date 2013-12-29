@@ -22,7 +22,7 @@ module SoupCMS
           toc = []
           top_level = 0
           headers.each do |header|
-            node = {'label' => header.text.chomp.strip, 'href' => "\##{header['id']}", 'tag' => header.name , 'children' => []}
+            node = {'label' => header.text.chomp.strip, 'href' => "\##{header['id']}", 'tag' => header.name, 'children' => []}
             if toc.empty?
               toc.push(node)
               top_level = header.name[1].to_i
@@ -30,16 +30,8 @@ module SoupCMS
               current_level = header.name[1].to_i
               if current_level <= top_level
                 toc.push(node)
-              elsif current_level == top_level + 1
-                get_toc_level_last_node(toc,1, header.name).push(node)
-              elsif current_level == top_level + 2
-                get_toc_level_last_node(toc,2, header.name).push(node)
-              elsif current_level == top_level + 3
-                get_toc_level_last_node(toc,3, header.name).push(node)
-              elsif current_level == top_level + 4
-                get_toc_level_last_node(toc,4, header.name).push(node)
-              elsif current_level == top_level + 5
-                get_toc_level_last_node(toc,5, header.name).push(node)
+              else
+                get_toc_level_last_node(toc, current_level-top_level, header.name).push(node)
               end
             end
           end
