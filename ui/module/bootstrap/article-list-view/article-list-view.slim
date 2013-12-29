@@ -1,7 +1,9 @@
 .article-list-view
   - data['posts'].each do |post|
     .post
-      h2.article-title = post['title']
+      h2.article-title
+        a href="#{post['url']}"
+          = post['title']
       .meta-info
         span.date.btn-group
           btn.btn.btn-success.btn-xs
