@@ -23,7 +23,7 @@ module SoupCMS
         end
 
         def render_module
-          recipes.collect { |recipe| recipe.execute }
+          recipes.each { |recipe| recipe.execute }
           module_html = template.render
           @html = module_wrapper_template.render(self, {html: module_html})
         end

@@ -49,7 +49,8 @@ module SoupCMS
           @recipes ||= {
               'inline' => SoupCMS::Core::Recipe::Inline,
               'http' => SoupCMS::Core::Recipe::Http,
-              'soupcms-api' => SoupCMS::Core::Recipe::SoupCMSApi
+              'soupcms-api' => SoupCMS::Core::Recipe::SoupCMSApi,
+              'post-processor' => SoupCMS::Core::Recipe::PostProcessor
           }
         end
 

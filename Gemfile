@@ -11,12 +11,12 @@ group :development do
   gem 'bson_ext'
   gem 'faraday'
   gem 'faraday_middleware'
+  gem 'nokogiri'
 end
 
 group :test do
   gem 'rspec', '~> 3.0.0.beta1'
   gem 'rake'
   gem 'rack-test'
-  gem 'nokogiri'
   gem 'webmock'
 end

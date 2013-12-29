@@ -13,6 +13,11 @@
         "model": "posts"
     },
 
+    "layout": {
+        "type": "slim",
+        "name": "bootstrap/left-sidebar"
+    },
+
     "areas": [
         {
             "name": "header",
@@ -31,6 +36,35 @@
                     "template": {
                         "type": "slim",
                         "name": "bootstrap/navigation"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "sidebar",
+            "modules": [
+                {
+                    "recipes": [
+                        {
+                            "type": "soupcms-api",
+                            "model": "#{context.model_name}",
+                            "match": {
+                                "slug": "#{context.slug}"
+                            },
+                            "return": "sidebar-document"
+                        },
+                        {
+                            "type": "post-processor",
+                            "processor" : "SoupCMS::Core::Processor::NokogiriTOC",
+                            "config" : {
+                                "toc_for" : "#{data['sidebar-document'][0]['content']['value']}"
+                            },
+                            "return": "table-of-content"
+                        }
+                    ],
+                    "template": {
+                        "type": "slim",
+                        "name": "bootstrap/table-of-content"
                     }
                 }
             ]

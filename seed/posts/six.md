@@ -4,22 +4,6 @@ Note that there is also a [Cheatsheet specific to Markdown Here](./Markdown-Here
 
 You can play around with Markdown on our [live demo page](http://www.markdown-here.com/livedemo.html).
 
-## Table of Contents
-
-* [Headers](#headers)
-* [Emphasis](#emphasis)
-* [Lists](#lists)
-* [Links](#links)
-* [Images](#images)
-* [Code and Syntax Highlighting](#code-and-syntax-highlighting)
-* [Tables](#tables)
-* [Blockquotes](#blockquotes)
-* [Inline HTML](#inline-html)
-* [Horizontal Rule](#horizontal-rule)
-* [Line Breaks](#line-breaks)
-* [Youtube videos](#youtube-videos)
-
-
 ## Headers
 
 ~~~

@@ -9,7 +9,7 @@ begin
   require 'nokogiri'
   require 'soupcms/core/processor/nokogiri_toc'
 rescue LoadError
-  #puts "To load nokogiri_toc add gems 'nokogiri'"
+  puts "To load nokogiri_toc add gems 'nokogiri'"
 end
 
 require 'soupcms/core/template/manager'
@@ -33,6 +33,7 @@ require 'soupcms/core/model/request_context'
 require 'soupcms/core/recipe/inline'
 require 'soupcms/core/recipe/http'
 require 'soupcms/core/recipe/soupcms_api'
+require 'soupcms/core/recipe/post_processor'
 
 require 'soupcms/core/utils/config'
 

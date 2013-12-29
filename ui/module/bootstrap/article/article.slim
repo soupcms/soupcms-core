@@ -1,5 +1,5 @@
 - post = data['document'][0]
-.post
+.article
   .page-header
     h1.article-title = post['title']
     .row.meta-info
@@ -21,5 +21,5 @@
               .btn-group
                 a.btn.btn-default.btn-xs href="#{tag['link']['url']}"
                   = tag['label']
-.article
+
   p = post['content']['value']

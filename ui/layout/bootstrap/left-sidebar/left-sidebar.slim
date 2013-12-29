@@ -25,13 +25,13 @@ html lang="en"
         = areas['header'].html
     .container
       .row
+        - if areas['sidebar']
+          sidebar.col-md-3
+            = areas['sidebar'].html
         - if areas['body']
           main.col-md-9
             = areas['body'].html
 
-        - if areas['sidebar']
-          sidebar.col-md-3
-            = areas['sidebar'].html
     - if areas['footer']
       footer
         = areas['footer'].html
