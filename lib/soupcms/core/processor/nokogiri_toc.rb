@@ -18,7 +18,9 @@ module SoupCMS
 
         def build_toc(html_content)
           doc = Nokogiri::HTML(html_content)
-          headers = doc.xpath('//h1[@id] | //h2[@id] | //h3[@id] | //h4[@id] | //h5[@id] | //h6[@id]')
+          levels = @recipe_hash['config']['levels'] || %w(h1 h2 h3 h4 h5 h6)
+          xpath = levels.collect { |l| "//#{l}[@id]" }.join(' | ')
+          headers = doc.xpath(xpath)
           toc = []
           top_level = 0
           headers.each do |header|

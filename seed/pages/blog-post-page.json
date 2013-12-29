@@ -57,7 +57,8 @@
                             "type": "post-processor",
                             "processor" : "SoupCMS::Core::Processor::NokogiriTOC",
                             "config" : {
-                                "toc_for" : "#{data['sidebar-document'][0]['content']['value']}"
+                                "toc_for" : "#{data['sidebar-document'][0]['content']['value']}",
+                                "levels" : ["h2","h3"]
                             },
                             "return": "table-of-content"
                         }
