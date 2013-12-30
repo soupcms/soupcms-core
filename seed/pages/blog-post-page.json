@@ -62,7 +62,10 @@
                     ],
                     "template": {
                         "type": "slim",
-                        "name": "bootstrap/table-of-content"
+                        "name": "bootstrap/table-of-content",
+                        "config" :{
+                            "title" : "Contents"
+                        }
                     }
                 }
             ]

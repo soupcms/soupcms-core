@@ -1,7 +1,8 @@
 - articles = data['articles']
 - if articles && !articles.empty?
   .list-view
-    .lead Recent posts
+    - if module_hash['template']['config'] && module_hash['template']['config']['title']
+      .lead = module_hash['template']['config']['title']
     ul.list-unstyled
       - articles.each do |article|
         li

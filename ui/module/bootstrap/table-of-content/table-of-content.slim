@@ -1,7 +1,8 @@
 - toc = data['table-of-content']
 - if toc && !toc.empty?
   .table-of-content
-    .lead Contents
+    - if module_hash['template']['config'] && module_hash['template']['config']['title']
+      .lead = module_hash['template']['config']['title']
     .well.well-sm
       ul
         - toc.each do |item|

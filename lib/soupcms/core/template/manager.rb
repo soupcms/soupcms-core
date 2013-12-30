@@ -10,8 +10,8 @@ module SoupCMS
 
         def self.stores
           @@stores ||= [
-              SoupCMS::Core::Template::FileStore.new(DEFAULT_TEMPLATE_DIR),
-              SoupCMS::Core::Template::SoupCMSApiStore
+              SoupCMS::Core::Template::SoupCMSApiStore,
+              SoupCMS::Core::Template::FileStore.new(DEFAULT_TEMPLATE_DIR)
           ]
         end
 

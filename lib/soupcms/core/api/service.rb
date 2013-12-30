@@ -14,15 +14,16 @@ module SoupCMS
           parse_response(response) unless response.nil?
         end
 
-        def find(model_name, filters = {}, fields = [], limit = nil)
+        def find(model_name, filters = {}, fields = [], limit = nil, sort = [])
           url = model_name
           params = {}
           params.merge! filters
           filter_keys = filters.keys
           filter_keys.delete(:tags) || filter_keys.delete('tags')
           params[:filters] = filter_keys unless filter_keys.empty?
-          params[:fields] = fields unless fields.nil? || fields.empty?
+          params[:fields] = fields if fields && !fields.empty?
           params[:limit] = limit if limit
+          params[:sort] = sort if sort && !sort.empty?
           response = execute_url(url, params)
           return parse_response(response) unless response.nil?
           []

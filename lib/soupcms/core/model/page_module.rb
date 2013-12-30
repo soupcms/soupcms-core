@@ -12,7 +12,7 @@ module SoupCMS
           @data = {}
         end
 
-        attr_reader :page_area, :data, :html
+        attr_reader :page_area, :data, :html, :module_hash
 
         def page
           page_area.page

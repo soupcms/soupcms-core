@@ -21,19 +21,19 @@ html lang="en"
 
   body
     - if areas['header']
-      header
+      .header
         = areas['header'].html
     .container
       .row
         - if areas['sidebar']
-          sidebar.col-md-3
+          .sidebar.col-md-3
             = areas['sidebar'].html
         - if areas['body']
-          main.col-md-9
+          .main.col-md-9
             = areas['body'].html
 
     - if areas['footer']
-      footer
+      .footer
         = areas['footer'].html
 
     script src="//code.jquery.com/jquery-2.0.3.min.js"
