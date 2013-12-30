@@ -26,10 +26,7 @@
                     "recipes": [
                         {
                             "type": "soupcms-api",
-                            "model": "schemaless",
-                            "match": {
-                                "name": "navigation"
-                            },
+                            "url" : "/schemaless/name/navigation",
                             "return": "navigation"
                         }
                     ],
@@ -77,11 +74,8 @@
                     "recipes": [
                         {
                             "type": "soupcms-api",
-                            "model": "#{context.model_name}",
-                            "match": {
-                                "slug": "#{context.slug}"
-                            },
-                            "return": "document"
+                            "url": "/#{context.model_name}/slug/#{context.slug}",
+                            "return": "article"
                         }
                     ],
                     "template": {

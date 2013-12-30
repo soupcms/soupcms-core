@@ -1,28 +1,30 @@
-.article-list-view
-  - data['posts'].each do |post|
-    .article
-      h2.article-title
-        a href="#{post['url']}"
-          = post['title']
-      .meta-info
-        span.date.btn-group
-          btn.btn.btn-success.btn-xs
-            i.fa.fa-fw.fa-calendar
-            | #{post.publish_datetime.strftime('%d %b')}
-          btn.btn.btn-default.btn-xs = post.publish_datetime.strftime('%Y')
-        span &nbsp; &nbsp; &nbsp; &nbsp;
-        - if post['author_ref']
-          span.author
-            span
-              i.fa.fa-fw.fa-edit
-            span = post['author_ref']['name']
-
-      hr
-
-      - if post['hero_image']
-        a.col-md-4 href="#"
-          == rimg image: post['hero_image'], desktop: 'w_300', html_options: { class: 'hero' }
-
-      p = post['description']
-
-      a.pull-right.btn.btn-sm.btn-primary href="#{post['url']}" Read More
+- articles = data['articles']
+- if articles && !articles.empty?
+  .article-list-view
+    - articles.each do |article|
+      .article
+        h2.article-title
+          a href="#{article['url']}"
+            = article['title']
+        .meta-info
+          span.date.btn-group
+            btn.btn.btn-success.btn-xs
+              i.fa.fa-fw.fa-calendar
+              | #{article.publish_datetime.strftime('%d %b')}
+            btn.btn.btn-default.btn-xs = article.publish_datetime.strftime('%Y')
+          span &nbsp; &nbsp; &nbsp; &nbsp;
+          - if article['author_ref']
+            span.author
+              span
+                i.fa.fa-fw.fa-edit
+              span = article['author_ref']['name']
+  
+        hr
+  
+        - if article['hero_image']
+          a.col-md-4 href="#"
+            == rimg image: article['hero_image'], desktop: 'w_300', html_options: { class: 'hero' }
+  
+        p = article['description']
+  
+        a.pull-right.btn.btn-sm.btn-primary href="#{article['url']}" Read More

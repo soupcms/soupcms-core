@@ -1,11 +1,12 @@
+- page_header = data['page-header']
 .container
   .text
     h1
-      = data['page-header']['title']
-    - if data['page-header']['subtitle']
-      h3.hidden-lg = data['page-header']['subtitle']
-    - if data['page-header']['sub_headline']
-      h3.visible-lg = data['page-header']['sub_headline']
+      = page_header['title']
+    - if page_header['subtitle']
+      h3.hidden-lg = page_header['subtitle']
+    - if page_header['sub_headline']
+      h3.visible-lg = page_header['sub_headline']
 
 
 

@@ -1,9 +1,10 @@
-.tag-cloud
-  - if data['tag-cloud'] && !data['tag-cloud'].empty?
+- tags = data['tag-cloud']
+- if tags && !tags.empty?
+  .tag-cloud
     .lead Tag Cloud
     .well.well-sm
       .tags
-        - data['tag-cloud'].each do |tag|
+        - tags.each do |tag|
           .btn-group
             a.tag.btn.btn-default.btn-xs href="#{tag['link']['url']}"
               = tag['label']

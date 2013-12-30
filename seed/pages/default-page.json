@@ -27,9 +27,7 @@
                         {
                             "type": "soupcms-api",
                             "model": "schemaless",
-                            "match": {
-                                "name": "navigation"
-                            },
+                            "url" : "/schemaless/name/navigation",
                             "return": "navigation"
                         }
                     ],
@@ -69,10 +67,7 @@
                     "recipes": [
                         {
                             "type": "soupcms-api",
-                            "model": "schemaless",
-                            "match": {
-                                "name": "social-toolbar"
-                            },
+                            "url" : "/schemaless/name/social-toolbar",
                             "return": "social-toolbar"
                         }
                     ],
@@ -103,10 +98,7 @@
                     "recipes": [
                         {
                             "type": "soupcms-api",
-                            "model": "schemaless",
-                            "match": {
-                                "name": "footer"
-                            },
+                            "url" : "/schemaless/name/footer",
                             "return": "footer"
                         }
                     ],

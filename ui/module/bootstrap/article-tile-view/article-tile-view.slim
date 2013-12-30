@@ -1,12 +1,14 @@
-.article-tile-view
-  - data['posts'].each do |post|
-    .tile.col-md-4
-      .thumbnail
-        - if post['hero_image']
-          == rimg image: post['hero_image'], desktop: 'w_340,h_272,c_fill'
-        - else
-          img data-src="holder.js/340x272"
-
-        .caption
-          .lead = post['title']
-          a.btn.btn-primary href="#{post['url']}" Read
+- articles = data['articles']
+- if articles && !articles.empty?
+  .article-tile-view
+    - articles.each do |article|
+      .tile.col-md-4
+        .thumbnail
+          - if article['hero_image']
+            == rimg image: article['hero_image'], desktop: 'w_340,h_272,c_fill'
+          - else
+            img data-src="holder.js/340x272"
+  
+          .caption
+            .lead = article['title']
+            a.btn.btn-primary href="#{article['url']}" Read
