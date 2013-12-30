@@ -14,7 +14,7 @@ module SoupCMS
           parse_response(response) unless response.nil?
         end
 
-        def find(model_name, filters = {}, fields = [])
+        def find(model_name, filters = {}, fields = [], limit = nil)
           url = model_name
           params = {}
           params.merge! filters
@@ -22,6 +22,7 @@ module SoupCMS
           filter_keys.delete(:tags) || filter_keys.delete('tags')
           params[:filters] = filter_keys unless filter_keys.empty?
           params[:fields] = fields unless fields.nil? || fields.empty?
+          params[:limit] = limit if limit
           response = execute_url(url, params)
           return parse_response(response) unless response.nil?
           []

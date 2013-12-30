@@ -14,7 +14,7 @@ module SoupCMS
           soupcms_api = context.soupcms_api
           model_name = @recipe_hash['model'] ? eval_value(@recipe_hash['model']) : context.model_name
           return soupcms_api.fetch_by_url(eval_value(@recipe_hash['url'])) if @recipe_hash['url']
-          soupcms_api.find(model_name, eval_hash(@recipe_hash['match']), @recipe_hash['fields'])
+          soupcms_api.find(model_name, eval_hash(@recipe_hash['match']), @recipe_hash['fields'], @recipe_hash['limit'])
         end
 
         def eval_hash(document)

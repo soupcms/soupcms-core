@@ -1,0 +1,7 @@
+- if data['posts'] && !data['posts'].empty?
+  .list-view
+    .lead Recent posts
+    ul.list-unstyled
+      - data['posts'].each do |post|
+        li
+          a href="#{post['url']}" = post['title']

@@ -1,7 +1,7 @@
 .tag-cloud
   - if data['tag-cloud'] && !data['tag-cloud'].empty?
+    .lead Tag Cloud
     .well.well-sm
-      .lead Tag Cloud
       .tags
         - data['tag-cloud'].each do |tag|
           .btn-group

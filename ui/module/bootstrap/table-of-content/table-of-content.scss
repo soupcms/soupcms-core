@@ -1,24 +1,18 @@
 .table-of-content {
-  margin-top: 30px;
-  margin-bottom: 30px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  text-shadow: 0 1px 0 #fff;
-  background-color: #f7f5fa;
-  border-radius: 5px;
-
+  .well {
+    padding: 10px 5px 10px 0px;
+  }
   ul {
     list-style-type: none;
-    padding-left: 20px;
+    padding-left: 10px;
     li {
-      padding-top: 2px;
-      padding-bottom: 2px;
+      padding: 2px 0;
       a:hover {
         text-decoration: none;
-        font-weight: bolder;
+        font-weight: bold;
       }
       .active {
-        font-weight: bolder;
+        font-weight: bold;
       }
     }
   }
