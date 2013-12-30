@@ -10,6 +10,11 @@ Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
 
 SoupCMSCore.configure do |config|
   config.soupcms_api_host_url = 'http://localhost:9292'
+
+  config.template_manager.clear
+  config.template_manager.append_store(SoupCMS::Core::Template::FileStore.new(SoupCMS::Core::Template::Manager::DEFAULT_TEMPLATE_DIR))
+  config.template_manager.append_store(SoupCMS::Core::Template::SoupCMSApiStore)
+
   sprockets = config.sprockets
   sprockets.append_path SoupCMS::Core::Template::Manager::DEFAULT_TEMPLATE_DIR
   Sprockets::Helpers.configure do |c|

@@ -20,7 +20,7 @@ module SoupCMS
         end
 
         def self.append_store(template)
-          stores.concat template
+          stores.push template
         end
 
         def self.prepend_store(template)
