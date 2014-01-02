@@ -5,7 +5,7 @@ include SoupCMS::Core::Model
 
 describe SoupCMS::Core::Model::PageModule do
 
-  let (:application) { Application.new('soupcms-test') }
+  let (:application) { Application.new('soupcms-test', 'soupCMS test') }
   let (:context) { RequestContext.new(application) }
   let(:page) { Page.new({'title' => 'Page title'}, context) }
   let(:page_area) { PageArea.new({},page) }
@@ -83,7 +83,7 @@ describe SoupCMS::Core::Model::PageModule do
       PageModule.new(JSON.parse(module_json), page_area)
     end
 
-    it { expect(html(page_module.render_module)).to have_title('Page title') }
+    it { expect(html(page_module.render_module)).to have_title('Page title - soupCMS test') }
   end
 
 

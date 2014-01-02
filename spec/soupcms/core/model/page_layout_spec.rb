@@ -5,7 +5,7 @@ include SoupCMS::Core::Model
 
 describe SoupCMS::Core::Model::PageLayout do
 
-  let (:application) { Application.new('soupcms-test') }
+  let (:application) { Application.new('soupcms-test', 'soupCMS test') }
   let (:context) { RequestContext.new(application) }
 
   let(:page) do
@@ -41,7 +41,7 @@ describe SoupCMS::Core::Model::PageLayout do
 
     it do
       page.render_page
-      expect(html(layout.render)).to have_title('Tech stuff that matters')
+      expect(html(layout.render)).to have_title('Tech stuff that matters - soupCMS test')
     end
     it { expect(page.javascripts).to include('layout/bootstrap/default/default.js') }
     it { expect(page.stylesheets).to include('layout/bootstrap/default/default.css') }

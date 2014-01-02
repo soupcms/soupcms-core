@@ -5,11 +5,12 @@ module SoupCMS
       class Application
 
 
-        def initialize(name)
+        def initialize(name, display_name = nil)
           @name = name
+          @display_name = display_name
         end
 
-        attr_reader :name
+        attr_reader :name, :display_name
 
         def soupcms_api(drafts)
           SoupCMS::Core::Api::Service.new(self,drafts)
@@ -22,7 +23,7 @@ module SoupCMS
         def self.get(name)
           @@apps ||= {}
           if @@apps[name].nil?
-            @@apps[name] = Application.new(name)
+            @@apps[name] = Application.new(name, "soupCMS #{name}")
           end
           @@apps[name]
         end
