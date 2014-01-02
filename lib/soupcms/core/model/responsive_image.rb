@@ -21,7 +21,7 @@ module SoupCMS
 
         def self.build(context, responsive_image_hash)
           provider = providers[responsive_image_hash[:image]['source']]
-          provider.new(context, responsive_image_hash)
+          provider ? provider.new(context, responsive_image_hash) : SoupCMS::Core::Model::SimpleImage.new(context, responsive_image_hash)
         end
 
         def initialize(context, responsive_image_hash)

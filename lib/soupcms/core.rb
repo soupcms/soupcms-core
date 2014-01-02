@@ -17,6 +17,7 @@ require 'soupcms/core/template/file_store'
 require 'soupcms/core/template/soupcms_api_store'
 
 require 'soupcms/core/model/responsive_image'
+require 'soupcms/core/model/simple_image'
 require 'soupcms/core/model/cloudinary_responsive_image'
 require 'soupcms/core/model/cdnconnect_responsive_image'
 

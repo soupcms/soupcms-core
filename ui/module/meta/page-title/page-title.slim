@@ -1,1 +1,15 @@
-title = "#{page['title'] || page.model['title']} - #{context.application.display_name}"
+- page_title = page['title'] || page.model['title']
+- page_title.concat(" - #{context.application.display_name || context.application.name}") # adding suffix
+title = page_title
+
+- description = page['description'] || page.model['description'] || page_title
+meta name="description" content="#{description[0..155]}"
+
+
+meta property="og:title" content="#{page_title}"
+meta property="og:description" content="#{description}"
+
+- hero_image = page['hero_image'] || page.model['hero_image']
+- if hero_image
+  meta property="og:image" content="#{hero_image['url']}"
+
