@@ -13,9 +13,22 @@ describe SoupCMS::Core::Model::PageLayout do
     {
       "title": "Tech stuff that matters",
       "layout": {
-          "type": "slim",
-          "name": "bootstrap/default"
-      }
+        "type": "slim",
+        "name": "bootstrap/default"
+      },
+      "areas" : [
+        {
+          "name": "meta",
+          "modules" :[
+            {
+              "template": {
+                "type": "slim",
+                "name": "meta/page-title"
+              }
+            }
+          ]
+        }
+      ]
     }
     json
     Page.new(JSON.parse(page_with_layout), context)
@@ -26,7 +39,10 @@ describe SoupCMS::Core::Model::PageLayout do
       PageLayout.new(page['layout'], page)
     end
 
-    it { expect(html(layout.render)).to have_title('Tech stuff that matters') }
+    it do
+      page.render_page
+      expect(html(layout.render)).to have_title('Tech stuff that matters')
+    end
     it { expect(page.javascripts).to include('layout/bootstrap/default/default.js') }
     it { expect(page.stylesheets).to include('layout/bootstrap/default/default.css') }
   end

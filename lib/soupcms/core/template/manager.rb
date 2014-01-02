@@ -44,7 +44,9 @@ module SoupCMS
         end
 
         def find(context, template_path)
-          find_template(context, template_path.split('.').first, template_path.split('.').last)
+          template = find_template(context, template_path.split('.').first, template_path.split('.').last)
+          raise "Could not find template #{template_path}" if template.nil?
+          template
         end
 
         def inline(context, template_content, type)
