@@ -5,27 +5,16 @@ module SoupCMS
       class Application
 
 
-        def initialize(name, display_name = nil)
+        def initialize(name, display_name, soupcms_api_url)
           @name = name
-          @display_name = display_name
+          @display_name = (display_name || name)
+          @soupcms_api_url = soupcms_api_url
         end
 
-        attr_reader :name, :display_name
+        attr_reader :name, :display_name, :soupcms_api_url
 
         def soupcms_api(drafts)
           SoupCMS::Core::Api::Service.new(self,drafts)
-        end
-
-        def soupcms_api_host_url
-          @soupcms_api_host_url ||= SoupCMSCore.config.soupcms_api_host_url
-        end
-
-        def self.get(name)
-          @@apps ||= {}
-          if @@apps[name].nil?
-            @@apps[name] = Application.new(name, "soupCMS #{name}")
-          end
-          @@apps[name]
         end
 
       end

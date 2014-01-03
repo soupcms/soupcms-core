@@ -38,7 +38,7 @@ module SoupCMS
 
         def execute_url(url, params = {} )
           params[:include] = 'drafts' if drafts
-          url = File.join(application.soupcms_api_host_url, '/api', application.name, url)
+          url = File.join(application.soupcms_api_url, url)
           SoupCMS::Core::Utils::HttpClient.new.get(url, params)
         end
 

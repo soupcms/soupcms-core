@@ -8,9 +8,9 @@ require 'soupcms/core'
 
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
 
-SoupCMSCore.configure do |config|
-  config.soupcms_api_host_url = 'http://localhost:9292'
 
+
+SoupCMSCore.configure do |config|
   config.template_manager.clear
   config.template_manager.append_store(SoupCMS::Core::Template::FileStore.new(SoupCMS::Core::Template::Manager::DEFAULT_TEMPLATE_DIR))
   config.template_manager.append_store(SoupCMS::Core::Template::SoupCMSApiStore)

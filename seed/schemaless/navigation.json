@@ -13,7 +13,10 @@
 
     "logo": {
         "font_icon" : "fa fa-magic",
-        "text": "soupCMS"
+        "text": "soupCMS",
+        "link" : {
+            "url" : "home"
+        }
     },
 
     "menu": {

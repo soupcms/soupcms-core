@@ -45,7 +45,7 @@
                         "recipes": [
                             {
                                 "type": "http",
-                                "url" : "http://localhost:9292/api/soupcms-test/#{context.model_name}/slug/#{context.slug}",
+                                "url" : "http://localhost:9292/api/#{context.model_name}/slug/#{context.slug}",
                                 "return": "page-header"
                             }
                         ],

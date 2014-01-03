@@ -5,16 +5,15 @@ class SoupCMSRackApp
     headers = {'Content-Type' => 'text/html'}
 
     request = Rack::Request.new(env)
-    app_name, slug = parse_path(request)
-    return [404, headers, ["Page '#{slug}' not found in application '#{app_name}'"]] if app_name.nil? || slug.nil?
+    strategy = SoupCMSCore.config.application_strategy.new(request)
+    return [404, headers, [strategy.not_found_message]] if strategy.app_name.nil? || strategy.path.nil?
 
-    application = SoupCMS::Core::Model::Application.get(app_name)
-    context = SoupCMS::Core::Model::RequestContext.new(application, request.params)
+    context = SoupCMS::Core::Model::RequestContext.new(strategy.application, request.params)
 
     service = SoupCMS::Core::PageRouteService.new(context)
-    page = service.find(slug)
+    page = service.find(strategy.path)
 
-    return [404, headers, ["Page '#{slug}' not found in application '#{app_name}'"]] if page.nil?
+    return [404, headers, [strategy.not_found_message]] if page.nil?
 
     headers.merge! SoupCMSCore.config.http_caching_strategy.new.headers(context) if context.environment == 'production'
     body = page.render_page

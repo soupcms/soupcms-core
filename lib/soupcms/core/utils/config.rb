@@ -11,7 +11,13 @@ module SoupCMS
           Slim::Engine.set_default_options pretty: true, disable_escape: true
         end
 
-        attr_accessor :soupcms_api_host_url
+        def application_strategy
+          @application_strategy ||= SoupCMS::Core::Strategy::Application::UrlBased
+        end
+
+        def application_strategy=(strategy)
+          @application_strategy = strategy
+        end
 
         def responsive_image
           @responsive_image ||= SoupCMS::Core::Model::ResponsiveImage

@@ -31,6 +31,11 @@ require 'soupcms/core/model/module_recipe'
 require 'soupcms/core/model/module_template'
 require 'soupcms/core/model/request_context'
 
+require 'soupcms/core/strategy/application/application_strategy'
+require 'soupcms/core/strategy/application/url_based'
+require 'soupcms/core/strategy/application/sub_domain_based'
+require 'soupcms/core/strategy/application/single_app'
+
 require 'soupcms/core/recipe/inline'
 require 'soupcms/core/recipe/http'
 require 'soupcms/core/recipe/soupcms_api'

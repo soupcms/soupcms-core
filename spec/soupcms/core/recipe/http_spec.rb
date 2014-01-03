@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe SoupCMS::Core::Recipe::Http do
 
-  let(:application) { SoupCMS::Core::Model::Application.new('soupcms-test') }
+  let (:application) { SoupCMS::Core::Model::Application.new('soupcms-test','soupcms-test','http://localhost:9292/api/soupcms-test') }
   let(:context) do
     context = SoupCMS::Core::Model::RequestContext.new(application)
     context.model_name = 'posts'
@@ -18,7 +18,7 @@ describe SoupCMS::Core::Recipe::Http do
     http_recipe = <<-json
     {
         "type": "http",
-        "url" : "http://localhost:9292/api/soupcms-test/\#{context.model_name}/slug/\#{context.slug}",
+        "url" : "http://localhost:9292/api/\#{context.model_name}/slug/\#{context.slug}",
         "return": "page-header"
     }
     json
@@ -26,7 +26,7 @@ describe SoupCMS::Core::Recipe::Http do
     { "title": "my title"}
     json
     recipe = SoupCMS::Core::Recipe::Http.new(JSON.parse(http_recipe),page_module)
-    stub_request(:get, 'http://localhost:9292/api/soupcms-test/posts/slug/my-first-post').to_return({body: response_json })
+    stub_request(:get, 'http://localhost:9292/api/posts/slug/my-first-post').to_return({body: response_json })
     expect(recipe.execute).to eq({ 'title' => 'my title'})
   end
 
@@ -34,7 +34,7 @@ describe SoupCMS::Core::Recipe::Http do
     http_recipe = <<-json
     {
         "type": "http",
-        "url" : "http://localhost:9292/api/soupcms-test/\#{context.model_name}",
+        "url" : "http://localhost:9292/api/\#{context.model_name}",
         "params" : {
           "slug" : "\#{context.slug}"
         },
@@ -45,7 +45,7 @@ describe SoupCMS::Core::Recipe::Http do
     { "title": "my title"}
     json
     recipe = SoupCMS::Core::Recipe::Http.new(JSON.parse(http_recipe),page_module)
-    stub_request(:get, 'http://localhost:9292/api/soupcms-test/posts?slug=my-first-post').to_return({body: response_json })
+    stub_request(:get, 'http://localhost:9292/api/posts?slug=my-first-post').to_return({body: response_json })
     expect(recipe.execute).to eq({ 'title' => 'my title'})
   end
 

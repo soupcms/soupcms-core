@@ -5,7 +5,7 @@ include SoupCMS::Core::Model
 
 describe SoupCMS::Core::Model::Page do
 
-  let (:application) { Application.new('soupcms-test') }
+  let (:application) { SoupCMS::Core::Model::Application.new('soupcms-test','soupcms-test','http://localhost:9292/api/soupcms-test') }
   let (:context) { RequestContext.new(application) }
 
   context 'with one area' do

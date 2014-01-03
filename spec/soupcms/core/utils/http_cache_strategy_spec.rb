@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe SoupCMS::Core::Utils::HttpCacheStrategy do
 
-  let (:application) { SoupCMS::Core::Model::Application.new('soupcms-test') }
+  let (:application) { SoupCMS::Core::Model::Application.new('soupcms-test','soupcms-test','http://localhost:9292/api/soupcms-test') }
 
   it 'should it should set cache header to default 5 min' do
     context = SoupCMS::Core::Model::RequestContext.new(application, { 'model_name' => 'posts' })
