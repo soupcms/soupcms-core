@@ -28,13 +28,5 @@ class SoupCMSRackApp
 
   end
 
-  def parse_path(request)
-    url_parser = request.path.match(/\/[\w\.\-]*\//)
-    if url_parser
-      app_name = url_parser[0].gsub('/', '')
-      slug = url_parser.post_match
-      return app_name, slug
-    end
-  end
 
 end
