@@ -5,6 +5,9 @@ require 'soupcms/core/utils/params_hash'
 require 'soupcms/core/utils/render_partials'
 require 'soupcms/core/utils/http_client'
 
+require 'soupcms/core/controller/page_controller'
+require 'soupcms/core/controller/model_controller'
+
 begin
   require 'nokogiri'
   require 'soupcms/core/processor/nokogiri_toc'
@@ -40,6 +43,5 @@ require 'soupcms/core/utils/config'
 require 'soupcms/core/api/base'
 require 'soupcms/core/api/service'
 
-require 'soupcms/core/page_route_service'
 require 'soupcms/soupcms_rack_app'
 require 'soupcms/soupcms_core'

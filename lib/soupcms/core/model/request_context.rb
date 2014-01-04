@@ -9,8 +9,15 @@ module SoupCMS
           @params = params
         end
 
-        attr_accessor :model_name, :slug
         attr_reader :application, :params
+
+        def model_name
+          params['model_name']
+        end
+
+        def slug
+          params['slug']
+        end
 
         def user_params
           @params.to_hash.delete('route_info')

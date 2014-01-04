@@ -2,11 +2,7 @@ require 'spec_helper'
 
 describe SoupCMS::Core::Recipe::SoupCMSApi do
 
-  let(:context) do
-    context = SoupCMS::Core::Model::RequestContext.new(application)
-    context.model_name = 'posts'
-    context
-  end
+  let(:context) { SoupCMS::Core::Model::RequestContext.new(application, {'model_name' => 'posts'}) }
   let(:page) { SoupCMS::Core::Model::Page.new({}, context) }
   let(:page_area) { SoupCMS::Core::Model::PageArea.new({}, page) }
   let(:page_module) { SoupCMS::Core::Model::PageModule.new({}, page_area) }

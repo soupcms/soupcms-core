@@ -1,5 +1,13 @@
 class SoupCMSRackApp
 
+  def initialize
+    @router = SoupCMS::Common::Router.new
+    @router.add ':model_name/:slug', SoupCMS::Core::Controller::ModelController
+    @router.default SoupCMS::Core::Controller::PageController
+  end
+
+  attr_accessor :router
+
   def call(env)
     status = 200
     headers = {'Content-Type' => 'text/html'}
@@ -10,8 +18,7 @@ class SoupCMSRackApp
 
     context = SoupCMS::Core::Model::RequestContext.new(strategy.application, request.params)
 
-    service = SoupCMS::Core::PageRouteService.new(context)
-    page = service.find(strategy.path)
+    page = router.resolve(strategy.path, context.params).new.execute(context)
 
     return [404, headers, [strategy.not_found_message]] if page.nil?
 
