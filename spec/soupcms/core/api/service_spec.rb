@@ -2,8 +2,6 @@ require 'spec_helper'
 
 describe SoupCMS::Core::Api::Service do
 
-  let (:application) { SoupCMS::Core::Model::Application.new('soupcms-test','soupcms-test','http://localhost:9292/api/soupcms-test') }
-
   context 'published' do
 
     let (:service) { SoupCMS::Core::Api::Service.new(application) }

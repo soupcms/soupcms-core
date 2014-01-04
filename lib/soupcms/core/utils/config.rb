@@ -12,7 +12,7 @@ module SoupCMS
         end
 
         def application_strategy
-          @application_strategy ||= SoupCMS::Core::Strategy::Application::UrlBased
+          @application_strategy ||= SoupCMS::Common::Strategy::Application::UrlBased
         end
 
         def application_strategy=(strategy)
@@ -28,7 +28,7 @@ module SoupCMS
         end
 
         def http_caching_strategy
-          @http_caching_strategy ||= SoupCMS::Api::Utils::HttpCacheStrategy
+          @http_caching_strategy ||= SoupCMS::Common::Util::HttpCacheStrategy
         end
 
         def http_caching_strategy=(caching_strategy)

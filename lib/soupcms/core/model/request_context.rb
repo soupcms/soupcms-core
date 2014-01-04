@@ -17,7 +17,7 @@ module SoupCMS
         end
 
         def soupcms_api
-          @soupcms_api ||= application.soupcms_api(drafts?)
+          @soupcms_api ||= SoupCMS::Core::Api::Service.new(application, drafts?)
         end
 
         def drafts?
@@ -25,7 +25,7 @@ module SoupCMS
         end
 
         def environment
-          ENV['RACK_ENV']  || 'test'
+          ENV['RACK_ENV'] || 'test'
         end
 
       end

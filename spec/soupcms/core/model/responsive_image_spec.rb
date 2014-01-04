@@ -2,7 +2,6 @@ require 'spec_helper'
 
 describe SoupCMS::Core::Model::ResponsiveImage do
 
-  let (:application) { SoupCMS::Core::Model::Application.new('soupcms-test','soupcms-test','http://localhost:9292/api/soupcms-test') }
   let (:context) { RequestContext.new(application) }
 
   before(:each) do

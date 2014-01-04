@@ -38,12 +38,13 @@ end
 
 map '/' do
   SoupCMSCore.configure do |config|
-    SoupCMS::Core::Strategy::Application::SingleApp.configure do |app|
+    SoupCMS::Api::Strategy::Application::SingleApp.configure do |app|
       app.app_name = 'soupcms-test'
-      app.display_name = 'soupCMS test'
+      app.display_name = 'soupCMS Test'
       app.soupcms_api_url = 'http://localhost:9292/api'
+      app.app_base_url = 'http://localhost:9291/'
     end
-    config.application_strategy = SoupCMS::Core::Strategy::Application::SingleApp
+    config.application_strategy = SoupCMS::Api::Strategy::Application::SingleApp
   end
   run SoupCMSRackApp.new
 end

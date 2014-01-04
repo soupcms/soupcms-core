@@ -4,7 +4,6 @@ include SoupCMS::Core::Model
 
 describe SoupCMS::Core::PageRouteService do
 
-  let (:application) { SoupCMS::Core::Model::Application.new('soupcms-test','soupcms-test','http://localhost:9292/api/soupcms-test') }
   let (:context) { RequestContext.new(application) }
   let (:page_route_service) { SoupCMS::Core::PageRouteService.new(context) }
 

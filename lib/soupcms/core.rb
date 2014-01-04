@@ -1,9 +1,9 @@
 require 'soupcms/core/version'
+require 'soupcms/common'
 
 require 'soupcms/core/utils/params_hash'
 require 'soupcms/core/utils/render_partials'
 require 'soupcms/core/utils/http_client'
-require 'soupcms/core/utils/http_cache_strategy'
 
 begin
   require 'nokogiri'
@@ -21,7 +21,6 @@ require 'soupcms/core/model/simple_image'
 require 'soupcms/core/model/cloudinary_responsive_image'
 require 'soupcms/core/model/cdnconnect_responsive_image'
 
-require 'soupcms/core/model/application'
 require 'soupcms/core/model/document'
 require 'soupcms/core/model/page'
 require 'soupcms/core/model/page_area'
@@ -30,11 +29,6 @@ require 'soupcms/core/model/page_layout'
 require 'soupcms/core/model/module_recipe'
 require 'soupcms/core/model/module_template'
 require 'soupcms/core/model/request_context'
-
-require 'soupcms/core/strategy/application/application_strategy'
-require 'soupcms/core/strategy/application/url_based'
-require 'soupcms/core/strategy/application/sub_domain_based'
-require 'soupcms/core/strategy/application/single_app'
 
 require 'soupcms/core/recipe/inline'
 require 'soupcms/core/recipe/http'

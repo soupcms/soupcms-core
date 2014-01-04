@@ -15,7 +15,7 @@ class SoupCMSRackApp
 
     return [404, headers, [strategy.not_found_message]] if page.nil?
 
-    headers.merge! SoupCMSCore.config.http_caching_strategy.new.headers(context) if context.environment == 'production'
+    headers.merge! SoupCMSCore.config.http_caching_strategy.new.headers(context.params)
     body = page.render_page
     [status, headers, [body]]
 
