@@ -5,7 +5,7 @@ include SoupCMS::Core::Model
 
 describe SoupCMS::Core::Model::Page do
 
-  let (:context) { RequestContext.new(application) }
+  let (:context) { SoupCMS::Common::Model::RequestContext.new(application) }
 
   context 'with one area' do
     let(:page) { SoupCMS::Core::Model::Page.new(read_json('pages/single_module'), context) }

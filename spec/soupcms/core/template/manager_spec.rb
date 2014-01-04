@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe SoupCMS::Core::Template::Manager do
 
-  let (:context) { SoupCMS::Core::Model::RequestContext.new(application) }
+  let (:context) { SoupCMS::Common::Model::RequestContext.new(application) }
   let(:manager) { SoupCMS::Core::Template::Manager.new }
 
   it 'should return tilt parsed template when file exist' do

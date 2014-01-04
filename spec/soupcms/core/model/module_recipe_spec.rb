@@ -6,7 +6,7 @@ include SoupCMS::Core::Model
 describe SoupCMS::Core::Model::ModuleRecipe do
 
   context 'inline recipe' do
-    let (:context) { RequestContext.new(application) }
+    let (:context) { SoupCMS::Common::Model::RequestContext.new(application) }
     let(:page) { Page.new({}, context) }
     let(:page_module) { PageModule.new({},page) }
     let(:recipe) do

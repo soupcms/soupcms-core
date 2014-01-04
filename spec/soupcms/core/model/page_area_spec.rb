@@ -5,7 +5,7 @@ include SoupCMS::Core::Model
 
 describe SoupCMS::Core::Model::PageArea do
 
-  let (:context) { RequestContext.new(application) }
+  let (:context) { SoupCMS::Common::Model::RequestContext.new(application) }
 
   context 'with one module' do
     let(:page_area) { SoupCMS::Core::Model::Page.new(read_json('pages/single_module'), context).areas['header'] }

@@ -16,9 +16,9 @@ class SoupCMSRackApp
     strategy = SoupCMSCore.config.application_strategy.new(request)
     return [404, headers, [strategy.not_found_message]] if strategy.app_name.nil? || strategy.path.nil?
 
-    context = SoupCMS::Core::Model::RequestContext.new(strategy.application, request.params)
+    context = SoupCMS::Common::Model::RequestContext.new(strategy.application, request.params)
 
-    page = router.resolve(strategy.path, context.params).new.execute(context)
+    page = router.resolve(strategy.path, context.params).new(context).execute
 
     return [404, headers, [strategy.not_found_message]] if page.nil?
 

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe SoupCMS::Core::Model::ResponsiveImage do
 
-  let (:context) { RequestContext.new(application) }
+  let (:context) { SoupCMS::Common::Model::RequestContext.new(application) }
 
   before(:each) do
     SoupCMS::Core::Model::ResponsiveImage.register 'cloudinary', SoupCMS::Core::Model::CloudinaryResponsiveImage

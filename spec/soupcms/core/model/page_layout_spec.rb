@@ -5,7 +5,7 @@ include SoupCMS::Core::Model
 
 describe SoupCMS::Core::Model::PageLayout do
 
-  let (:context) { RequestContext.new(application) }
+  let (:context) { SoupCMS::Common::Model::RequestContext.new(application) }
 
   let(:page) do
     page_with_layout = <<-json

@@ -31,7 +31,6 @@ require 'soupcms/core/model/page_module'
 require 'soupcms/core/model/page_layout'
 require 'soupcms/core/model/module_recipe'
 require 'soupcms/core/model/module_template'
-require 'soupcms/core/model/request_context'
 
 require 'soupcms/core/recipe/inline'
 require 'soupcms/core/recipe/http'

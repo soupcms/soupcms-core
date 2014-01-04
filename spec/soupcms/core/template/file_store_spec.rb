@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe SoupCMS::Core::Template::FileStore do
 
-  let (:context) { SoupCMS::Core::Model::RequestContext.new(application) }
+  let (:context) { SoupCMS::Common::Model::RequestContext.new(application) }
 
   let(:store) { SoupCMS::Core::Template::FileStore.new(SoupCMS::Core::Template::Manager::DEFAULT_TEMPLATE_DIR) }
 
