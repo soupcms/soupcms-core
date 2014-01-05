@@ -4,11 +4,7 @@ gemspec
 
 gem 'sprockets', github: 'sstephenson/sprockets'
 
-if RUBY_PLATFORM=~ /x86_64-darwin13/
-  gem 'soupcms-common', path: '../soupcms-common'
-else
-  gem 'soupcms-common', github: 'soupcms/soupcms-common'
-end
+gem 'soupcms-common', github: 'soupcms/soupcms-common'
 
 group :development do
   gem 'puma'
