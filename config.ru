@@ -46,7 +46,10 @@ map '/' do
     end
     config.application_strategy = SoupCMS::Common::Strategy::Application::SingleApp
   end
-  run SoupCMSRackApp.new
+  app = SoupCMSRackApp.new
+  app.set_redirect('http://soupcms.dev:9291/','http://www.soupcms.dev:9291/home')
+  app.set_redirect('http://www.soupcms.dev:9291/','http://www.soupcms.dev:9291/home')
+  run app
 end
 
 
