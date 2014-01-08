@@ -7,7 +7,7 @@ describe SoupCMS::Core::Model::PageModule do
 
   let (:context) { SoupCMS::Common::Model::RequestContext.new(application) }
   let(:page) { Page.new({'title' => 'Page title'}, context) }
-  let(:page_area) { PageArea.new({},page) }
+  let(:page_area) { PageArea.new({'name' => 'main'},page) }
 
   context 'single inline recipe with page-header template' do
     let(:page_module) do
@@ -83,6 +83,30 @@ describe SoupCMS::Core::Model::PageModule do
     end
 
     it { expect(html(page_module.render_module)).to have_title('Page title - soupCMS Test') }
+  end
+
+  context 'failing module' do
+    let(:page_module) do
+      module_json = <<-json
+        {
+            "recipes": [
+                {
+                    "type": "inline",
+                    "data": {
+                        "title": "Tech stuff that matters"
+                    },
+                    "return": "page-header"
+                }
+            ]
+        }
+      json
+      PageModule.new(JSON.parse(module_json), page_area)
+    end
+
+    it { expect(page_module.render_module).to include('Error:') }
+    it { expect(page_module.render_module).to include('Module Hash:') }
+    it { expect(page_module.render_module).to include('Module Data:') }
+
   end
 
 

@@ -23,9 +23,27 @@ module SoupCMS
         end
 
         def render_module
-          recipes.each { |recipe| recipe.execute }
-          module_html = template.render
-          @html = page_area.wrapper? ? module_wrapper_template.render(self, {html: module_html}) : module_html
+          begin
+            recipes.each { |recipe| recipe.execute }
+            module_html = template.render
+            @html = page_area.wrapper? ? module_wrapper_template.render(self, {html: module_html}) : module_html
+          rescue => e
+            @html = <<-html
+<!--
+Error while rendering module in area '#{page_area.name}',
+
+Module Hash:
+#{module_hash}
+
+Module Data:
+#{data}
+
+Error:
+#{e.backtrace.first}: #{e.message} (#{e.class})
+#{e.backtrace.drop(1).map{|s| s }.join("\n")}
+-->
+            html
+          end
         end
 
         def javascript
