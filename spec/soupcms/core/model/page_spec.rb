@@ -25,7 +25,7 @@ describe SoupCMS::Core::Model::Page do
     let((:page)) { SoupCMS::Core::Model::Page.new(read_json('pages/multiple_area'), context) }
 
     it { expect(page.areas).to be_kind_of(Hash) }
-    it { expect(page.areas.size).to eq(2) }
+    it { expect(page.areas.size).to eq(3) }
     it { expect(page.areas['header']).to be_kind_of(PageArea)  }
     it { expect(page.areas['body']).to be_kind_of(PageArea)  }
 

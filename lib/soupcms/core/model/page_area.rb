@@ -30,6 +30,9 @@ module SoupCMS
           modules.collect { |page_module| page_module.stylesheet }.flatten
         end
 
+        def wrapper?
+          name != 'meta'
+        end
       end
 
 

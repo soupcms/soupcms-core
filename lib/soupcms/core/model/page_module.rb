@@ -25,7 +25,7 @@ module SoupCMS
         def render_module
           recipes.each { |recipe| recipe.execute }
           module_html = template.render
-          @html = module_wrapper_template.render(self, {html: module_html})
+          @html = page_area.wrapper? ? module_wrapper_template.render(self, {html: module_html}) : module_html
         end
 
         def javascript

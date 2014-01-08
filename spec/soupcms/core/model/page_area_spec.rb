@@ -15,6 +15,8 @@ describe SoupCMS::Core::Model::PageArea do
     it { expect(page_area.modules[0]).to be_kind_of(PageModule) }
 
     it { expect(html(page_area.render_area)).to have_text('h1','Tech stuff that matters') }
+    it { expect(html(page_area.render_area)).to have_node('.module') }
+    it { expect(html(page_area.render_area)).to have_attribute('.module','data-area-name','header') }
 
   end
 
@@ -28,6 +30,14 @@ describe SoupCMS::Core::Model::PageArea do
 
     it { expect(html(page_area.render_area)).to have_text('h1','title 1',0) }
     it { expect(html(page_area.render_area)).to have_text('h1','title 2',1) }
+
+  end
+
+  context 'should not add wrapper div when area name is head' do
+    let(:page_area) { SoupCMS::Core::Model::Page.new(read_json('pages/multiple_area'), context).areas['meta'] }
+
+    it { expect(html(page_area.render_area)).to have_text('title','Page title - soupCMS Test') }
+    it { expect(html(page_area.render_area)).to_not have_node('.module') }
 
   end
 
