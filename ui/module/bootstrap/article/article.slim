@@ -4,10 +4,11 @@
     h1.article-title = article['title']
     .row.meta-info
       .date.col-md-3.btn-group
-        btn.btn.btn-success.btn-xs
-          i.fa.fa-fw.fa-calendar
-          | #{article.publish_datetime.strftime('%d %b')}
-        btn.btn.btn-default.btn-xs = article.publish_datetime.strftime('%Y')
+        - if article['publish_datetime']
+          btn.btn.btn-success.btn-xs
+            i.fa.fa-fw.fa-calendar
+            | #{article.publish_datetime.strftime('%d %b')}
+          btn.btn.btn-default.btn-xs = article.publish_datetime.strftime('%Y')
       .author.col-md-3
         - if article['author_ref']
           span
