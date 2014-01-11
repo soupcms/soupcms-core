@@ -9,7 +9,8 @@ module SoupCMS
         end
 
         def execute
-          model_hash = soupcms_api.find_by_key(context.model_name, 'slug', context.slug)
+          filters = context.params.select { |k,v| context.params['_slug_keys'].include?(k) && k != 'model_name' }
+          model_hash = soupcms_api.find_by_keys(context.model_name, filters)
           if model_hash
             model = SoupCMS::Core::Model::Document.new(model_hash)
             page_hash = soupcms_api.find_by_key('pages', 'meta.model', context.model_name)

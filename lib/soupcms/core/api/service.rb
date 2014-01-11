@@ -7,7 +7,12 @@ module SoupCMS
       class Service < Base
 
         def find_by_key(model, key, value, fields = [])
-          url = "#{model}/#{key}/#{value}"
+          find_by_keys(model, {key => value}, fields)
+        end
+
+        def find_by_keys(model, filters, fields = [])
+          url = "#{model}"
+          filters.each { |key, value| url = File.join(url, key, value) }
           params = {}
           params[:fields] = fields unless fields.nil? || fields.empty?
           response = execute_url(url, params)
@@ -36,7 +41,7 @@ module SoupCMS
 
         protected
 
-        def execute_url(url, params = {} )
+        def execute_url(url, params = {})
           params[:include] = 'drafts' if drafts
           url = File.join(application.soupcms_api_url, url)
           SoupCMS::Core::Utils::HttpClient.new.get(url, params)
@@ -45,7 +50,7 @@ module SoupCMS
 
         def parse_response(response)
           docs = JSON.parse(response)
-          return docs.collect{ |doc| SoupCMS::Core::Model::Document.new(doc) } if docs.kind_of?(Array)
+          return docs.collect { |doc| SoupCMS::Core::Model::Document.new(doc) } if docs.kind_of?(Array)
           return SoupCMS::Core::Model::Document.new(docs)
         end
 
