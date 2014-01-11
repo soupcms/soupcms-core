@@ -6,7 +6,7 @@ module SoupCMS
       class SimpleImage < ResponsiveImage
 
         def initialize(context, responsive_image_hash)
-          @url = responsive_image_hash[:url]
+          @url = responsive_image_hash[:image]['url']
           @html_options = responsive_image_hash[:html_options]
           @context = context
         end

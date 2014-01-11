@@ -6,6 +6,9 @@
 
   .image {
     position: relative;
+    img {
+      width: 100%;
+    }
     .text {
       position: absolute;
       top: 25px;

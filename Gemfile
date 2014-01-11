@@ -15,6 +15,7 @@ group :development do
   gem 'faraday'
   gem 'faraday_middleware'
   gem 'nokogiri'
+  gem 'pry'
 end
 
 group :test do
