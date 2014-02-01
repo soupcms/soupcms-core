@@ -7,13 +7,6 @@ require 'faraday'
 require 'faraday_middleware'
 
 
-use Rack::Cache,
-    :metastore   => 'heap:/',
-    :entitystore => 'heap:/',
-    :verbose     => false
-
-
-
 map '/assets' do
   sprockets = SoupCMSCore.config.sprockets
   sprockets.append_path SoupCMS::Core::Template::Manager::DEFAULT_TEMPLATE_DIR
