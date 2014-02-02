@@ -9,7 +9,7 @@ hr
         - if footer['links']
           - footer['links'].each do |item|
             li
-              a href="#{item['link']}"
+              a href="#{item['link']['url']}"
                 - if item['font_icon']
                   i class="#{item['font_icon']} fa-fw"
                 = "#{item['label']}"
