@@ -8,7 +8,7 @@ RSpec::Matchers.define :have_text do |css_matcher,expected,index|
       actual.css(css_matcher)[index].text.strip == expected
     end
   end
-  failure_message_for_should do |actual|
+  failure_message do |actual|
     if index.nil?
       "  actual: #{actual.css(css_matcher).text}" + "\n" +
       "expected: #{expected}" + "\n" +

@@ -5,11 +5,11 @@ RSpec::Matchers.define :have_node do |selector|
     !actual.css(selector).empty?
   end
 
-  failure_message_for_should do |actual|
+  failure_message do |actual|
     "Node '#{selector}' is not present in \n #{actual.to_html}"
   end
 
-  failure_message_for_should_not do |actual|
+  failure_message_when_negated do |actual|
     "Node '#{selector}' is present in \n #{actual.to_html}"
   end
 end

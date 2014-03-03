@@ -4,7 +4,7 @@ RSpec::Matchers.define :have_title do |expected|
   match do |actual|
     actual.css('title').text.strip == expected
   end
-  failure_message_for_should do |actual|
+  failure_message do |actual|
     "  actual: #{actual.css('title').text}" + "\n" +
     "expected: #{expected}" + "\n" +
     '      in: ' + "\n" +

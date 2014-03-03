@@ -18,8 +18,8 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib","ui"]
 
-  spec.add_dependency('tilt')
   spec.add_dependency('slim')
+  spec.add_dependency('sprockets')
   spec.add_dependency('sprockets-helpers')
   spec.add_dependency('sass')
 

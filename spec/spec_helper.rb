@@ -27,7 +27,6 @@ end
 RSpec.configure do |config|
   config.order = 'random'
   config.expect_with :rspec
-  config.mock_with 'rspec-mocks'
 
   config.include Helpers
 
