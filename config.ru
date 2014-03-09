@@ -2,10 +2,6 @@ require 'tilt'
 require 'sprockets'
 require 'soupcms/core'
 
-require 'rack/cache'
-require 'faraday'
-require 'faraday_middleware'
-
 
 map '/assets' do
   sprockets = SoupCMSCore.config.sprockets

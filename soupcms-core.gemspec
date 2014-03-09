@@ -19,7 +19,6 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib","ui"]
 
   spec.add_dependency('slim')
-  spec.add_dependency('sprockets')
   spec.add_dependency('sprockets-helpers')
   spec.add_dependency('sass')
 
