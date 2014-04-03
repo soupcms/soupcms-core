@@ -1,7 +1,13 @@
 .article {
-  p {
-    img {
-      width: 100%;
+  .article-body {
+    a {
+      text-decoration: underline;
     }
+  }
+  .full-width {
+    width: 100%;
+  }
+  .center {
+    text-align:center;
   }
 }
