@@ -4,10 +4,31 @@
       text-decoration: underline;
     }
   }
+
   .full-width {
-    width: 100%;
+    img {
+      width: 100%;
+    }
   }
+
   .center {
     text-align:center;
   }
+
+  .left {
+    text-align:left;
+    float: left;
+    padding-right: 10px;
+  }
+
+  .right {
+    text-align:right;
+    float: right;
+    padding-left: 10px;
+  }
+
+  .clear {
+    clear:both;
+  }
+
 }
