@@ -21,7 +21,7 @@
 
         "layout": {
             "type": "slim",
-            "name": "bootstrap/default"
+            "name": "bootstrap/full-width"
         },
 
         "areas": [

@@ -13,7 +13,7 @@ describe SoupCMS::Core::Model::PageLayout do
       "title": "Tech stuff that matters",
       "layout": {
         "type": "slim",
-        "name": "bootstrap/default"
+        "name": "bootstrap/full-width"
       },
       "areas" : [
         {
@@ -42,8 +42,8 @@ describe SoupCMS::Core::Model::PageLayout do
       page.render_page
       expect(html(layout.render)).to have_title('Tech stuff that matters - soupCMS Test')
     end
-    it { expect(page.javascripts).to include('layout/bootstrap/default/default.js') }
-    it { expect(page.stylesheets).to include('layout/bootstrap/default/default.css') }
+    it { expect(page.javascripts).to include('layout/bootstrap/full-width/full-width.js') }
+    it { expect(page.stylesheets).to include('layout/bootstrap/full-width/full-width.css') }
   end
 
 end
