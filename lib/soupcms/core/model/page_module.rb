@@ -33,10 +33,10 @@ module SoupCMS
 Error while rendering module in area '#{page_area.name}',
 
 Module Hash:
-#{module_hash}
+#{JSON.pretty_generate module_hash}
 
 Module Data:
-#{data}
+#{JSON.pretty_generate data}
 
 Error:
 #{e.backtrace.first}: #{e.message} (#{e.class})

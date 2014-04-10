@@ -21,6 +21,10 @@ module SoupCMS
           Time.at(@document['publish_datetime'])
         end
 
+        def to_s
+          JSON.pretty_generate @document
+        end
+
       end
 
 

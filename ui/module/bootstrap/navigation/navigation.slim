@@ -1,4 +1,5 @@
 - nav = data['navigation']
+- nav = nav[0] if nav.is_a?(Array)
 .navigation
   .container
     nav.navbar.navbar-default.navbar-fixed-top.navbar-inverse role="navigation"
