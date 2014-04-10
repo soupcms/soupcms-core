@@ -36,6 +36,7 @@ module SoupCMS
                 document[key] = eval_value(value)
             end
           end
+          document.delete_if { |k,v| v.nil? || v.empty? }
         end
 
         def eval_value(value)

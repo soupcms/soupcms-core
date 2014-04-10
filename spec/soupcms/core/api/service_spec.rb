@@ -22,7 +22,7 @@ describe SoupCMS::Core::Api::Service do
 
     context 'find with filters' do
       it 'should return parsed JSON objects for 200 response' do
-        stub_request(:get, /posts\?tags=popular$/).to_return({body: read_files('posts/first-post', 'posts/second-post')})
+        stub_request(:get, /posts\?filters%5B0%5D=tags&tags=popular$/).to_return({body: read_files('posts/first-post', 'posts/second-post')})
         docs = service.find('posts', {tags: 'popular'})
         expect(docs.size).to eq(2)
         expect(docs[0]['title']).to eq('My first blog post')
@@ -30,7 +30,7 @@ describe SoupCMS::Core::Api::Service do
       end
 
       it 'should return empty array for 404 response' do
-        stub_request(:get, /posts\?tags=popular$/).to_return(status: 404)
+        stub_request(:get, /posts\?filters%5B0%5D=tags&tags=popular$/).to_return(status: 404)
         docs = service.find('posts', {tags: 'popular'})
         expect(docs.size).to eq(0)
       end
@@ -42,13 +42,13 @@ describe SoupCMS::Core::Api::Service do
       end
 
       it 'should send appropriate request for array value' do
-        stub_request(:get, /posts\?tags%5B0%5D=popular&tags%5B1%5D=liked$/).to_return({body: read_files('posts/first-post', 'posts/second-post')})
+        stub_request(:get, /posts\?filters%5B0%5D=tags&tags%5B0%5D=popular&tags%5B1%5D=liked$/).to_return({body: read_files('posts/first-post', 'posts/second-post')})
         docs = service.find('posts', {tags: %w(popular liked)})
         expect(docs.size).to eq(2)
       end
 
       it 'should handle multiple filter parameters' do
-        stub_request(:get, /posts\?filters%5B0%5D=rank&rank=100&tags=popular$/).to_return({body: read_files('posts/first-post', 'posts/second-post')})
+        stub_request(:get, /posts\?filters%5B0%5D=rank&filters%5B1%5D=tags&rank=100&tags=popular$/).to_return({body: read_files('posts/first-post', 'posts/second-post')})
         docs = service.find('posts', {rank: 100, tags: 'popular'})
         expect(docs.size).to eq(2)
       end
@@ -72,7 +72,7 @@ describe SoupCMS::Core::Api::Service do
       expect(doc['title']).to eq('Page title')
     end
     it 'should include draft when in request for find with filters' do
-      stub_request(:get, /posts\?include=drafts&tags=popular$/).to_return({body: read_files('posts/first-post', 'posts/second-post')})
+      stub_request(:get, /posts\?filters%5B0%5D=tags&include=drafts&tags=popular$/).to_return({body: read_files('posts/first-post', 'posts/second-post')})
       docs = service.find('posts', {tags: 'popular'})
       expect(docs.size).to eq(2)
     end

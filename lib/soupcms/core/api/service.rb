@@ -24,7 +24,6 @@ module SoupCMS
           params = {}
           params.merge! filters
           filter_keys = filters.keys
-          filter_keys.delete(:tags) || filter_keys.delete('tags')
           params[:filters] = filter_keys unless filter_keys.empty?
           params[:fields] = fields if fields && !fields.empty?
           params[:limit] = limit if limit

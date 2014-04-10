@@ -24,7 +24,7 @@ describe SoupCMS::Core::Recipe::SoupCMSApi do
       SoupCMS::Core::Recipe::SoupCMSApi.new(JSON.parse(recipe_json), page_module)
     end
     let(:posts) do
-      stub_request(:get, /posts\?fields%5B0%5D=title&tags=popular$/).to_return({body: read_files('posts/first-post', 'posts/second-post')})
+      stub_request(:get, /posts\?fields%5B0%5D=title&filters%5B0%5D=tags&tags=popular$/).to_return({body: read_files('posts/first-post', 'posts/second-post')})
       recipe.execute
     end
 
@@ -92,7 +92,7 @@ describe SoupCMS::Core::Recipe::SoupCMSApi do
       SoupCMS::Core::Recipe::SoupCMSApi.new(JSON.parse(recipe_json), page_module)
     end
     let(:posts) do
-      stub_request(:get, /posts\?tags=soupcms-test-append$/).to_return({body: read_files('posts/first-post', 'posts/second-post')})
+      stub_request(:get, /posts\?filters%5B0%5D=tags&tags=soupcms-test-append$/).to_return({body: read_files('posts/first-post', 'posts/second-post')})
       recipe.execute
     end
 
