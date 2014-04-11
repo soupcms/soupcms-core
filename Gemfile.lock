@@ -7,6 +7,7 @@ GIT
 GIT
   remote: git://github.com/sstephenson/sprockets.git
   revision: 2a658ff971b44ee995bf3205a991005f8dbdca1d
+  ref: 2a658ff971b44ee995bf3205a991005f8dbdca1d
   specs:
     sprockets (2.12.0)
       hike (~> 1.2)
