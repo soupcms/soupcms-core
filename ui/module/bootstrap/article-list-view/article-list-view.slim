@@ -3,12 +3,12 @@
   .article-list-view
     - articles.each do |article|
       .article
-        h2.article-title
+        h3.article-title
           a href="#{article['url']}"
             = article['title']
         .meta-info
           span.date.btn-group
-            btn.btn.btn-success.btn-xs
+            btn.btn.btn-primary.btn-xs
               i.fa.fa-fw.fa-calendar
               | #{article.publish_datetime.strftime('%d %b')}
             btn.btn.btn-default.btn-xs = article.publish_datetime.strftime('%Y')

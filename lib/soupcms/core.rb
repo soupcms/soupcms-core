@@ -1,3 +1,4 @@
+require 'bootstrap-sass'
 require 'soupcms/core/version'
 require 'soupcms/common'
 

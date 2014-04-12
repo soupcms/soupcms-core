@@ -1,12 +1,15 @@
+@import "common/stylesheets/soupcms-variables";
+@import "bootstrap/variables";
+
 .list-view {
   li {
     margin-bottom: 5px;
     padding: 2px 5px;
-    border-left: 4px solid #563d7c;
+    border-left: 4px solid $brand-primary;
     a:hover {
       text-decoration: none;
     }
-    background-color: #f5f5f5;
+    background-color: $gray-lighter;
   }
   li:hover {
     background-color: white;

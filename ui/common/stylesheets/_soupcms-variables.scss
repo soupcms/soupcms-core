@@ -1,0 +1,15 @@
+@import "common/stylesheets/custom-variables";
+
+$font-family-sans-serif  	: 	'Open Sans', Helvetica, Arial, sans-serif !default;
+$brand-primary				:	#563d7c !default;
+$text-color					:	$brand-primary !default;
+
+$navbar-inverse-bg			:	$brand-primary !default;
+$navbar-inverse-color		:	lighten($brand-primary, 60%) !default;
+$navbar-inverse-link-color	:	$navbar-inverse-color !default;
+
+$dropdown-bg				:	lighten($brand-primary, 60%) !default;
+$dropdown-link-color		:	$brand-primary !default;
+$dropdown-link-hover-color	:	lighten($brand-primary, 60%) !default;
+$dropdown-link-hover-bg		:	$brand-primary !default;
+
