@@ -1,5 +1,5 @@
 - toc = data['table-of-content']
-- if toc && !toc.empty?
+- if toc && !toc.empty? && toc.size > 1
   .table-of-content
     - if module_hash['template']['config'] && module_hash['template']['config']['title']
       .lead = module_hash['template']['config']['title']
@@ -7,3 +7,5 @@
       ul
         - toc.each do |item|
           == render 'module/bootstrap/table-of-content/nav.slim', { item: item }
+- else
+  /! Table of content gets added only if more than 1, header element present on the page except H1
