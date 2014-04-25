@@ -1,5 +1,5 @@
 - toc = data['table-of-content']
-- if toc && !toc.empty? && toc.size > 1
+- if toc && !toc.empty?
   .table-of-content
     - if module_hash['template']['config'] && module_hash['template']['config']['title']
       .lead = module_hash['template']['config']['title']
