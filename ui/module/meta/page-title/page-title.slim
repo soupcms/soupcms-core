@@ -1,5 +1,5 @@
 - page_title = page['title'] || page.model['title']
-- page_title.concat(" - #{context.application.display_name || context.application.name}") # adding suffix
+- page_title.concat(" - #{context.application.display_name}") # adding suffix
 title = page_title
 
 - description = page['description'] || page.model['description'] || page_title
