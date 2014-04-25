@@ -20,6 +20,7 @@ module SoupCMS
 
         def execute
           data = recipe.execute
+          raise "Error while fetching recipe data: #{data['error']}" if data.is_a?(Hash) && data['error']
           @page_module.data[return_object_name] = data
           data
         end
