@@ -4,7 +4,9 @@
     img.img-circle src="#{author['thumbnail']}"
   .clear-fix
     .name = author['name']
-    .bio = author['bio']
+    - bio =[].concat([author['bio']].flatten.compact)
+    - bio.each do |item|
+      .bio = item
   .toolbar
     ul.list-inline
       - if author['twitter_handle']
