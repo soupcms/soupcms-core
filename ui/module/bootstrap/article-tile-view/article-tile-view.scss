@@ -1,0 +1,19 @@
+.module-article-tile-view {
+  .tile {
+    height: 350px;
+    .thumbnail {
+      box-shadow: 2px 2px 2px #555;
+      .hero-img {
+        height: 175px;
+        overflow: hidden;
+      }
+      .caption {
+        .lead {
+          max-height: 4em;
+          overflow: hidden;
+        }
+      }
+    }
+
+  }
+}
