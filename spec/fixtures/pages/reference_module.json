@@ -1,0 +1,15 @@
+{
+    "layout": {
+        "type": "slim",
+        "name": "bootstrap/full-width"
+    },
+    "title": "Page title",
+    "areas": [
+        {
+            "name": "header",
+            "modules": [
+                "navigation"
+            ]
+        }
+    ]
+}

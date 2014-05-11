@@ -41,4 +41,33 @@ describe SoupCMS::Core::Model::PageArea do
 
   end
 
+  context 'module reference is provided' do
+    let(:page_area) { SoupCMS::Core::Model::Page.new(read_json('pages/reference_module'), context).areas['header'] }
+
+    it 'should resolve the module reference' do
+      module_json = <<-json
+        {
+            "recipes": [
+                {
+                    "type": "inline",
+                    "data": {
+                        "title": "Tech stuff that matters"
+                    },
+                    "return": "page-header"
+                }
+            ],
+            "template": {
+                "type": "slim",
+                "name": "bootstrap/page-header"
+            }
+        }
+      json
+      stub_request(:get, /modules\/doc_id\/navigation/).to_return({body: module_json})
+
+      expect(page_area.modules[0]).to be_kind_of(PageModule)
+      expect(page_area.modules[0].module_hash).to eq(JSON.parse(module_json))
+    end
+
+  end
+
 end

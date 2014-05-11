@@ -14,8 +14,23 @@ module SoupCMS
         attr_accessor :html
         attr_reader :name, :page
 
+        def soupcms_api
+          @soupcms_api ||= SoupCMS::Core::Api::Service.new(context.application, context.drafts?)
+        end
+
+        def context
+          page.context
+        end
+
         def modules
-          @modules ||= @area_hash['modules'].collect { |module_hash| PageModule.new(module_hash, self) }
+          @modules ||= @area_hash['modules'].collect { |module_hash| create_page_module(module_hash) }
+        end
+
+        def create_page_module(module_hash)
+          if module_hash.kind_of?(String)
+            module_hash = soupcms_api.find_by_key('modules','doc_id',module_hash).to_hash
+          end
+          PageModule.new(module_hash, self)
         end
 
         def render_area
