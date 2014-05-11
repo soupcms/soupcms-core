@@ -1,9 +1,11 @@
 .module-author {
-  overflow: auto;
-  width: 100%;
-  text-align: center;
+  .author {
+    overflow: auto;
+    width: 100%;
+    text-align: center;
 
-  .toolbar {
-    font-size: 3em;
+    .toolbar {
+      font-size: 3em;
+    }
   }
 }
