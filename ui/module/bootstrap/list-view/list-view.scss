@@ -1,7 +1,7 @@
 @import "common/stylesheets/soupcms-variables";
 @import "bootstrap/variables";
 
-.list-view {
+.module-list-view {
   li {
     margin-bottom: 5px;
     padding: 2px 5px;
@@ -14,5 +14,5 @@
   li:hover {
     background-color: white;
   }
-
+  padding-bottom: 10px;
 }

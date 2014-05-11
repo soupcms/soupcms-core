@@ -9,6 +9,7 @@ require 'soupcms/core/utils/http_client'
 require 'soupcms/core/controller/page_controller'
 require 'soupcms/core/controller/model_controller'
 
+require 'soupcms/core/processor/data_mapper'
 begin
   require 'nokogiri'
   require 'soupcms/core/processor/nokogiri_toc'

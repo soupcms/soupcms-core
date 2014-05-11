@@ -19,10 +19,11 @@ module SoupCMS
         end
 
         def execute
-          data = recipe.execute
-          raise "Error while fetching recipe data: #{data['error']}" if data.is_a?(Hash) && data['error']
-          @page_module.data[return_object_name] = data
-          data
+          result = recipe.execute
+          raise "Error while fetching recipe data: #{result['error']}" if result.is_a?(Hash) && result['error']
+          result = @recipe_hash['get'] ? eval(@recipe_hash['get']) : result
+          @page_module.data[return_object_name] = result
+          result
         end
 
       end
