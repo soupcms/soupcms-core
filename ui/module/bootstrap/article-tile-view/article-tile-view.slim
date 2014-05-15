@@ -8,7 +8,7 @@
             - if article['hero_image']
               == rimg image: article['hero_image'], desktop: 'w_340,h_272,c_fill'
             - else
-              img data-src="holder.js/340x175"
+              img data-src="holder.js/340x175/text:#{article['title']}"
 
           .caption
             .lead = article['title']
