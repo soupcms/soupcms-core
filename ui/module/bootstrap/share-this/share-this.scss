@@ -1,13 +1,33 @@
+@import "common/stylesheets/soupcms-variables";
+@import "bootstrap/variables";
+
 .module-share-this {
   .share-text .lead {
     padding-top: 10px;
     padding-right: 10px;
   }
-  .share-buttons img {
+  .share-buttons a {
     width: 50px;
     padding: 5px;
     border: 0;
     box-shadow: 0;
     display: inline;
   }
+
+  .facebook {
+    color: #3b5998;
+  }
+  .twitter {
+    color: #00aced;
+  }
+  .gplus {
+    color: #dd4b39;
+  }
+  .linkedin {
+    color: #007bb6;
+  }
+  .email {
+    color: $brand-primary;
+  }
+
 }

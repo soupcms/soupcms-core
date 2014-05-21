@@ -4,25 +4,25 @@
 
 .module-share-this
   .share-text
-    .lead.pull-left Share!
+    .lead.pull-left Share, Tweet, Like...
 
   .share-buttons
     /! Facebook
-    a href="http://www.facebook.com/sharer.php?u=#{url}" target="_blank"
-      img alt="Facebook" src="http://www.simplesharebuttons.com/images/somacro/facebook.png" /
+    a.facebook href="http://www.facebook.com/sharer.php?u=#{url}" target="_blank"
+      i.fa.fa-facebook-square.fa-3x
 
     /! Twitter
-    a href=("http://twitter.com/share?url=#{url}&text=#{text}") target="_blank"
-      img alt="Twitter" src="http://www.simplesharebuttons.com/images/somacro/twitter.png" /
+    a.twitter href="http://twitter.com/share?url=#{url}&text=#{text}" target="_blank"
+      i.fa.fa-twitter-square.fa-3x
 
     /! Google+
-    a href="https://plus.google.com/share?url=#{url}" target="_blank"
-      img alt="Google" src="http://www.simplesharebuttons.com/images/somacro/google.png" /
+    a.gplus href="https://plus.google.com/share?url=#{url}" target="_blank"
+      i.fa.fa-google-plus-square.fa-3x
 
     /! LinkedIn
-    a href="http://www.linkedin.com/shareArticle?mini=true&url=#{url}" target="_blank"
-      img alt="LinkedIn" src="http://www.simplesharebuttons.com/images/somacro/linkedin.png" /
+    a.linkedin href="http://www.linkedin.com/shareArticle?mini=true&url=#{url}" target="_blank"
+      i.fa.fa-linkedin-square.fa-3x
 
     /! Email
-    a href=("mailto:?Subject=#{text}&Body=I%20saw%20this%20and%20thought%20of%20you!%20 #{url}")
-      img alt="Email" src="http://www.simplesharebuttons.com/images/somacro/email.png" /
+    a.email href="mailto:?Subject=#{text}&Body=I%20saw%20this%20and%20thought%20of%20you!%20 #{url}"
+      i.fa.fa-envelope-square.fa-3x
