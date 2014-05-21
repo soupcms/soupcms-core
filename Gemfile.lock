@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/soupcms/soupcms-common.git
-  revision: 152cdc6d6ffbf7b9f480ef0dc5952faa4e5cfa7d
+  revision: d055b947081cafe1c63647259447160f3cfaa07c
   specs:
     soupcms-common (0.5.0)
 

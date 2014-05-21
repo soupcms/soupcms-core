@@ -53,8 +53,8 @@ describe 'Blog Post' do
       stub_request(:get,/pages\/slug\/invalid-url/).to_return( { status: 404 } )
       get '/soupcms-api-test/invalid-url'
       expect(last_response.status).to eq(404)
-      expect(last_response.headers['Cache-Control']).to be_nil
-      expect(last_response.headers['Expires']).to be_nil
+      expect(last_response.headers['Cache-Control']).to eq('public, max-age=300')
+      expect(last_response.headers['Expires']).not_to be_nil
     end
 
     it 'invalid posts slug' do
