@@ -1,22 +1,16 @@
 - article = data['article']
 .module-article
   .page-header
+    .left
+      .article-date
+        .article-day
+          | #{article.publish_datetime.strftime('%d')}
+          span #{article.publish_datetime.strftime('%b')}
     h1.article-title = article['title']
     .row.meta-info
-      .date.col-md-3.btn-group
-        - if article['publish_datetime']
-          btn.btn.btn-primary.btn-xs
-            i.fa.fa-fw.fa-calendar
-            | #{article.publish_datetime.strftime('%d %b')}
-          btn.btn.btn-default.btn-xs = article.publish_datetime.strftime('%Y')
-      .author.col-md-3
-        - if article['author_ref']
-          span
-            i.fa.fa-fw.fa-edit
-          span = article['author_ref']['name']
-      .tags.col-md-6
+      .tags
         - if article['tags']
-          .pull-right
+          .pull-left
             i.fa.fa-fw.fa-tags
             - article['tags'].each do |tag|
               .btn-group

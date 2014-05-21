@@ -4,7 +4,8 @@
 
 .module-share-this
   .share-text
-    .lead.pull-left Share, Tweet, Like...
+    - if module_hash['template']['config'] && module_hash['template']['config']['title']
+      .lead = module_hash['template']['config']['title']
 
   .share-buttons
     /! Facebook
