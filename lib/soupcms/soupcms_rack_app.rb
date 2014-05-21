@@ -11,7 +11,9 @@ class SoupCMSRackApp
   end
 
   def set_redirect(url, redirect_to, redirect_code = 301)
-    redirects[url] = [redirect_code, {'Location' => redirect_to}, []]
+    headers = {'Location' => redirect_to}
+    headers.merge! SoupCMSCore.config.http_caching_strategy.new.cache_headers
+    redirects[url] = [redirect_code, headers, []]
   end
 
   attr_accessor :router
