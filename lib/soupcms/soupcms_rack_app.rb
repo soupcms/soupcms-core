@@ -30,7 +30,7 @@ class SoupCMSRackApp
 
     page = router.resolve(strategy.path, context.params).new(context).execute
 
-    return [404, headers, [strategy.not_found_message]] if page.nil?
+    return [404, headers, [strategy.not_found_message]] if page.nil? || page['error']
 
     headers.merge! SoupCMSCore.config.http_caching_strategy.new.headers(context.params)
     body = page.render_page
