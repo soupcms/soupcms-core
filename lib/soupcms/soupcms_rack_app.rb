@@ -24,13 +24,19 @@ class SoupCMSRackApp
     return redirects[request.url] if redirects[request.url]
 
     strategy = SoupCMSCore.config.application_strategy.new(request)
-    return [404, headers, [strategy.not_found_message]] if strategy.app_name.nil? || strategy.path.nil?
+    if strategy.app_name.nil? || strategy.path.nil?
+      headers.merge! SoupCMSCore.config.http_caching_strategy.new.cache_headers
+      return [404, headers, [strategy.not_found_message]]
+    end
 
     context = SoupCMS::Common::Model::RequestContext.new(strategy.application, request.params)
 
     page = router.resolve(strategy.path, context.params).new(context).execute
 
-    return [404, headers, [strategy.not_found_message]] if page.nil? || page['error']
+    if page.nil? || page['error']
+      headers.merge! SoupCMSCore.config.http_caching_strategy.new.cache_headers
+      return [404, headers, [strategy.not_found_message]]
+    end
 
     headers.merge! SoupCMSCore.config.http_caching_strategy.new.headers(context.params)
     body = page.render_page
