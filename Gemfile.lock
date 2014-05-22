@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/soupcms/soupcms-common.git
-  revision: d055b947081cafe1c63647259447160f3cfaa07c
+  revision: e2704d3079df7f240735921a909e83340d803021
   specs:
     soupcms-common (0.5.0)
 
@@ -28,20 +28,20 @@ GEM
     addressable (2.3.6)
     bootstrap-sass (3.1.1.1)
       sass (~> 3.2)
-    bson (1.10.0)
-    bson_ext (1.10.0)
-      bson (~> 1.10.0)
+    bson (1.10.1)
+    bson_ext (1.10.1)
+      bson (~> 1.10.1)
     coderay (1.1.0)
     crack (0.4.2)
       safe_yaml (~> 1.0.0)
     diff-lcs (1.2.5)
     hike (1.2.3)
     method_source (0.8.2)
-    mini_portile (0.5.3)
-    mongo (1.10.0)
-      bson (~> 1.10.0)
-    nokogiri (1.6.1)
-      mini_portile (~> 0.5.0)
+    mini_portile (0.6.0)
+    mongo (1.10.1)
+      bson (~> 1.10.1)
+    nokogiri (1.6.2.1)
+      mini_portile (= 0.6.0)
     pry (0.9.12.6)
       coderay (~> 1.0)
       method_source (~> 0.8)
@@ -51,21 +51,21 @@ GEM
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
-    rake (10.3.1)
-    rspec (3.0.0.beta2)
-      rspec-core (= 3.0.0.beta2)
-      rspec-expectations (= 3.0.0.beta2)
-      rspec-mocks (= 3.0.0.beta2)
-    rspec-core (3.0.0.beta2)
-      rspec-support (= 3.0.0.beta2)
-    rspec-expectations (3.0.0.beta2)
+    rake (10.3.2)
+    rspec (3.0.0.rc1)
+      rspec-core (= 3.0.0.rc1)
+      rspec-expectations (= 3.0.0.rc1)
+      rspec-mocks (= 3.0.0.rc1)
+    rspec-core (3.0.0.rc1)
+      rspec-support (= 3.0.0.rc1)
+    rspec-expectations (3.0.0.rc1)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (= 3.0.0.beta2)
-    rspec-mocks (3.0.0.beta2)
-      rspec-support (= 3.0.0.beta2)
-    rspec-support (3.0.0.beta2)
-    safe_yaml (1.0.1)
-    sass (3.3.5)
+      rspec-support (= 3.0.0.rc1)
+    rspec-mocks (3.0.0.rc1)
+      rspec-support (= 3.0.0.rc1)
+    rspec-support (3.0.0.rc1)
+    safe_yaml (1.0.3)
+    sass (3.3.7)
     slim (2.0.2)
       temple (~> 0.6.6)
       tilt (>= 1.3.3, < 2.1)
@@ -74,8 +74,8 @@ GEM
       sprockets (~> 2.0)
     temple (0.6.7)
     tilt (2.0.1)
-    webmock (1.17.4)
-      addressable (>= 2.2.7)
+    webmock (1.18.0)
+      addressable (>= 2.3.6)
       crack (>= 0.3.2)
 
 PLATFORMS
@@ -89,7 +89,7 @@ DEPENDENCIES
   puma
   rack-test
   rake
-  rspec (~> 3.0.0.beta2)
+  rspec (~> 3.0.0.rc1)
   soupcms-common!
   soupcms-core!
   sprockets!
