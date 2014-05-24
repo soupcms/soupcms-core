@@ -1,0 +1,16 @@
+html lang="en"
+  head
+    = render 'partial/system/layout-head.slim'
+  body
+    .main
+      - if areas['body']
+        .col-md-9.article-container
+          .article
+            = areas['body'].html
+      - if areas['sidebar']
+        .col-md-3.sidebar-container
+          .sidebar.visible-md.visible-lg
+            = areas['sidebar'].html
+
+    script src="//code.jquery.com/jquery-2.1.1.min.js"
+    = render 'partial/system/include-javascripts.slim'

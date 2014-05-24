@@ -7,3 +7,6 @@
       - articles.each do |article|
         li
           a href="#{article['url']}" = article['title']
+    - if module_hash['template']['config'] && module_hash['template']['config']['all-link']
+      a href="#{module_hash['template']['config']['all-link']['link']['url']}"
+        = module_hash['template']['config']['all-link']['label']

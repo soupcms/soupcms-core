@@ -1,0 +1,17 @@
+@import "common/stylesheets/default";
+
+.main {
+  .sidebar-container {
+    .sidebar {
+      background-color: $gray-lighter;
+      position: fixed;
+      top: 0px;
+      padding: 50px 20px;
+      height: 100%;
+    }
+  }
+  .article-container {
+    padding: 50px;
+  }
+
+}
