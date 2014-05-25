@@ -17,11 +17,21 @@
     font-weight: 500;
   }
 
-  .full-width {
+  blockquote {
+    background-color: $gray-lighter;
+    border-color: $brand-primary;
+  }
+
+  .full-width-img {
     img {
       width: 100%;
     }
   }
+
+  .full-width{
+    width: 100%;
+  }
+
   .shadow {
     img {
       box-shadow: 3px 3px 4px #555;

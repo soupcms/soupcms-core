@@ -1,11 +1,12 @@
 - article = data['article']
 .module-article
   .page-header
-    .left
-      .article-date
-        .article-day
-          | #{article.publish_datetime.strftime('%d')}
-          span #{article.publish_datetime.strftime('%b')}
+    - if article['publish_datetime']
+      .left
+        .article-date
+          .article-day
+            | #{article.publish_datetime.strftime('%d')}
+            span #{article.publish_datetime.strftime('%b')}
     h1.article-title = article['title']
     .row.meta-info
       .tags
