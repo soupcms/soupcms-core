@@ -30,7 +30,8 @@ module SoupCMS
           @desktop = responsive_image_hash[:desktop]
           @tablet = responsive_image_hash[:tablet]
           @mobile = responsive_image_hash[:mobile]
-          @html_options = responsive_image_hash[:html_options]
+          @html_options = responsive_image_hash[:html_options] || {}
+          @html_options.merge!(@image['html_options']) if @image && @image['html_options']
           @context = context
         end
 

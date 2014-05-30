@@ -4,3 +4,20 @@
 .lead {
   margin-bottom: 10px;
 }
+
+.soupcms-logo-svg {
+  .logo-border-stroke {
+    stroke: white;
+  }
+
+  .logo-page-fill {
+    fill: white;
+  }
+  .logo-page-stroke {
+    stroke: $brand-primary;
+  }
+
+  .logo-object {
+    fill: $brand-primary;
+  }
+}

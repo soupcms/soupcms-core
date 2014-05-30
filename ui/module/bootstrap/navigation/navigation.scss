@@ -4,10 +4,10 @@ body { padding-top: 50px; }
   .navbar-brand {
     .logo {
       float: left;
-      img {
+      svg {
         height: 50px;
+        width: 50px;
       }
-      width: 50px;
     }
   }
 }
