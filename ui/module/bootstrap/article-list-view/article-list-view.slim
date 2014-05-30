@@ -1,8 +1,8 @@
 - articles = data['articles']
 - if articles && !articles.empty?
-  .article-list-view
-    - articles.each do |article|
-      .article
+  .module-article-list-view
+    - articles.each_with_index do |article, index|
+      .article class="#{ (index % 2 == 0) ? 'alt-row' : ''}"
         h3.article-title
           a href="#{article['url']}"
             = article['title']

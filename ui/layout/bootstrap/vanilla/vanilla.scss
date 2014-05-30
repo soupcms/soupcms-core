@@ -1,6 +1,6 @@
 @import "common/stylesheets/default";
 
-.main {
+.body-main {
   .sidebar-container {
     .sidebar {
       background-color: $gray-lighter;
@@ -10,8 +10,8 @@
       height: 100%;
     }
   }
-  .article-container {
-    padding: 50px;
+  .module-article-list-view {
+    padding-top: 20px;
   }
 
 }

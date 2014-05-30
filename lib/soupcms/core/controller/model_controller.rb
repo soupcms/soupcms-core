@@ -13,7 +13,10 @@ module SoupCMS
           model_hash = soupcms_api.find_by_keys(context.model_name, filters)
           if model_hash
             model = SoupCMS::Core::Model::Document.new(model_hash)
-            page_hash = soupcms_api.find_by_key('pages', 'meta.model', context.model_name)
+            page_hash = soupcms_api.find_by_keys('pages', {'meta.model' => context.model_name, 'meta.slug' => context.slug })
+            if page_hash.nil? || page_hash['error']
+              page_hash = soupcms_api.find_by_key('pages', 'meta.model', context.model_name)
+            end
             return SoupCMS::Core::Model::Page.new(page_hash, context, model) if page_hash
           end
         end

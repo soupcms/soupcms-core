@@ -2,10 +2,10 @@ html lang="en"
   head
     = render 'partial/system/layout-head.slim'
   body
-    .main
+    .body-main.container-fluid
       - if areas['body']
-        .col-md-9.article-container
-          .article
+        .col-md-9.main-container
+          .main
             = areas['body'].html
       - if areas['sidebar']
         .col-md-3.sidebar-container
