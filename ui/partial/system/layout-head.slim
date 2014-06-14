@@ -1,17 +1,18 @@
-meta charset="utf-8"
-  meta content="width=device-width, initial-scale=1.0" name="viewport"
+meta charset="utf-8" /
+meta content="IE=edge" http-equiv="X-UA-Compatible" /
+meta content="width=device-width, initial-scale=1" name="viewport" /
 
-  link rel="icon" href="/assets/favicon.png"
+link rel="icon" href="/assets/favicon.png"
 
-  link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700" rel="stylesheet" type="text/css"
-  link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css" rel="stylesheet" type="text/css"
+link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700" rel="stylesheet" type="text/css"
+link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css" rel="stylesheet" type="text/css"
 
-  = render 'partial/system/include-stylesheets.slim'
+= render 'partial/system/include-stylesheets.slim'
 
-  /![if lt IE 9]
-    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="//oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+/![if lt IE 9]
+  script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"
+  script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"
 
-  - if areas['meta']
-    = areas['meta'].html
+- if areas['meta']
+  = areas['meta'].html
 
