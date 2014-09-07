@@ -70,6 +70,11 @@
     color: $brand-primary;
   }
 
+  h2 {
+    border-bottom: 1px solid $gray-lighter;
+    padding-bottom: 5px;
+  }
+
   .article-date {
     background: #fcfcfc;
     background: linear-gradient(top, #fcfcfc 0%, #dad8d8 100%);
