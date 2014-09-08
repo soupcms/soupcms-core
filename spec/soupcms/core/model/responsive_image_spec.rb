@@ -73,7 +73,7 @@ describe SoupCMS::Core::Model::ResponsiveImage do
       it { expect(image.mobile_retina_url).to eq('http://t.co/image/img1m.jpg?w=480&h=200&x=2&mode=max') }
     end
 
-    context 'crop mapping from cloudinary' do
+    context 'crop mapping' do
       it 'should map pad to default' do
         responsive_image_hash = {image: JSON.parse(image_hash), desktop: 'w_1660,h_200,c_pad'}
         image = SoupCMS::Core::Model::ResponsiveImage.build(context, responsive_image_hash)
@@ -96,6 +96,57 @@ describe SoupCMS::Core::Model::ResponsiveImage do
     end
 
   end
+
+
+    context 'cloudinary without base url' do
+      image_hash = <<-json
+        {
+          "source": "cloudinary",
+          "desktop": "img1.jpg",
+          "mobile": "img1m.jpg"
+        }
+      json
+
+      context 'non retina' do
+        before(:each) do
+          ENV['CLOUDINARY_BASE_URL'] = 'http://base.url/base'
+        end
+        after(:each) do
+          ENV.delete('CLOUDINARY_BASE_URL')
+        end
+        let(:responsive_image_hash) { {image: JSON.parse(image_hash), desktop: 'w_1660,h_200', tablet: 'w_960,h_200', mobile: 'w_480,h_200'} }
+        let(:image) { SoupCMS::Core::Model::ResponsiveImage.build(context, responsive_image_hash) }
+        it { expect(image.desktop_url).to eq('http://base.url/base/w_1660,h_200,c_fit/img1.jpg') }
+        it { expect(image.tablet_url).to eq('http://base.url/base/w_960,h_200,c_fit/img1.jpg') }
+        it { expect(image.mobile_url).to eq('http://base.url/base/w_480,h_200,c_fit/img1m.jpg') }
+      end
+
+    end
+
+    context 'cdnconnect without base url' do
+      image_hash = <<-json
+        {
+          "source": "cdnconnect",
+          "desktop": "img1.jpg",
+          "mobile": "img1m.jpg"
+        }
+      json
+
+      context 'non retina' do
+        before(:each) do
+          ENV['CDNCONNECT_BASE_URL'] = 'http://base.url/base'
+        end
+        after(:each) do
+          ENV.delete('CDNCONNECT_BASE_URL')
+        end
+        let(:responsive_image_hash) { {image: JSON.parse(image_hash), desktop: 'w_1660,h_200', tablet: 'w_960,h_200', mobile: 'w_480,h_200'} }
+        let(:image) { SoupCMS::Core::Model::ResponsiveImage.build(context, responsive_image_hash) }
+        it { expect(image.desktop_url).to eq('http://base.url/base/img1.jpg?w=1660&h=200&mode=max') }
+        it { expect(image.tablet_url).to eq('http://base.url/base/img1.jpg?w=960&h=200&mode=max') }
+        it { expect(image.mobile_url).to eq('http://base.url/base/img1m.jpg?w=480&h=200&mode=max') }
+      end
+
+    end
 
 
 end

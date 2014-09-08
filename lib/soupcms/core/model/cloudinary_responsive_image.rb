@@ -22,7 +22,7 @@ module SoupCMS
         end
 
         def base_url
-          image['base_url']
+          image['base_url'] || ENV['CLOUDINARY_BASE_URL']
         end
 
       end

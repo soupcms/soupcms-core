@@ -26,7 +26,7 @@ module SoupCMS
         end
 
         def base_url
-          image['base_url']
+          image['base_url'] || ENV['CDNCONNECT_BASE_URL']
         end
 
       end
