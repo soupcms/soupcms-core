@@ -6,12 +6,6 @@ require 'soupcms/core'
 map '/assets' do
   sprockets = SoupCMSCore.config.sprockets
   sprockets.append_path SoupCMS::Core::Template::Manager::DEFAULT_TEMPLATE_DIR
-  Sprockets::Helpers.configure do |config|
-    config.environment = sprockets
-    config.prefix = '/assets'
-    config.public_path = nil
-    config.digest = true
-  end
   run sprockets
 end
 

@@ -37,6 +37,17 @@ function makeImagesResponsive(){
 
         var image = images[i];
 
+        // markdown image
+        if (image.getAttribute('class').indexOf('markdown-image') >= 0) {
+            var desktop_url = image.getAttribute('data-src-desktop');
+            var tablet_url = image.getAttribute('data-src-tablet');
+            var mobile_url = image.getAttribute('data-src-mobile');
+
+            var data_src="<480|" + mobile_url + ";<768|" + tablet_url + ";<1024|" + tablet_url + ";>1024|" + desktop_url;
+            image.setAttribute('data-src', data_src);
+            image.setAttribute('data-src2x', data_src);
+        }
+
         //set attr names
 
         var srcAttr = ( retina && hasAttr(image, 'data-src2x') ) ? 'data-src2x' : 'data-src';

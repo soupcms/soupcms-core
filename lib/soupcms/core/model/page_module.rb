@@ -3,7 +3,6 @@ module SoupCMS
     module Model
 
       class PageModule
-        include Sprockets::Helpers
         include SoupCMS::Core::Utils::RenderPartials
 
         def initialize(module_hash, page_area)

@@ -16,7 +16,7 @@ describe SoupCMS::Core::Model::PageArea do
 
     it { expect(html(page_area.render_area)).to have_text('h1','Tech stuff that matters') }
     it { expect(html(page_area.render_area)).to have_node('.module') }
-    it { expect(html(page_area.render_area)).to have_attribute('.module','data-area-name','header') }
+    it { expect(html(page_area.render_area)).to have_attribute("//div[@class='module']",'data-area-name','header') }
 
   end
 

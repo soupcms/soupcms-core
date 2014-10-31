@@ -1,12 +1,10 @@
 require 'sprockets'
-require 'sprockets-helpers'
 
 module SoupCMS
   module Core
     module Model
 
       class Page
-        include Sprockets::Helpers
         include SoupCMS::Core::Utils::RenderPartials
 
         def initialize(page_hash, context, model = {})
@@ -51,6 +49,15 @@ module SoupCMS
         def page
           self
         end
+
+        def stylesheet_tag style_filename
+          '/assets/' + SoupCMSCore.config.sprockets.find_asset(style_filename).digest_path
+        end
+
+        def javascript_tag js_filename
+          '/assets/' + SoupCMSCore.config.sprockets.find_asset(js_filename).digest_path
+        end
+
       end
 
 

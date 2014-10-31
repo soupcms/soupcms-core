@@ -57,7 +57,7 @@ describe SoupCMS::Core::Model::ModuleTemplate do
     end
 
     it { expect(html(module_template.render)).to have_text('title','Page title') }
-    it { expect(html(module_template.render)).to have_attribute('meta','content','Page description') }
+    it { expect(html(module_template.render)).to have_attribute('//meta','content','Page description') }
     it { expect(module_template.javascript).to be_nil }
     it { expect(module_template.stylesheet).to be_nil }
   end
@@ -77,7 +77,7 @@ describe SoupCMS::Core::Model::ModuleTemplate do
     end
 
     it { expect(html(module_template.render)).to have_text('title','Page title') }
-    it { expect(html(module_template.render)).to have_attribute('meta','content','Page description') }
+    it { expect(html(module_template.render)).to have_attribute('//meta','content','Page description') }
   end
 
 end
