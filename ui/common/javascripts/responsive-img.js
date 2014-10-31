@@ -40,8 +40,8 @@ function makeImagesResponsive(){
         // markdown image
         if (image.getAttribute('class').indexOf('markdown-image') >= 0) {
             var desktop_url = image.getAttribute('data-src-desktop');
-            var tablet_url = image.getAttribute('data-src-tablet');
-            var mobile_url = image.getAttribute('data-src-mobile');
+            var tablet_url = image.getAttribute('data-src-tablet') ? image.getAttribute('data-src-tablet') : desktop_url;
+            var mobile_url = image.getAttribute('data-src-mobile') ? image.getAttribute('data-src-mobile') : desktop_url;
 
             var data_src="<480|" + mobile_url + ";<768|" + tablet_url + ";<1024|" + tablet_url + ";>1024|" + desktop_url;
             image.setAttribute('data-src', data_src);
