@@ -3,7 +3,7 @@
   .page-header
     - if article['publish_datetime']
       .left
-        .article-date
+        .article-date.hidden-xs.hidden-sm
           .article-day
             | #{article.publish_datetime.strftime('%d')}
             span #{article.publish_datetime.strftime('%b')}
