@@ -1,3 +1,2 @@
 - page.stylesheets.each do |css|
-  javascript:
-    asyncLoader(['#{stylesheet_tag(css)}']);
+  link href="#{stylesheet_tag(css)}" rel="stylesheet" type="text/css"
