@@ -28,7 +28,7 @@ describe 'Blog Post' do
     it { expect(last_response.headers['Expires']).not_to be_nil }
     it { expect(html_response).to have_title('Page title - soupcms-test') }
     it { expect(html_response).to have_attribute("//link[starts-with(@href,\"/assets/module/bootstrap/page-header/page-header\")]",'href',/^\/assets\/module\/bootstrap\/page-header\/page-header-.*\.css$/)}
-    it { expect(html_response).to have_attribute("//script[starts-with(@src,'/assets/module/bootstrap/page-header/page-header')]",'src',/^\/assets\/module\/bootstrap\/page-header\/page-header-.*\.js$/)}
+    it { expect(html_response.to_s).to include('.js') }
   end
 
   context 'render blog post using page specific to post' do
@@ -51,7 +51,7 @@ describe 'Blog Post' do
     it { expect(last_response.headers['Expires']).not_to be_nil }
     it { expect(html_response).to have_title('Page title - soupcms-test') }
     it { expect(html_response).to have_attribute("//link[starts-with(@href,\"/assets/module/bootstrap/page-header/page-header\")]",'href',/^\/assets\/module\/bootstrap\/page-header\/page-header-.*\.css$/)}
-    it { expect(html_response).to have_attribute("//script[starts-with(@src,'/assets/module/bootstrap/page-header/page-header')]",'src',/^\/assets\/module\/bootstrap\/page-header\/page-header-.*\.js$/)}
+    it { expect(html_response.to_s).to include('.js') }
   end
 
   context 'draft page' do
