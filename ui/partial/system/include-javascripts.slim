@@ -6,7 +6,10 @@ javascript:
     asyncLoader(['#{javascript_tag(js)}']);
 
 javascript:
-  asyncLoader(['//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700']);
+  WebFontConfig = {
+    google: {families: ['Open+Sans:400,300,600,700']}
+  };
+  asyncLoader(['//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js']);
 
 javascript:
   asyncLoader(['//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css']);
