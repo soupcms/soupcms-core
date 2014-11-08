@@ -1,6 +1,10 @@
+javascript:
+  asyncLoader(['//code.jquery.com/jquery-2.1.1.min.js']);
+
 script src="//code.jquery.com/jquery-2.1.1.min.js"
 - page.javascripts.each do |js|
-  script src="#{javascript_tag(js)}"
+  javascript:
+    asyncLoader(['#{javascript_tag(js)}']);
 
 javascript:
   WebFontConfig = {
@@ -16,4 +20,5 @@ javascript:
     s.parentNode.insertBefore(wf, s);
   })();
 
-link href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet" type="text/css"
+javascript:
+  asyncLoader(['http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css']);
