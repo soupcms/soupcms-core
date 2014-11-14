@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/soupcms/soupcms-common.git
-  revision: debe867c461b03150e8e6dd4ae338af56cf59c42
+  revision: a2f43bca5b94007de4c52efd464f38eca2f3e051
   specs:
     soupcms-common (0.5.0)
 
@@ -17,7 +17,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     addressable (2.3.6)
-    bootstrap-sass (3.3.0.1)
+    bootstrap-sass (3.3.1.0)
       sass (~> 3.2)
     bson (1.11.1)
     bson_ext (1.11.1)
