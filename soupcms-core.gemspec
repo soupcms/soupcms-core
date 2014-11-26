@@ -21,6 +21,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency('slim')
   spec.add_dependency('sass')
   spec.add_dependency('bootstrap-sass')
-  spec.add_dependency('sprockets','3.0.0.beta.3')
+  spec.add_dependency('sprockets','3.0.0.beta.4')
 
 end
