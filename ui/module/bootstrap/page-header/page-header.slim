@@ -3,9 +3,9 @@
   - if page_header['image']
     .image
       == rimg image: page_header['image'], desktop: 'w_1460,h_200,c_fill', tablet: 'w_1048,h_200,c_fill', mobile: 'w_320,h_200,c_fill'
-      == render 'module/bootstrap/page-header/text-overlay.slim'
+      == render 'module/bootstrap/page-header/text-overlay.slim',{ overlay: data['page-header'] }
   - else
-    == render 'module/bootstrap/page-header/text-overlay.slim'
+    == render 'module/bootstrap/page-header/text-overlay.slim',{ overlay: data['page-header'] }
 
 
 

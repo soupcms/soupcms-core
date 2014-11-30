@@ -12,17 +12,27 @@
     img {
       width: 100%;
     }
-    .text {
+    .overlay {
       position: absolute;
       top: 25px;
-      background-color: $gray-lighter;
       padding: 0px 50px 10px 20px;
-      opacity:0.7;
-      filter:alpha(opacity=70);
     }
   }
 
-  .text {
+  .overlay {
     padding: 10px 50px 20px 0px;
   }
+
+  .light-on-dark {
+    background-color: rgba(255, 255, 255, 0.50);
+  }
+
+  .dark-on-light {
+    background-color: rgba(33, 37, 48, 0.5);
+    color: #ffffff;
+  }
+
+  .none {
+  }
+
 }

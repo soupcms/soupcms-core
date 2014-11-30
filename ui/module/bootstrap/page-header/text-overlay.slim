@@ -1,12 +1,16 @@
-- page_header = data['page-header']
-.container
-  .text
-    h1
-      = page_header['title']
-    - if page_header['subtitle']
-      h3.hidden-lg = page_header['subtitle']
-    - if page_header['sub_headline']
-      h3.visible-lg = page_header['sub_headline']
+- overlay = locals[:overlay] || {}
+- if overlay['headline'] || overlay['sub_headline'] || overlay['body_copy']
+  .container
+    .overlay(class="#{overlay['style']}")
+      - if overlay['headline']
+        h1
+          = overlay['headline']
+
+      - if overlay['sub_headline']
+        h3 = overlay['sub_headline']
+
+      - if overlay['body_copy']
+        p = overlay['body_copy']
 
 
 
