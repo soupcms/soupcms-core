@@ -12,8 +12,8 @@
                         {
                             "type": "inline",
                             "data": {
-                                "title": "Tech stuff that matters",
-                                "subHeadline": "place where I write about technical solutions tried & implemented by me"
+                                "headline": "Tech stuff that matters",
+                                "sub_headline": "place where I write about technical solutions tried & implemented by me"
                             },
                             "return": "data"
                         }

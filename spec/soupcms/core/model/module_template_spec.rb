@@ -10,7 +10,7 @@ describe SoupCMS::Core::Model::ModuleTemplate do
   let(:page_area) { PageArea.new({},page) }
   let(:page_module) do
     page_module = PageModule.new({}, page)
-    page_module.data['page-header'] = { 'title' => 'Tech stuff that matters' }
+    page_module.data['page-header'] = { 'headline' => 'Tech stuff that matters' }
     page_module
   end
 

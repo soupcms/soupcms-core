@@ -17,7 +17,7 @@ describe SoupCMS::Core::Model::PageModule do
                 {
                     "type": "inline",
                     "data": {
-                        "title": "Tech stuff that matters"
+                        "headline": "Tech stuff that matters"
                     },
                     "return": "page-header"
                 }
@@ -44,14 +44,14 @@ describe SoupCMS::Core::Model::PageModule do
                 {
                     "type": "inline",
                     "data": {
-                        "title": "Tech stuff that matters 1"
+                        "headline": "Tech stuff that matters 1"
                     },
                     "return": "page-header"
                 },
                 {
                     "type": "inline",
                     "data": {
-                        "title": "Tech stuff that matters 2"
+                        "headline": "Tech stuff that matters 2"
                     },
                     "return": "page-header"
                 }
@@ -93,7 +93,7 @@ describe SoupCMS::Core::Model::PageModule do
                 {
                     "type": "inline",
                     "data": {
-                        "title": "Tech stuff that matters"
+                        "headline": "Tech stuff that matters"
                     },
                     "return": "page-header"
                 }
