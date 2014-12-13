@@ -8,7 +8,7 @@ module SoupCMS
       class Config
 
         def initialize
-          Slim::Engine.set_default_options pretty: true, disable_escape: true
+          Slim::Engine.set_options pretty: true, disable_escape: true
         end
 
         def application_strategy
