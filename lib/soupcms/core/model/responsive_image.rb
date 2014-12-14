@@ -44,7 +44,7 @@ module SoupCMS
         alias_method :url, :desktop_url
 
         def http_url
-          url.include?('http:') ? url : "http:#{url}"
+          url.include?('http:') ? url.sub!('.svg','.png') : "http:#{url}".sub!('.svg','.png')
         end
 
         def tablet_url
