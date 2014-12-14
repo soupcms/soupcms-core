@@ -11,5 +11,5 @@ meta property="og:description" content="#{description}"
 
 - hero_image = page['hero_image'] || page.model['hero_image']
 - if hero_image
-  meta property="og:image" content="#{image(image: hero_image).url}"
+  meta property="og:image" content="#{image(image: hero_image).http_url}"
 

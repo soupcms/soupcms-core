@@ -43,6 +43,10 @@ module SoupCMS
 
         alias_method :url, :desktop_url
 
+        def http_url
+          url.include?('http:') ? url : "http:#{url}"
+        end
+
         def tablet_url
           build_url(tablet_size, tablet_image)
         end
