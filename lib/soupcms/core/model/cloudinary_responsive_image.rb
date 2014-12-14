@@ -6,6 +6,7 @@ module SoupCMS
       class CloudinaryResponsiveImage < ResponsiveImage
 
         def retina_size(size)
+          size ||= ''
           size.split(',').collect { |part|
             attr_parts = part.split('_')
             if attr_parts[0] == 'w' || attr_parts[0] == 'h'
@@ -16,6 +17,7 @@ module SoupCMS
         end
 
         def build_url(size, image_name)
+          size ||= ''
           size.concat(",#{image['params']}") if image['params']
           size.concat(',c_fit') unless size.include?('c_')
           size ? File.join(base_url,size,image_name) : File.join(base_url,image_name)

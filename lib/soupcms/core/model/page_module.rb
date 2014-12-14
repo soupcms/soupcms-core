@@ -57,6 +57,10 @@ Error:
           SoupCMSCore.config.responsive_image.build(context,responsive_image_hash).render_image('page_module' => self)
         end
 
+        def image(image_hash)
+          SoupCMSCore.config.responsive_image.build(context,image_hash)
+        end
+
         private
 
         def recipes

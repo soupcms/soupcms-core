@@ -41,6 +41,8 @@ module SoupCMS
           build_url(desktop_size, desktop_image)
         end
 
+        alias_method :url, :desktop_url
+
         def tablet_url
           build_url(tablet_size, tablet_image)
         end
