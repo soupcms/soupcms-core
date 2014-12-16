@@ -27,9 +27,9 @@ module SoupCMS
 
         def initialize(context, responsive_image_hash)
           @image = responsive_image_hash[:image]
-          @desktop = responsive_image_hash[:desktop]
-          @tablet = responsive_image_hash[:tablet]
-          @mobile = responsive_image_hash[:mobile]
+          @desktop_size_params = responsive_image_hash[:desktop]
+          @tablet_size_params = responsive_image_hash[:tablet]
+          @mobile_size_params = responsive_image_hash[:mobile]
           @html_options = responsive_image_hash[:html_options] || {}
           @html_options.merge!(@image['html_options']) if @image && @image['html_options']
           @context = context
@@ -43,8 +43,8 @@ module SoupCMS
 
         alias_method :url, :desktop_url
 
-        def http_url
-          url.include?('http:') ? url.sub!('.svg','.png') : "http:#{url}".sub!('.svg','.png')
+        def open_graph_url
+          url.include?('http:') ? url.sub('.svg','.png') : "http:#{url}".sub('.svg','.png')
         end
 
         def tablet_url
@@ -78,7 +78,7 @@ module SoupCMS
         protected
 
         def desktop_size
-          @desktop
+          @desktop_size_params
         end
 
         def desktop_image
@@ -86,7 +86,7 @@ module SoupCMS
         end
 
         def tablet_size
-          @tablet || @desktop
+          @tablet_size_params || @desktop_size_params
         end
 
         def tablet_image
@@ -94,7 +94,7 @@ module SoupCMS
         end
 
         def mobile_size
-          @mobile || @tablet || @desktop
+          @mobile_size_params || @tablet_size_params || @desktop_size_params
         end
 
         def mobile_image

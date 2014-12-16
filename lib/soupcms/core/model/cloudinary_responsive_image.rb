@@ -19,7 +19,7 @@ module SoupCMS
         def build_url(size, image_name)
           size ||= ''
           size.concat(",#{image['params']}") if image['params']
-          size.concat(',c_fit') unless size.include?('c_')
+          size.concat(',c_fit') unless size.empty? || size.include?('c_')
           size ? File.join(base_url,size,image_name) : File.join(base_url,image_name)
         end
 
