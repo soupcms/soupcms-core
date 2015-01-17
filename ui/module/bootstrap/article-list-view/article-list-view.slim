@@ -8,10 +8,10 @@
             = article['title']
         .meta-info
           span.date.btn-group
-            btn.btn.btn-primary.btn-xs
+            button.btn.btn-primary.btn-xs
               i.fa.fa-fw.fa-calendar
-              | #{article.publish_datetime.strftime('%d %b')}
-            btn.btn.btn-default.btn-xs = article.publish_datetime.strftime('%Y')
+              | &nbsp;#{article.publish_datetime.strftime('%d %b')}
+            button.btn.btn-default.btn-xs = article.publish_datetime.strftime('%Y')
           span &nbsp; &nbsp; &nbsp; &nbsp;
           - if article['author_ref']
             span.author

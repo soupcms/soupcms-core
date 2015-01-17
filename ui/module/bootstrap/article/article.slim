@@ -1,22 +1,22 @@
 - article = data['article']
 .module-article
   .page-header
-    - if article['publish_datetime']
-      .left
-        .article-date.hidden-xs.hidden-sm
-          .article-day
-            | #{article.publish_datetime.strftime('%d')}
-            span #{article.publish_datetime.strftime('%b')}
     h1.article-title = article['title']
     .row.meta-info
-      .tags
-        - if article['tags']
-          .pull-left
-            i.fa.fa-fw.fa-tags
-            - article['tags'].each do |tag|
-              .btn-group
-                a.btn.btn-default.btn-xs href="#{tag['link']['url']}"
-                  = tag['label']
+      - if article['tags']
+        .tags.pull-left
+          i.fa.fa-fw.fa-tags
+          - article['tags'].each do |tag|
+            .btn-group
+              a.btn.btn-default.btn-xs href="#{tag['link']['url']}"
+                = tag['label']
+      - if article['publish_datetime']
+        .pull-right
+          span.date.btn-group
+            button.btn.btn-primary.btn-xs
+              i.fa.fa-fw.fa-calendar
+              | &nbsp;#{article.publish_datetime.strftime('%d %b')}
+            button.btn.btn-default.btn-xs = article.publish_datetime.strftime('%Y')
 
   .article-body
     = article['content']['value']
