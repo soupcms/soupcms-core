@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/soupcms/soupcms-common.git
-  revision: 889efffcc269bdb6eabbf0ad06f4051a97cde903
+  revision: acb604c631fc859badfacee9e436bfd0ebb00eb9
   specs:
     soupcms-common (0.5.0)
 
@@ -17,24 +17,24 @@ GEM
   remote: https://rubygems.org/
   specs:
     addressable (2.3.8)
-    autoprefixer-rails (5.2.1.1)
+    autoprefixer-rails (6.0.3)
       execjs
       json
     bootstrap-sass (3.3.5.1)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.3.0)
-    bson (3.1.2)
+    bson (3.2.4)
     crack (0.4.2)
       safe_yaml (~> 1.0.0)
     diff-lcs (1.2.5)
-    execjs (2.5.2)
+    execjs (2.6.0)
     json (1.8.3)
     mini_portile (0.6.2)
-    mongo (2.0.6)
+    mongo (2.1.0)
       bson (~> 3.0)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
-    puma (2.12.1)
+    puma (2.14.0)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -53,11 +53,11 @@ GEM
       rspec-support (~> 3.3.0)
     rspec-support (3.3.0)
     safe_yaml (1.0.4)
-    sass (3.4.16)
+    sass (3.4.18)
     slim (3.0.6)
       temple (~> 0.7.3)
       tilt (>= 1.3.3, < 2.1)
-    sprockets (3.2.0)
+    sprockets (3.3.4)
       rack (~> 1.0)
     temple (0.7.6)
     tilt (2.0.1)
